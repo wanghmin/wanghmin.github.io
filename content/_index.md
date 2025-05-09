@@ -15,6 +15,7 @@ sections:
       username: admin
       text: ""
       # Show a call-to-action button under your biography? (optional)
+      The best way to reach me is via email. Find my email here: 
       button:
         text: Download CV
         url: uploads/resume.pdf
