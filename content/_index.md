@@ -29,10 +29,9 @@ sections:
             brightness: 1.0
           size: cover
           position: center
-          parallax: false
-
-- block: collection
-    id: featured
+          parallax: false 
+  - block: collection
+    id: papers
     content:
       title: Featured Publications
       filters:
@@ -40,23 +39,28 @@ sections:
           - publication
         featured_only: true
     design:
-      columns: '2'
-      view: card
+      view: article-grid
+      columns: 2
   - block: collection
     content:
       title: Recent Publications
-      count: 10 
-      text: |-
-        {{% callout note %}}
-        Quickly discover relevant content by [filtering publications](./publication/).
-        {{% /callout %}}
+      text: ""
       filters:
         folders:
           - publication
         exclude_featured: false
     design:
-      columns: '1'
-      view: citation 
+      view: citation
+  - block: collection
+    id: talks
+    content:
+      title: Recent & Upcoming Talks
+      filters:
+        folders:
+          - event
+    design:
+      view: article-grid
+      columns: 1
   - block: collection
     id: news
     content:
