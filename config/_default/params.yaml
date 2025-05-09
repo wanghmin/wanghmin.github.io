@@ -21,7 +21,7 @@ marketing:
     description: 'Huamin Wang Personal Website'
     twitter: 'GetResearchDev'
   analytics:
-    google_analytics: 'G-GT0N8DFDX6'
+    services.google_analytics: 'G-GT0N8DFDX6'
     baidu_tongji: ''
     google_tag_manager: ''
     microsoft_clarity: ''
