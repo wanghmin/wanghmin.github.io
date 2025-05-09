@@ -14,7 +14,8 @@ sections:
     content:
       items:
         - title: Mathematics for Computer Graphics
-          text:  What math should I learn in order to study computer graphics? This is perhaps the most common general question that students ask about computer graphics. 
+          text:  What math should I learn in order to study computer graphics? This is perhaps the most common general question that students ask about computer graphics.
+          My Ph.D. advisor [Greg Turk](https://faculty.cc.gatech.edu/~turk/) wrote an interesting article on this topic.
           # Upload image to `assets/media/` and reference the filename here
           image: math.png          
         - title: Large Community
