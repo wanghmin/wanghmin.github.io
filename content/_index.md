@@ -55,9 +55,4 @@ sections:
       css_class: "bg-gray-100 dark:bg-gray-900"
       # Reduce spacing
       view: citation
-- block: tag_cloud
-    content:
-      title: Popular Topics
-    design:
-      columns: '2'  
 ---
