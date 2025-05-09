@@ -39,7 +39,7 @@ sections:
           - publication
         featured_only: true
     design:
-      view: article-grid
+      view: card
       columns: 2
   - block: collection
     content:
@@ -52,4 +52,6 @@ sections:
         exclude_featured: false
     design:
       view: citation
+       background:
+        color: black
 ---
