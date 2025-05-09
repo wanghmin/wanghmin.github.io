@@ -10,6 +10,6 @@ main:
   - name: Papers
     url: /#papers
     weight: 11  
-  - name: Experience
-    url: experience/
+  - name: More
+    url: more/
     weight: 20
