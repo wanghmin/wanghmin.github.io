@@ -14,7 +14,7 @@ sections:
     content:
       items:
         - title: Mathematics for Computer Graphics
-          text:  What math should I learn to study computer graphics? This is perhaps the most common question that students ask about computer graphics. My Ph.D. advisor [Greg Turk](https://faculty.cc.gatech.edu/~turk/) wrote an article on this topic.
+          text:  What math should I learn to study computer graphics? This is perhaps the most common question that students ask about computer graphics. My Ph.D. advisor [*Greg Turk*](https://faculty.cc.gatech.edu/~turk/) wrote an article on this topic.
           # Upload image to `assets/media/` and reference the filename here
           image: math.png
           button:
@@ -35,7 +35,7 @@ sections:
             text: Read more
             url: https://graphics.stanford.edu/courses/cs348b-competition/cs348b-03
         - title: My Hometown, Hangzhou
-          text: Hangzhou, one of China's seven ancient capitals, is renowned for its tea, silk, temples, fine arts, and, above all, [West Lake](https://en.wikipedia.org/wiki/West_Lake). Since 2011, West Lake has been listed as a [UNESCO World Heritage Site](https://en.wikipedia.org/wiki/World_Heritage_Site) and described as having *influenced garden design in the rest of China as well as Japan and Korea over the centuries* and reflecting *an idealized fusion between humans and nature*.
+          text: Hangzhou, one of China's seven ancient capitals, is renowned for its tea, silk, temples, fine arts, and, above all, [*West Lake*](https://en.wikipedia.org/wiki/West_Lake). Since 2011, West Lake has been listed as a [*UNESCO World Heritage Site*](https://en.wikipedia.org/wiki/World_Heritage_Site).
           # Upload image to `assets/media/` and reference the filename here
           image: hangzhou.png
           button:
