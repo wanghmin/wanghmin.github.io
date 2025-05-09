@@ -13,7 +13,7 @@ sections:
     id: solutions
     content:
       items:
-        - title: asdf
+        - title: [Mathematics for Computer Graphics](https://faculty.cc.gatech.edu/~turk/math_gr.html)
           text:  This is perhaps the most common general question that students ask about computer graphics. 
           # Upload image to `assets/media/` and reference the filename here
           image: math.png          
