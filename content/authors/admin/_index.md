@@ -63,7 +63,7 @@ education:
 
 
 ---
-## Bio
+# Bio
 Huamin Wang is the chief scientist at [Style3D](https://www.style3d.com) and he leads Style3D's global research team. His research interests focus on high-performance, high-fidelity physics-based simulations accelerated by GPUs and enhanced by generative AI, with applications in computer graphics, computer vision, and machine learning.
 
 Before joining Style3D, he was a tenured associate professor in the [CSE department](https://cse.osu.edu/) at [the Ohio State University](https://www.osu.edu) (2011 – 2021), and a postdoctoral researcher at [UC Berkeley](https://www.berkeley.edu/) (2009 – 2011).
