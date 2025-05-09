@@ -7,8 +7,8 @@ first_name: Huamin
 last_name: Wang
 
 # Status emoji
-status:
-  icon: ☕️
+#status:
+#  icon: ☕️
 
 # Is this the primary user of the site?
 superuser: true
@@ -28,7 +28,7 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:wanghmin@gmail.com'
     label: E-mail Me
 #  - icon: brands/x
 #    url: https://twitter.com/GetResearchDev
@@ -45,8 +45,8 @@ profiles:
 bio: My research interests include computer graphics, computer vision, generative AI, and reinforcement learning.
 
 interests:
-  - Computer Graphics
-  - Computer Vision
+  - Computer graphics
+  - Computer vision
   - Generative AI
   - Reinforcement learning
 
