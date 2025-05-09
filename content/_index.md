@@ -55,4 +55,31 @@ sections:
       css_class: "bg-gray-100 dark:bg-gray-900"
       # Reduce spacing
       view: citation
+- block: tag_cloud
+    content:
+      title: Popular Topics
+    design:
+      columns: '2'    
+  - block: contact
+    id: contact
+    content:
+      title: Contact     
+      # Contact (add or remove contact options as necessary)
+      email: wanghmin 'at' gmail 'dot' com
+      address:
+        street: 99 Shuanglong Street
+        city: Hangzhou
+        region: Zhejiang, China
+        postcode: '310000'
+        country: China
+        country_code: CN
+      directions: Enter Building A of Sanshen International and take an elevator to Floor 3
+      # Choose a map provider in `params.yaml` to show a map from these coordinates
+      coordinates:
+        latitude: '30.2935'
+        longitude: '120.0713'      
+      # Automatically link email and phone or display as text?
+      autolink: true      
+    design:
+      columns: '2'    
 ---
