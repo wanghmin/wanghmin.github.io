@@ -10,7 +10,7 @@ publishDate: '2024-03-01T07:51:40.599523Z'
 publication_types:
 - article-journal
 publication: '*ACM Trans. Graph. (SIGGRAPH), 31*(4)'
-doi: 10.1145/2185520.2185559
+
 abstract: Bubbles and foams are important features of liquid surface phenomena, but
   they are difficult to animate due to their thin films and complex interactions in
   the real world. In particular, small bubbles (having diameter <1cm) in a dense foam
