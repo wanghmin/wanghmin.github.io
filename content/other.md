@@ -1,5 +1,5 @@
 ---
-title: 'Others'
+title: Others
 date: 2025-05-19
 type: landing
 
