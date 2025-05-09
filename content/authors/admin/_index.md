@@ -47,15 +47,14 @@ interests:
   - Generative AI
   - Reinforcement learning
 
-education:
-  courses:
-    - course: PhD in Computer Science
+education:  
+    - area: PhD in Computer Science
       institution: Georgia Institute of Technology
       year: 2009
-    - course: MS in Computer Science
+    - area: MS in Computer Science
       institution: Stanford University
       year: 2004
-    - course: BSc in Computer Science
+    - area: BSc in Computer Science
       institution: Zhejiang University
       year: 2002      
 
