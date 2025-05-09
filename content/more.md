@@ -20,31 +20,19 @@ sections:
           button:
             text: Read more
             url: https://faculty.cc.gatech.edu/~turk/math_gr.html
-        - title: Large Community
-          text: Join our large community on Discord - ask questions and get live responses
-          feature_icon: bolt
-          features:
-            - "Dedicated support channel"
-            - "3,000+ users on Discord"
-            - "Share your site and get feedback"
+        - title: The mixed class at Zhejiang University
+          text: I attended the mixed class at Zhejiang University from 1998 to 2002. The idea behind the mixed class is to create an interdisciplinary environment by bringing together students with art, science, and engineering backgrounds into the same class.
           # Upload image to `assets/media/` and reference the filename here
           image: zju.png
           button:
-            text: Join Discord
-            url: https://discord.gg/z8wNYzb
+            text: Read more
+            url: http://www.cis.umassd.edu/~hxu/alink/jclass/mixedclass.html
     design:
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
 ---
 
 
-![math](math.png)
-## [Mathematics for Computer Graphics](https://faculty.cc.gatech.edu/~turk/math_gr.html)
-
-*What math should I learn in order to study computer graphics?* This is perhaps the most common general question that students ask about computer graphics. 
-
-My Ph.D. advisor [Greg Turk](https://faculty.cc.gatech.edu/~turk/) wrote an interesting article on this topic.
-<br><br>
 
 ![zju](zju.png)
 ## [The mixed class at Zhejiang University](http://www.cis.umassd.edu/~hxu/alink/jclass/mixedclass.html)
