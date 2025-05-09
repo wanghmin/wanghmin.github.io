@@ -54,5 +54,5 @@ sections:
      # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
       # Reduce spacing    
-      view: my_citation 
+      view: citation 
 ---
