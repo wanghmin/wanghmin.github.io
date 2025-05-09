@@ -1,8 +1,27 @@
 ---
-title: More
-date: 2024-04-16
-share: false
+title: 'Projects'
+date: 2024-05-19
+type: landing
+
+design:
+  # Section spacing
+  spacing: '5rem'
+
+# Page sections
+sections:
+  - block: collection
+    content:
+      title: Selected Projects
+      text: I enjoy making things. Here are a selection of projects that I have worked on over the years.
+      filters:
+        folders:
+          - project
+    design:
+      view: article-grid
+      fill_image: false
+      columns: 3
 ---
+
 
 ![math](math.png)
 ## [Mathematics for Computer Graphics](https://faculty.cc.gatech.edu/~turk/math_gr.html)
