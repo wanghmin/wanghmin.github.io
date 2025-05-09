@@ -19,9 +19,6 @@ highlight_name: true
 # Role/position/tagline
 role: Chief Scientist
 
-# Short bio (displayed in user profile at end of posts)
-bio: My research interests include computer graphics, computer vision, generative AI, and Reinforcement learning.
-
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: Style3D Research
