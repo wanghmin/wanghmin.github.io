@@ -8,11 +8,11 @@ main:
     url: /
     weight: 10
   - name: Publications
-    url: /#papers
-    weight: 11 
+    url: publication/
+    weight: 20 
   - name: Topics
     url: tags/
-    weight: 20
+    weight: 30
   - name: Others
     url: others/
-    weight: 30
+    weight: 40
