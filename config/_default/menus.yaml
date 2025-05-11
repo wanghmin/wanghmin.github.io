@@ -11,8 +11,8 @@ main:
     url: /#papers
     weight: 11 
   - name: Topics
-    url: /#tags
-    weight: 12
+    url: tags/
+    weight: 20
   - name: Others
     url: others/
     weight: 30
