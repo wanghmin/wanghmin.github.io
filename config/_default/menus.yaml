@@ -9,7 +9,10 @@ main:
     weight: 10
   - name: Publications
     url: /#papers
-    weight: 11  
+    weight: 11 
+  - name: Topics
+    url: /#tags
+    weight: 12
   - name: Others
     url: others/
-    weight: 20
+    weight: 30
