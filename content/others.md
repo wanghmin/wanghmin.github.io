@@ -5,7 +5,7 @@ type: landing
 
 design:
   # Section spacing
-  spacing: '5rem'
+  spacing: '50rem'
 
 # Page sections
 sections:
@@ -42,7 +42,6 @@ sections:
             text: Read more
             url: https://en.wikipedia.org/wiki/Hangzhou
     design:
-      view: card
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
 ---
