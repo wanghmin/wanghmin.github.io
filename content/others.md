@@ -42,6 +42,7 @@ sections:
             text: Read more
             url: https://en.wikipedia.org/wiki/Hangzhou
     design:
+      view: card
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
 ---
