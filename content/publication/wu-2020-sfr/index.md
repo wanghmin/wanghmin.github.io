@@ -34,7 +34,7 @@ summary: 'In this article, we focus our research on the safety,
   has demonstrated its potential in existing GPU-based simulators.'
 tags:
 - GPU acceleration
-- Vertex repulsion
+- vertex repulsion
 - cloth simulation
 - collision detection and handling
 - the splitting method

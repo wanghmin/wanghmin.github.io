@@ -27,6 +27,6 @@ tags:
 - dynamics
 - computational fabrication
 - motion design
-- 3D-printing
+- 3D printing
 - physics-based simulation
 ---

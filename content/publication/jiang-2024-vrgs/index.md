@@ -35,9 +35,9 @@ abstract: As 3D content becomes increasingly prevalent, there’s a growing focu
   editing. The system also incorporates real-time deformation embedding and dynamic
   shadow casting, ensuring a comprehensive and engaging virtual experience.
 tags:
-- Gaussian Splatting
-- Neural Radiance Fields
-- Real-Time Interactions
+- Gaussian splatting
+- neural radiance fields
+- real-time interactions
 summary: We present a human-centered 3D content interaction system called VR-GS. VR-GS ensures real-time execution with highly realistic dynamic responses.
 links:
 - name: Page

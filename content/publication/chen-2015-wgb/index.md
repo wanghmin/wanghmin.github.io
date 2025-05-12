@@ -32,7 +32,7 @@ tags:
 - non-inertial frame
 - fluid simulation
 - fluid coupling
-- eulerian-lagrangian
+- Eulerian-Lagrangian
 - brush and hair
 - GPU computing
 - FLIP/PIC

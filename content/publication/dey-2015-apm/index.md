@@ -27,9 +27,9 @@ summary: 'We introduce a markerless approach to deform a quality human body temp
   mesh from its original pose to a different pose specified by a point cloud. The
   point cloud may be noisy, incomplete, or even captured from a different person.'
 tags:
-- Non-rigid registration
-- Deformation
-- Physically based modeling
+- non-rigid registration
+- deformation
+- physically based modeling
 links:
 url_video: https://drive.google.com/file/d/1jVo9ByTC5xFEkEazIwPpM6dUeGvYd5Mc/view
 url_slides: publication/dey-2015-apm/Dey-2015-APM.pptx

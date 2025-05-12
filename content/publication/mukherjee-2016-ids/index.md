@@ -29,7 +29,7 @@ summary: In the paper, we show that the deformation subspace of a modified
   body can be efficiently obtained from the subspace of its original version, if mesh
   changes are small.
 tags:
-- 'I.3.7 Computer Graphics: Three-Dimensional Graphics and Realism—Animation'
+- animation
 links:
 url_video: https://drive.google.com/file/d/16XlWmrVgMCZdGiIn5c8xetjOo8QW1YaQ/view
 ---

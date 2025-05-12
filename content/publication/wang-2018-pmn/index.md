@@ -34,8 +34,7 @@ summary: We explore nonlinearity, adaptive
   smoothing, and parallelization under a full multigrid (FMG) framework. The foundation
   of this research is a novel nonlinear FMG method for unstructured meshes.
 tags:
-- CCS Concepts
-- •Computing methodologies → Physical simulation
+- physical simulation
 links:
 url_video: https://drive.google.com/file/d/146ZnuGbPZzvqREQzYnIzLfXn4nSZGi13/view
 ---

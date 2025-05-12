@@ -37,7 +37,7 @@ tags:
 - nonlinear optimization
 - GPU computation
 - deformable body simulation
-- Collision handling
+- collision handling
 links:
 url_video: https://drive.google.com/file/d/1OHeNDsYlgutLgmr82b8d63hdh8BnqwRE/view
 url_code: https://github.com/WTYatzoo/

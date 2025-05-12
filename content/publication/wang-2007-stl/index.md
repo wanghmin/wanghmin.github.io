@@ -31,14 +31,14 @@ tags:
 - layout
 - robustness
 - motion control
-- Lighting control
-- Control systems
-- Visualization
-- Control system synthesis
-- Rendering (computer graphics)
-- Image generation
-- Image registration
-- Image-based rendering
+- lighting control
+- control systems
+- visualization
+- control system synthesis
+- rendering (computer graphics)
+- image generation
+- image registration
+- image-based rendering
 - space-time light field
 - epipolar constraint
 - image morphing

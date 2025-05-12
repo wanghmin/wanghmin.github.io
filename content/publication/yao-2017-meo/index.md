@@ -33,8 +33,7 @@ summary: 'W present a computational
   system to design an interlocking structure of a partitioned shell model, which uses
   only male and female connectors to lock shell pieces in the assembled configuration.'
 tags:
-- 'I.3.5 Computer Graphics: Computational Geometry and Object Modeling—Physically
-  based modeling'
+- physically based modeling
 links:
 url_video: https://drive.google.com/file/d/1U06-wRIB3ZM265RGcAIz6yYxHw7ifLf-/view
 ---

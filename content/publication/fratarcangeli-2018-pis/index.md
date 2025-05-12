@@ -34,9 +34,9 @@ summary: This course introduces students and practitioners
 tags:
 - GPU acceleration
 - Jacobi method
-- chebyshev semi-iterative method
+- Chebyshev semi-iterative method
 - hyperelasticity
-- multi-color gauss-seidel method
+- multi-color Gauss-Seidel method
 - nonlinear optimization
 - parallel computing
 - position based dynamics

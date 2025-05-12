@@ -31,6 +31,6 @@ summary: We propose a progressive texture compression framework to reduce
   the memory and bandwidth cost by compressing repeated content within and among large-scale
   remote sensing images. We further propose a descriptor to accelerate the similarity search.
 tags:
-- Image epitomes
-- Large-scale remote sensing image
+- image epitomes
+- large-scale remote sensing image
 ---

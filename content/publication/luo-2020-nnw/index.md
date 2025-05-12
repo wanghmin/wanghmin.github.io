@@ -37,8 +37,17 @@ abstract: NNWarp is a highly re-usable and efficient neural network (NN) based n
 summary: We propose NNWarp, a highly re-usable and efficient neural network (NN) based nonlinear
   deformable simulation framework.
 tags:
-- Artificial neural networks;Deformable models;Strain;Computational modeling;Animation;Elasticity;Neural
-  network;machine learning;data-driven animation;nonlinear regression;deformable model;physics-based
-  simulation
+- artificial neural networks
+- deformable models
+- strain
+- computational modeling
+- animation
+- elasticity
+- neural network
+- machine learning
+- data-driven animation
+- nonlinear regression
+- deformable model
+- physics-based simulation
 url_code: https://github.com/lrquad/NNWarp
 ---

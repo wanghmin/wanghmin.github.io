@@ -25,10 +25,10 @@ abstract: Real-world fabrics, composed of threads and yarns, often display compl
   Thanks to our model’s stability, our simulator can now achieve two-orders-of-magnitude
   speedups with large time steps compared to previous models.
 tags:
-- Constitutive Model
-- Homogenization
-- Neural Networks
-- Yarn-level Cloth Simulation
+- constitutive model
+- homogenization
+- neural networks
+- yarn-level cloth simulation
 summary: We propose a neural-assisted homogenized constitutive model for simulating yarn-level cloth. This model is trained using strain energy datasets and is validated through qualitative and quantitative experiments.
 links:
 url_video: https://drive.google.com/file/d/1__vgkrNMtGvgjwJ_myhpmfgjlVvZFK3l/view

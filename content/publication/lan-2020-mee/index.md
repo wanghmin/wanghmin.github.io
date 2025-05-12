@@ -43,7 +43,7 @@ summary:  We propose a framework for the interactive simulation of nonlinear def
   simulation and collision culling.
 tags:
 - GPU
-- Medial axis
+- medial axis
 - collision culling
 - deformable model
 links:

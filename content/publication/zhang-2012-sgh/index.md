@@ -25,5 +25,5 @@ abstract: In this paper we present a hybrid approach to reconstruct hair dynamic
 summary: In this paper we present a hybrid approach to reconstruct hair dynamics
   from multi-view video sequences, captured under uncontrolled lighting conditions.  
 tags:
-- 'I.3.3 [Computer Graphics]: Picture/Image Generation?Line and curve generation'
+- line and curve generation
 ---

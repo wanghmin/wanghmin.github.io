@@ -30,9 +30,9 @@ abstract: We propose a novel point-based representation, Gaussian surfels, to co
   show that our method demonstrates superior performance in surface reconstruction
   compared to state-of-the-art neural volume rendering and point-based rendering methods.
 tags:
-- 3D Surface Reconstruction
-- Depth-normal Consistency
-- Gaussian Surfels
+- 3D surface reconstruction
+- depth-normal consistency
+- Gaussian surfels
 summary: We propose a point-based representation, Gaussian surfels, to combine the advantages of the flexible optimization procedure in 3D Gaussian points and the surface alignment property of surfels.
 links:
 url_video: https://drive.google.com/file/d/1tYmuC2GWeTCEEd-pi1gcT08_lRhfqLd3/view?usp=sharing

@@ -40,7 +40,7 @@ tags:
 - contact handling
 - hyperelastic membranes
 - projective peridynamics
-- semi -implicit successive substitution method (SISSM)
+- semi-implicit successive substitution method (SISSM)
 url_code: https://github.com/peridyno/peridyno/tree/master/src/Dynamics/Cuda/Peridynamics
 
 ---
