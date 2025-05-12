@@ -24,13 +24,14 @@
  <span class="article-metadata li-cite-author mt-2 text-gray-500 dark:text-gray-400 text-sm">
     {{ partial "page_metadata_authors" $item }}
   </span>
-<span class="middot-divider"></span>
-  ({{- $item.Date.Format "2006" -}}).
+<span class="mt-2 text-gray-500 dark:text-gray-400 text-sm">
+  {{- $item.Date.Format "January 2006" -}}  <!-- Month and Year -->
   {{ if $item.Params.publication_short }}
-    {{- $item.Params.publication_short | markdownify -}}.
+    · {{- $item.Params.publication_short | markdownify -}}
   {{ else if $item.Params.publication }}
-    {{- $item.Params.publication | markdownify -}}.
+    · {{- $item.Params.publication | markdownify -}}
   {{ end }}
+</span>
 
       <p class="block mt-1 text-sm leading-tight font-medium text-black dark:text-white">
         {{ ($item.Params.summary | default $item.Summary) | plainify | htmlUnescape | chomp -}}
