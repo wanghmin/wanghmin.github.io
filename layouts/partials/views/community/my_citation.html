@@ -24,7 +24,7 @@
  <span class="article-metadata li-cite-author mt-2 text-gray-500 dark:text-gray-400 text-sm">
     {{ partial "page_metadata_authors" $item }}
   </span>
-<div class="my-1"></div> <!-- Adds margin top and bottom to create space -->
+<div class="my-0></div> <!-- Adds margin top and bottom to create space -->
 <span class="mt-2 text-gray-500 dark:text-gray-400 text-sm">
   {{- $item.Date.Format "January 2006" -}}  <!-- Month and Year -->
   {{ if $item.Params.publication_short }}
