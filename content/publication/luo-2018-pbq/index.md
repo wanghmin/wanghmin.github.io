@@ -3,7 +3,7 @@ title: Physics-Based Quadratic Deformation Using Elastic Weighting
 authors:
 - Ran Luo
 - Weiwei Xu
-- Huamin Wang
+- admin
 - Kun Zhou
 - Yin Yang
 date: '2018-12-01'

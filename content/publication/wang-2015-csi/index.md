@@ -2,7 +2,7 @@
 title: A Chebyshev Semi-Iterative Approach for Accelerating Projective and Position-Based
   Dynamics
 authors:
-- Huamin Wang
+- admin
 date: '2015-11-01'
 publishDate: '2024-03-03T02:42:26.916705Z'
 publication_types:
