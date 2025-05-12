@@ -1,0 +1,14 @@
+@article{Lu:2024:PPM,
+ abstract = {Real-time simulation of hyperelastic membranes like cloth still faces a lot of challenges, such as hyperplasticity modeling and contact handling. In this study, we propose projective peridynamics that uses a local-global strategy to enable fast and robust simulation of hyperelastic membranes with contact. In the global step, we propose a semi-implicit strategy to linearize the governing equation for hyperelastic materials that are modeled with peridynamics. By decomposing the first Piola-Kirchhoff stress tensor into a positive and a negative part, successive substitutions can be taken to solve the nonlinear problems. Convergence is guaranteed by further addressing the overshooting problem. Since our global step solve requires no energy summation and dot product operations over the entire problem, it fits into GPU implementation perfectly. In the local step, we further present a GPU-friendly gradient descent method to prevent interpenetration by solving an optimization problem independently. Putting the global and local solves together, experiments show that our method is robust and efficient in simulating complex models of membranes involving hyperelastic materials and contact.},
+ author = {Lu, Zixuan and He, Xiaowei and Guo, Yuzhong and Liu, Xuehui and Wang, Huamin},
+ doi = {10.1109/TVCG.2023.3271511},
+ journal = {IEEE Transactions on Visualization and Computer Graphics},
+ keywords = {mathematical models, convergence, computational modeling, real-time systems, graphics processing units, deformation, software, contact handling,
+hyperelastic membranes, projective peridynamics, semi -implicit successive substitution method (SISSM)},
+ month = {aug},
+ number = {8},
+ pages = {4601-4614},
+ title = {Projective Peridynamic Modeling of Hyperelastic Membranes With Contact},
+ volume = {30},
+ year = {2024}
+}
