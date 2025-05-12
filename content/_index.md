@@ -45,10 +45,11 @@ sections:
     content:
       title: Recent Publications
       text: ""
+      count: 10
       filters:
         folders:
           - publication
-        exclude_featured: false
+        exclude_featured: false	
     design:
      # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
