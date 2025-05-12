@@ -39,7 +39,7 @@ sections:
           - publication
         featured_only: true
     design:
-      view: community/my_card
+      view: article-grid
       columns: 2
   - block: collection
     content:
@@ -54,5 +54,5 @@ sections:
      # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
       # Reduce spacing    
-      view: community/my_citation 
+      view: citation 
 ---
