@@ -11,6 +11,6 @@ abstract: 'Generating natural phenomena in a virtual world has a number of pract
 summary: 'Generating natural phenomena in a virtual world has a number of practical applications.
 In this dissertation, three different issues in modeling liquid animations have been addressed.'
 links:
-- name: URL
+- name: Page
   url: http://hdl.handle.net/1853/31745
 ---
