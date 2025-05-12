@@ -21,18 +21,21 @@
     </div>
 <div class="pt-0 pb-8 pl-8 pr-8">
       <div class="uppercase tracking-wide text-md text-primary-700 dark:text-primary-200 font-semibold">{{ $item.Title }}</div>
- <span class="article-metadata li-cite-author mt-2 text-gray-500 dark:text-gray-400 text-sm">
+<div class="mt-1"> <!-- Wrap the spans to control space between them -->
+  <span class="article-metadata li-cite-author text-gray-500 dark:text-gray-400 text-sm">
     {{ partial "page_metadata_authors" $item }}
   </span>
-<div class="my-0></div> <!-- Adds margin top and bottom to create space -->
-<span class="mt-2 text-gray-500 dark:text-gray-400 text-sm">
-  {{- $item.Date.Format "January 2006" -}}  <!-- Month and Year -->
-  {{ if $item.Params.publication_short }}
-   <span class="px-2">·</span>{{- $item.Params.publication_short | markdownify -}}
-  {{ else if $item.Params.publication }}
-    <span class="px-2">·</span>{{- $item.Params.publication | markdownify -}}
-  {{ end }}
-</span>
+</div>
+<div class="mt-1">
+  <span class="text-gray-500 dark:text-gray-400 text-sm">
+    {{- $item.Date.Format "January 2006" -}}  <!-- Month and Year -->
+    {{ if $item.Params.publication_short }}
+      <span class="px-2">·</span>{{- $item.Params.publication_short | markdownify -}}
+    {{ else if $item.Params.publication }}
+      <span class="px-2">·</span>{{- $item.Params.publication | markdownify -}}
+    {{ end }}
+  </span>
+</div>
 
       <p class="block mt-1 text-sm leading-tight font-medium text-black dark:text-white">
         {{ ($item.Params.summary | default $item.Summary) | plainify | htmlUnescape | chomp -}}
