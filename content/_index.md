@@ -39,13 +39,12 @@ sections:
           - publication
         featured_only: true
     design:
-      view: card
+      view: community/my_card
       columns: 2
   - block: collection
     content:
       title: Recent Publications
       text: ""
-      count: 2
       filters:
         folders:
           - publication
