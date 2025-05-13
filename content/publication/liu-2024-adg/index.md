@@ -30,12 +30,13 @@ abstract: The rapid advancement of digital fashion and generative AI technology 
   68 percent of garments can be initialized with zero user intervention, while the
   remaining garments can be easily corrected through user operations.
 tags:
+- digital fashion
 - physics-based cloth simulation
 - numerical optimization
-- digital fashion
 - local minima
 - sewing pattern
 summary: We develop an innovative hybrid system for fast initialization of garment pieces with minimal user intervention, by harnessing AI classification, heuristics, and numerical optimization.
+featured: true
 links:
 - name: More Video
   url: Liu-2024-ADG_supp.mp4
