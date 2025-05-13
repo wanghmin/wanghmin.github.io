@@ -7,13 +7,13 @@ authors:
 - Sheng Li
 - Guoping Wang
 - Yin Yang
-- Huamin Wang
-date: '2025-01-01'
+- admin
+date: '2025-08-11'
 publishDate: '2025-05-13T06:24:55.262090Z'
 publication_types:
 - paper-conference
 publication: '*ACM SIGGRAPH 2025 Conference Papers*'
-doi: 10.1145/3721238.3730622
+
 abstract: Knots and ties are captivating elements of digital garments and accessories,
   but they have been notoriously challenging and computationally expensive to model
   manually. In this paper, we propose a physics-based modeling system for knots and
@@ -36,6 +36,12 @@ tags:
 - intersection-free
 - physics-based modeling
 links:
-- name: URL
-  url: https://doi.org/10.1145/3721238.3730622
+url_video: https://drive.google.com/file/d/1txtsSlalTjJkicU6lr-vjFQCV8e3yFyW/view?usp=sharing
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/6RiGgLUQ3ic?si=2qIHY2lF8GAldfCH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?isOutside=true&aid=114499046608438&bvid=BV1bR7ZzkEiW&cid=29936256484&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
