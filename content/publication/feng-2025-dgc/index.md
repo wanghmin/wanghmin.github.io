@@ -1,6 +1,5 @@
 ---
-title: 'Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program
-  Synthesis'
+title: 'Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis'
 authors:
 - Feng Zhou
 - Ruiyang Liu
