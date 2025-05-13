@@ -36,6 +36,9 @@ abstract: The concept of the Internet of Things (IoT) has driven the development
   processing times, our method achieves superior simulation frame rates compared to
   approaches that rely on individual devices in isolation. The source code with hybrid
   Metal/C++ implementation is available at https://github.com/ChengzhuUwU/libAtsSim.
+summary: This paper proposes a novel framework for automated task scheduling to optimize
+  simulation performance by minimizing communication overhead and aligning tasks with
+  the specific strengths of each device.
 tags:
 - task scheduling
 - heterogeneous computing
