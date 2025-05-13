@@ -42,13 +42,13 @@ profiles:
     url: https://orcid.org/0000-0002-8153-2337
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include computer graphics, computer vision, generative AI, and reinforcement learning.
+bio: My research interests include computer graphics, computer vision, generative AI, and embodied AI.
 
 interests:
   - Computer graphics
   - Computer vision
   - Generative AI
-  - Reinforcement learning
+  - Embodied AI
 
 education:  
     - area: PhD in Computer Science
