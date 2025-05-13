@@ -30,6 +30,9 @@ abstract: 'Sewing patterns, the essential blueprints for fabric cutting and tail
   designer sketches, or their combinations, and convert them into size-precise sewing
   patterns with correct stitches. Compared to previous methods, our approach significantly
   enhances training efficiency, generation quality, and authoring flexibility.'
+summary:  We propose a novel sewing pattern generation approach Design2GarmentCode
+  based on Large Multimodal Models (LMMs), to generate parametric pattern-making programs
+  from multi-modal design concepts.
 featured: true
 tags:
 - generative AI
