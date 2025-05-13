@@ -31,6 +31,8 @@ abstract: Knots and ties are captivating elements of digital garments and access
   demonstrate the system’s effectiveness and efficiency in modeling a wide range of
   digital knots and ties with diverse styles and shapes, including configurations
   that were previously impractical to create manually.
+summary: We propose an effective and efficient physics-based system for modeling knots and
+  ties using templates. It can model a wide range of knots and ties with diverse styles and shapes.
 featured: true
 tags:
 - cloth simulation
