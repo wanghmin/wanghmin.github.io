@@ -36,7 +36,6 @@ tags:
 - local minima
 - sewing pattern
 summary: We develop an innovative hybrid system for fast initialization of garment pieces with minimal user intervention, by harnessing AI classification, heuristics, and numerical optimization.
-featured: true
 links:
 - name: More Video
   url: Liu-2024-ADG_supp.mp4
