@@ -34,11 +34,11 @@ sections:
     id: papers
     content:
       title: Featured Publications
+      count: 6
       filters:
         folders:
           - publication
         featured_only: true
-      limit: 6
     design:
       view: article-grid
       columns: 2
