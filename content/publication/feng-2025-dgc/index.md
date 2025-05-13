@@ -15,7 +15,7 @@ publication_types:
 - paper-conference
 publication: '*The IEEE/CVF Conference on Computer Vision and Pattern Recognition
   (CVPR)*'
-abstract: Sewing patterns, the essential blueprints for fabric cutting and tailoring,
+abstract: 'Sewing patterns, the essential blueprints for fabric cutting and tailoring,
   act as a crucial bridge between design concepts and producible garments. However,
   existing uni-modal sewing pattern generation models struggle to effectively encode
   complex design concepts with a multi-modal nature and correlate them with vectorized
@@ -30,7 +30,7 @@ abstract: Sewing patterns, the essential blueprints for fabric cutting and tailo
   flexibly handle various complex design expressions such as images, textual descriptions,
   designer sketches, or their combinations, and convert them into size-precise sewing
   patterns with correct stitches. Compared to previous methods, our approach significantly
-  enhances training efficiency, generation quality, and authoring flexibility.
+  enhances training efficiency, generation quality, and authoring flexibility.'
 links:
 url_code: https://github.com/Style3D/SXDGarmentCode
 - name: Page
