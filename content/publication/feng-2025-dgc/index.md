@@ -31,4 +31,7 @@ abstract: Sewing patterns, the essential blueprints for fabric cutting and tailo
   designer sketches, or their combinations, and convert them into size-precise sewing
   patterns with correct stitches. Compared to previous methods, our approach significantly
   enhances training efficiency, generation quality, and authoring flexibility.
+  links:
+  - name: Page
+  url: https://style3d.github.io/design2garmentcode/ 
 ---
