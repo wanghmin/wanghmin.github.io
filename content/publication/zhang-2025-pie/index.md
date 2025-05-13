@@ -12,7 +12,7 @@ publishDate: '2025-05-13T06:24:55.245276Z'
 publication_types:
 - paper-conference
 publication: '*ACM SIGGRAPH 2025 Conference Papers*'
-doi: 10.1145/3721238.3730619
+
 abstract: 'In this paper, we tackle an important yet often overlooked question: What
   is the optimal mesh resolution for cloth simulation, without relying on preliminary
   simulations? The optimal resolution should be sufficient to capture fine details
