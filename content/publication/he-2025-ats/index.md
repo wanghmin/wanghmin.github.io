@@ -39,7 +39,6 @@ abstract: The concept of the Internet of Things (IoT) has driven the development
 summary: This paper proposes a novel framework for automated task scheduling to optimize
   simulation performance by minimizing communication overhead and aligning tasks with
   the specific strengths of each device.
-featured: true
 tags:
 - task scheduling
 - heterogeneous computing
