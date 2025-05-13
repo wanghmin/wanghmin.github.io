@@ -4,7 +4,7 @@ authors:
 - Zixuan Lu
 - Ziheng Liu
 - Lei Lan
-- Huamin Wang
+- admin
 - Yuko Ishiwaka
 - Chenfanfu Jiang
 - Kui Wu
