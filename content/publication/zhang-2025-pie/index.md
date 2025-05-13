@@ -39,7 +39,7 @@ abstract: 'In this paper, we tackle an important yet often overlooked question: 
   scenarios, making it a versatile solution for complex garment design.'
 summary:  we propose a novel method to determine the optimal mesh resolution
   for cloth simulation, without running any preliminary simulations.
-featured: false
+featured: true
 tags:
 - mesh resolution
 - wrinkle wavelength
