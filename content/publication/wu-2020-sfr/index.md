@@ -9,7 +9,7 @@ date: '2020-12-01'
 publishDate: '2024-03-03T02:42:27.035025Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph., 40*(1)'
+publication: '*ACM Trans. Graph. (SIGGRAPH), 40*(1)'
 
 abstract: 'Cloth dynamics and collision handling are the two most challenging topics
   in cloth simulation. While researchers have substantially improved the performances
