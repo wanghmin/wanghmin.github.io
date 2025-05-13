@@ -7,13 +7,13 @@ authors:
 - Zhaorui Meng
 - Junfeng Yao
 - Shihui Guo
-- Huamin Wang
-date: '2025-01-01'
+- admin
+date: '2025-08-10'
 publishDate: '2025-05-13T06:24:55.254008Z'
 publication_types:
 - paper-conference
 publication: '*ACM SIGGRAPH 2025 Conference Papers*'
-doi: 10.1145/3721238.3730625
+
 abstract: The concept of the Internet of Things (IoT) has driven the development of
   system-on-a-chip (SoC) technology for embedded and mobile systems, which may define
   the future of next-generation computation. In SoC devices, efficient cloth and deformable
@@ -41,6 +41,13 @@ tags:
 - heterogeneous computing
 - asynchronous parallelism
 links:
-- name: URL
-  url: https://doi.org/10.1145/3721238.3730625
+url_video: https://drive.google.com/file/d/1npHDiuVQhsj5K8eWrAcZrmetzEU3EeHL/view?usp=sharing
+url_code: https://github.com/ChengzhuUwU/libAtsSim
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/ZIlrmXYL0PM?si=ukWUQRhHpTNblP9u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?aid=114499029894525&bvid=BV1Uo7Zz3EXn&cid=29936127582&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
