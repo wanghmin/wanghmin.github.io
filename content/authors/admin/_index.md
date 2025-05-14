@@ -51,13 +51,13 @@ interests:
   - Embodied AI
 
 education:  
-    - area: PhD in Computer Science
+    - area: Ph.D. in Computer Science
       institution: Georgia Institute of Technology
       year: 2009
-    - area: MS in Computer Science
+    - area: M.S. in Computer Science
       institution: Stanford University
       year: 2004
-    - area: BSc in Computer Science
+    - area: B.Eng. in Computer Science
       institution: Zhejiang University
       year: 2002      
 
