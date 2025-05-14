@@ -27,9 +27,9 @@ organizations:
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
-  - icon: at-symbol
-    url: 'mailto:wanghmin@gmail.com'
-    label: E-mail Me
+#  - icon: at-symbol
+#    url: 'mailto:wanghmin@gmail.com'
+#    label: E-mail Me
 #  - icon: brands/x
 #    url: https://twitter.com/GetResearchDev
   - icon: brands/github
@@ -67,3 +67,5 @@ Huamin Wang is the chief scientist at [Style3D](https://www.style3d.com) and he 
 
 Before joining Style3D, he was a tenured associate professor in the [CSE department](https://cse.osu.edu/) at [the Ohio State University](https://www.osu.edu) (2011 – 2021), and a postdoctoral researcher at [UC Berkeley](https://www.berkeley.edu/) (2009 – 2011).
 He has served on the technical committees of numerous conferences and chaired the papers programs of CASA 2017 and SCA 2023. He is an associate editor of [IEEE TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) and [the Visual Computer](https://link.springer.com/journal/371).
+
+For more information, including contact details, please refer to the CV.
