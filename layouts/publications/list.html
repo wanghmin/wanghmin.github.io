@@ -4,6 +4,10 @@
 {{ $grouped := dict }}
 {{ range .Pages }}
   {{ $year := .Params.year }}
+  {{ if not $year }}  <!-- If year is missing, set a default value (e.g., current year) -->
+    {{ $year = "Unknown" }}
+  {{ end }}
+  
   {{ with index $grouped $year }}
     {{ $grouped = merge $grouped (dict $year (append . (dict "title" .Title "url" .Permalink))) }}
   {{ else }}
