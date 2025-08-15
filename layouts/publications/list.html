@@ -1,0 +1,23 @@
+{{ define "main" }}
+<h1>Publiffcations</h1>
+
+{{ $grouped := dict }}
+{{ range .Pages }}
+  {{ $year := .Params.year }}
+  {{ with index $grouped $year }}
+    {{ $grouped = merge $grouped (dict $year (append . (dict "title" .Title "url" .Permalink))) }}
+  {{ else }}
+    {{ $grouped = merge $grouped (dict $year (slice (dict "title" .Title "url" .Permalink))) }}
+  {{ end }}
+{{ end }}
+
+{{ range $year, $publications := $grouped }}
+  <h2>{{ $year }}</h2>
+  <ul>
+    {{ range $publications }}
+      <li><a href="{{ .url }}">{{ .title }}</a></li>
+    {{ end }}
+  </ul>
+{{ end }}
+
+{{ end }}
