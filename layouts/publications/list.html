@@ -1,19 +1,19 @@
 {{ define "main" }}
 <h1>Publications</h1>
 
-{{ $grouped := dict }}
+{{ $grouped := dict }} <!-- Initialize the empty map -->
 
 {{ range .Pages }}
   {{ $year := .Params.year }}
-  {{ if not $year }}  <!-- If year is missing, set a default value (e.g., current year) -->
+  {{ if not $year }}  <!-- If year is missing, set a default value (e.g., "Unknown") -->
     {{ $year = "Unknown" }}
   {{ end }}
 
-  {{ $publication := dict "title" .Title "url" .Permalink }} <!-- Create a dict for the publication -->
+  {{ $publication := dict "title" .Title "url" .Permalink }} <!-- Create the publication map -->
   
   {{ with index $grouped $year }}
-    <!-- If the year exists, append the publication to the slice for that year -->
-    {{ $grouped = merge $grouped (dict $year (append . $publication)) }}
+    <!-- If the year exists, append the publication to the existing slice -->
+    {{ $grouped = merge $grouped (dict $year (append (index $grouped $year) $publication)) }}
   {{ else }}
     <!-- If the year doesn't exist, create a new slice with this publication -->
     {{ $grouped = merge $grouped (dict $year (slice $publication)) }}
