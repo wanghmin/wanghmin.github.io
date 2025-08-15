@@ -8,16 +8,19 @@
   {{ if not $year }}  <!-- If year is missing, set a default value (e.g., current year) -->
     {{ $year = "Unknown" }}
   {{ end }}
+
+  {{ $publication := dict "title" .Title "url" .Permalink }} <!-- Create a dict for the publication -->
   
   {{ with index $grouped $year }}
-    <!-- Append the publication to the existing slice for the year -->
-    {{ $grouped = merge $grouped (dict $year (append . (dict "title" .Title "url" .Permalink))) }}
+    <!-- If the year exists, append the publication to the slice for that year -->
+    {{ $grouped = merge $grouped (dict $year (append . $publication)) }}
   {{ else }}
-    <!-- Create a new slice for the year if it doesn't exist -->
-    {{ $grouped = merge $grouped (dict $year (slice (dict "title" .Title "url" .Permalink))) }}
+    <!-- If the year doesn't exist, create a new slice with this publication -->
+    {{ $grouped = merge $grouped (dict $year (slice $publication)) }}
   {{ end }}
 {{ end }}
 
+<!-- Loop through the grouped publications and display them -->
 {{ range $year, $publications := $grouped }}
   <h2>{{ $year }}</h2>
   <ul>
