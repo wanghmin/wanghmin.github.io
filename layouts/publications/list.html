@@ -2,6 +2,7 @@
 <h1>Publications</h1>
 
 {{ $grouped := dict }}
+
 {{ range .Pages }}
   {{ $year := .Params.year }}
   {{ if not $year }}  <!-- If year is missing, set a default value (e.g., current year) -->
@@ -9,8 +10,10 @@
   {{ end }}
   
   {{ with index $grouped $year }}
+    <!-- Append the publication to the existing slice for the year -->
     {{ $grouped = merge $grouped (dict $year (append . (dict "title" .Title "url" .Permalink))) }}
   {{ else }}
+    <!-- Create a new slice for the year if it doesn't exist -->
     {{ $grouped = merge $grouped (dict $year (slice (dict "title" .Title "url" .Permalink))) }}
   {{ end }}
 {{ end }}
