@@ -1,5 +1,6 @@
 ---
 title: Publications
+type: "publications"
 cms_exclude: true
 
 # View.
