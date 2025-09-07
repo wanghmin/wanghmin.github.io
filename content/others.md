@@ -28,7 +28,7 @@ sections:
             text: Read more
             url: http://www.cis.umassd.edu/~hxu/alink/jclass/mixedclass.html
         - title: Jade Buddha
-          text:  My very first course project when I was a student at Stanford. I was intrigued with photorealistic rendering back then.  The course work page is still alive after 20+ years.
+          text:  My very first course project when I was a student at Stanford. I was fascinated with photorealistic rendering back then.  The course work page is still alive after 20+ years.
           # Upload image to `assets/media/` and reference the filename here
           image: buddha.png
           button:
