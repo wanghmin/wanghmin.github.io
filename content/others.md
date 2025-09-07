@@ -21,7 +21,7 @@ sections:
             text: Read more
             url: https://faculty.cc.gatech.edu/~turk/math_gr.html
         - title: The mixed class at Zhejiang University
-          text: I attended the mixed class (now Chu Kochen Honors College) at Zhejiang University from 1998 to 2002. The idea behind the mixed class is to create an interdisciplinary environment by bringing together students with art, science, and engineering backgrounds into the same class.
+          text: I attended the mixed class (now Chu Kochen Honors College) at Zhejiang University from 1998 to 2002. The idea behind the mixed class is to create an interdisciplinary environment by bringing together students with diversified backgrounds into the same class.
           # Upload image to `assets/media/` and reference the filename here
           image: zju.png
           button:
