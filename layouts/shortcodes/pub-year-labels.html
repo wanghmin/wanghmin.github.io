@@ -9,46 +9,34 @@
 </style>
 
 <script>
-(function attachYearHeaders(){
+(function addYearHeaders(){
   const root = document.querySelector('main') || document.body;
-  if (!root) return;
-  if (root.querySelector('.pub-year')) return; // avoid double insert
+  if (!root || root.querySelector('.pub-year')) return;
 
-  // 1) Find all elements that LOOK like a citation line (contain "(YYYY)")
-  const all = Array.from(root.querySelectorAll('*:not(script):not(style)'))
-    .filter(el => {
-      const txt = (el.textContent || '').replace(/\s+/g,' ').trim();
-      if (txt.length < 20) return false;                // too short to be a citation
-      if (!/\((19|20)\d{2}\)/.test(txt)) return false;  // no (YYYY)
-      // Prefer block-ish elements so we don’t grab inline spans
-      const disp = getComputedStyle(el).display;
-      return disp !== 'inline' && disp !== 'none';
-    });
-
-  if (!all.length) return;
-
-  // 2) Keep only the TOPMOST elements that contain years (avoid nested duplicates)
-  const items = all.filter(el => !all.some(other => other !== el && other.contains(el)));
-
+  // <<< KEY SELECTOR from your dump
+  const items = Array.from(root.querySelectorAll('.pub-list-item'));
   if (items.length < 2) return;
 
-  // 3) Insert year headers before first item of each year
-  const yearFromText = el => {
+  const getYear = el => {
     const m = (el.textContent || '').match(/\((19|20)\d{2}\)/);
     return m ? m[0].slice(1,5) : '';
   };
 
   let last = '';
   items.forEach(el => {
-    const y = yearFromText(el);
+    const y = getYear(el);
     if (y && y !== last) {
       const h = document.createElement('h2');
       h.className = 'pub-year';
       h.id = 'y-' + y;
       h.textContent = y;
-      el.parentNode && el.parentNode.insertBefore(h, el);
+      el.parentNode.insertBefore(h, el);
       last = y;
     }
   });
+
+  // Debug: see what we picked up
+  console.log('[pub-year-labels] items:', items.length,
+              'years:', items.slice(0,5).map(getYear));
 })();
 </script>
