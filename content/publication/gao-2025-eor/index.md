@@ -8,7 +8,7 @@ authors:
 - Zheng Dong
 - Hujun Bao
 - Yujun Shen
-- Huamin Wang
+- admin
 - Changqing Zou
 - Weiwei Xu
 date: '2025-12-01'
@@ -16,7 +16,7 @@ publishDate: '2025-10-10T08:37:01.294520Z'
 publication_types:
 - paper-conference
 publication: '*SIGGRAPH Asia 2025 Conference Papers*'
-doi: 10.1145/3757377.3763865
+
 abstract: 'In 3D object reconstruction from photographs, estimating material properties
   is challenging.We propose an inverse rendering method that uses active area lighting:
   as this provides a wider range of lighting angles per photo than point lighting,
@@ -35,6 +35,5 @@ tags:
 - area light
 - linearly transformed cosines
 links:
-- name: URL
-  url: https://doi.org/10.1145/3757377.3763865
+
 ---
