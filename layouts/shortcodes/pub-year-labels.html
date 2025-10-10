@@ -1,0 +1,45 @@
+<style>
+  .pub-year { margin: 2rem 0 .75rem; font-weight: 600; font-size: 1.5rem;
+              border-bottom: 1px solid rgba(0,0,0,.08); padding-bottom: .25rem; }
+</style>
+<script>
+(function attachYearHeaders(){
+  function run() {
+    const root = document.querySelector('main') || document.body;
+    if (!root) return;
+    // Try common Blox list selectors; fall back to any <article>
+    const items = root.querySelectorAll(
+      '.view-list article, .article-list article, .publications article, article'
+    );
+    if (!items || items.length < 2) return;
+    if (root.querySelector('.pub-year')) return; // don’t double-insert
+
+    const getYear = (el) => {
+      const t = el.querySelector('time[datetime]');
+      if (t) {
+        const dt = t.getAttribute('datetime') || '';
+        if (/^\d{4}$/.test(dt)) return dt;
+        const d = new Date(dt);
+        if (!isNaN(d)) return String(d.getFullYear());
+      }
+      const m = (el.textContent || '').match(/\b(19|20)\d{2}\b/);
+      return m ? m[0] : '';
+    };
+
+    let last = '';
+    items.forEach((el) => {
+      const y = getYear(el);
+      if (y && y !== last) {
+        const h = document.createElement('h2');
+        h.className = 'pub-year';
+        h.id = 'y-' + y;
+        h.textContent = y;
+        el.parentNode.insertBefore(h, el);
+        last = y;
+      }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+  window.addEventListener('load', () => setTimeout(run, 0));
+})();
+</script>
