@@ -14,7 +14,7 @@ publishDate: '2025-10-10T08:37:01.278987Z'
 publication_types:
 - article-journal
 publication: '*ACM Trans. Graph. (SIGGRAPH), 44*(4)'
-doi: 10.1145/3731182
+
 abstract: Whenever the concept of high-performance cloth simulation is brought up,
   GPU acceleration is almost always the first that comes to mind. Leveraging immense
   parallelization, GPU algorithms have demonstrated significant success recently,
@@ -40,6 +40,8 @@ tags:
 - GPU algorithm
 - CPU algorithm
 links:
+- name: Page
+  url: https://sig25ddmpd.github.io/
 url_video: https://drive.google.com/file/d/1kafSWDTJ8wiSvPrt9c3MaYG8Y6gysooF/view
 ---
 
