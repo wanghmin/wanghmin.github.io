@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="container mx-auto px-4">
 
-  {{/* Collect publications robustly */}}
+  {{/* Collect publications */}}
   {{ $pubs := where .Site.RegularPages "Type" "publication" }}
   {{ if eq (len $pubs) 0 }}
     {{ $pubs = where .Site.RegularPages "Section" "publication" }}
@@ -10,18 +10,12 @@
   {{ if eq (len $pubs) 0 }}
     <p>No publications found.</p>
   {{ else }}
-
     {{ $sorted := $pubs.ByDate.Reverse }}
     {{ $currentYear := "" }}
 
     {{ range $p := $sorted }}
-      {{/* Get year (prefer publication_year) */}}
-      {{ $y := "" }}
-      {{ if $p.Params.publication_year }}
-        {{ $y = printf "%v" $p.Params.publication_year }}
-      {{ else }}
-        {{ $y = $p.Date.Format "2006" }}
-      {{ end }}
+      {{/* Determine year */}}
+      {{ $y := cond $p.Params.publication_year (printf "%v" $p.Params.publication_year) ($p.Date.Format "2006") }}
 
       {{ if ne $y $currentYear }}
         {{ if ne $currentYear "" }}</ul></section>{{ end }}
@@ -31,26 +25,13 @@
         {{ $currentYear = $y }}
       {{ end }}
 
-      {{/* Build authors list */}}
-      {{ $authors := "" }}
-      {{ if $p.Params.authors }}
-        {{ $authors = delimit $p.Params.authors ", " }}
-      {{ end }}
-
-      {{/* Build venue/journal info */}}
-      {{ $venue := "" }}
-      {{ if $p.Params.publication }}
-        {{ $venue = $p.Params.publication }}
-      {{ end }}
-      {{ if $p.Params.journal }}
-        {{ $venue = $p.Params.journal }}
-      {{ end }}
-
-      {{/* Optional volume/issue */}}
+      {{/* Core citation pieces */}}
+      {{ $authors := delimit ($p.Params.authors | default (slice)) ", " }}
+      {{ $venue := cond $p.Params.publication $p.Params.publication $p.Params.journal }}
       {{ $vol := $p.Params.volume }}
       {{ $num := $p.Params.number }}
 
-      {{/* Choose link */}}
+      {{/* Best link target for title */}}
       {{ $link := $p.RelPermalink }}
       {{ if $p.Params.url_pdf }}{{ $link = $p.Params.url_pdf }}{{ end }}
       {{ if $p.Params.url_custom }}{{ $link = $p.Params.url_custom }}{{ end }}
@@ -58,19 +39,27 @@
       <li class="pub-item leading-snug">
         {{ with $authors }}{{ . }}{{ end }}
         {{ if $y }} ({{ $y }}).{{ end }}
-        <a href="{{ $link }}" class="pub-title font-medium italic hover:underline">
-          {{ $p.Title }}
-        </a>.
+        <a href="{{ $link }}" class="pub-title font-medium italic hover:underline">{{ $p.Title }}</a>.
         {{ with $venue }} <em>{{ . }}</em>{{ end }}
         {{ if or $vol $num }}
           {{ if $vol }}, {{ $vol }}{{ end }}
-          {{ if $num }}({{ $num }}){{ end }}.
-        {{ end }}
+          {{ if $num }}({{ $num }}){{ end }}
+        {{ end }}.
+        {{/* ← final period included */}}
+
+        {{/* --- Link Icons --- */}}
+        <span class="pub-links ml-2 space-x-1 text-sm">
+          {{ with $p.Params.url_pdf }}<a href="{{ . }}" class="link-icon" title="PDF">📄 PDF</a>{{ end }}
+          {{ with $p.Params.url_cite }}<a href="{{ . }}" class="link-icon" title="BibTeX">📑 CITE</a>{{ end }}
+          {{ with $p.Params.url_code }}<a href="{{ . }}" class="link-icon" title="Code">💻 CODE</a>{{ end }}
+          {{ with $p.Params.url_dataset }}<a href="{{ . }}" class="link-icon" title="Dataset">📊 DATA</a>{{ end }}
+          {{ with $p.Params.url_project }}<a href="{{ . }}" class="link-icon" title="Project Page">🌐 PAGE</a>{{ end }}
+          {{ with $p.Params.url_video }}<a href="{{ . }}" class="link-icon" title="Video">🎬 VIDEO</a>{{ end }}
+        </span>
       </li>
 
     {{ end }}
     {{ if ne $currentYear "" }}</ul></section>{{ end }}
-
   {{ end }}
 </main>
 
@@ -82,6 +71,14 @@
 .pub-item {
   margin-left: 1rem;
   text-indent: -1rem;
+}
+.pub-links a {
+  text-decoration: none;
+  opacity: 0.75;
+}
+.pub-links a:hover {
+  text-decoration: underline;
+  opacity: 1;
 }
 </style>
 {{ end }}
