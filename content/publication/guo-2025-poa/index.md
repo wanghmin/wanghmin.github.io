@@ -7,13 +7,13 @@ authors:
 - Sheng Li
 - Guoping Wang
 - Yin Yang
-- Huamin Wang
+- admin
 date: '2025-12-01'
 publishDate: '2025-10-10T08:37:01.286987Z'
 publication_types:
 - paper-conference
 publication: '*SIGGRAPH Asia 2025 Conference Papers*'
-doi: 10.1145/3757377.3763868
+
 abstract: With the rise of digital fashion, reusing high-quality garment assets to
   assemble new outfits has become increasingly important for improving design efficiency
   and reducing production costs. However, combining multiple garments often introduces
@@ -34,6 +34,13 @@ tags:
 - untangling
 - embedded deformation
 links:
-- name: URL
-  url: https://doi.org/10.1145/3757377.3763868
+url_video: https://drive.google.com/file/d/1srTvr1XJFmsCb-wEvE3iLa652a5u-ZBs/view
+url_code: https://github.com/Style3D/OutfitAssembly
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/OpC2jaLPUgU?si=dWQSYLVBpKP2KLma" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?isOutside=true&aid=115349433421741&bvid=BV1Vg4JzaEZ4&cid=32968345412&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</p>
