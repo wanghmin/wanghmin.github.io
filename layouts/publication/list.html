@@ -1,11 +1,9 @@
 {{ define "main" }}
 <main class="container mx-auto px-4">
 
-  {{/* Collect publications */}}
+  {{/* Find all publications, newest first */}}
   {{ $pubs := where .Site.RegularPages "Type" "publication" }}
-  {{ if eq (len $pubs) 0 }}
-    {{ $pubs = where .Site.RegularPages "Section" "publication" }}
-  {{ end }}
+  {{ if eq (len $pubs) 0 }}{{ $pubs = where .Site.RegularPages "Section" "publication" }}{{ end }}
 
   {{ if eq (len $pubs) 0 }}
     <p>No publications found.</p>
@@ -14,7 +12,7 @@
     {{ $currentYear := "" }}
 
     {{ range $p := $sorted }}
-      {{/* Determine year */}}
+      {{/* Year: prefer front matter, else .Date */}}
       {{ $y := cond $p.Params.publication_year (printf "%v" $p.Params.publication_year) ($p.Date.Format "2006") }}
 
       {{ if ne $y $currentYear }}
@@ -25,60 +23,68 @@
         {{ $currentYear = $y }}
       {{ end }}
 
-      {{/* Core citation pieces */}}
+      {{/* ---------- Build links (prefer params; else auto-detect in bundle) ---------- */}}
+      {{/* PDF (auto-detect *.pdf in the page bundle if url_pdf not set) */}}
+      {{ $pdf := $p.Params.url_pdf }}
+      {{ if not $pdf }}
+        {{ $pdfRes := ($p.Resources.Match "**.pdf") }}
+        {{ with index $pdfRes 0 }}{{ $pdf = .RelPermalink }}{{ end }}
+      {{ end }}
+
+      {{/* CITE (prefer url_cite; else first *.bib in bundle) */}}
+      {{ $cite := $p.Params.url_cite }}
+      {{ if not $cite }}
+        {{ $bibRes := ($p.Resources.Match "**.bib") }}
+        {{ with index $bibRes 0 }}{{ $cite = .RelPermalink }}{{ end }}
+      {{ end }}
+
+      {{/* CODE / DATA / PAGE / VIDEO from params if present */}}
+      {{ $code := $p.Params.url_code }}
+      {{ $data := (or $p.Params.url_dataset $p.Params.url_data) }}
+      {{ $page := $p.RelPermalink }}
+      {{ $video := $p.Params.url_video }}
+
+      {{/* Venue + vol/num */}}
       {{ $authors := delimit ($p.Params.authors | default (slice)) ", " }}
       {{ $venue := cond $p.Params.publication $p.Params.publication $p.Params.journal }}
       {{ $vol := $p.Params.volume }}
       {{ $num := $p.Params.number }}
 
-      {{/* Best link target for title */}}
-      {{ $link := $p.RelPermalink }}
-      {{ if $p.Params.url_pdf }}{{ $link = $p.Params.url_pdf }}{{ end }}
-      {{ if $p.Params.url_custom }}{{ $link = $p.Params.url_custom }}{{ end }}
+      {{/* Main title link priority: PDF > custom project > page */}}
+      {{ $titleHref := $page }}
+      {{ if $p.Params.url_custom }}{{ $titleHref = $p.Params.url_custom }}{{ end }}
+      {{ if $pdf }}{{ $titleHref = $pdf }}{{ end }}
 
       <li class="pub-item leading-snug">
         {{ with $authors }}{{ . }}{{ end }}
         {{ if $y }} ({{ $y }}).{{ end }}
-        <a href="{{ $link }}" class="pub-title font-medium italic hover:underline">{{ $p.Title }}</a>.
+        <a href="{{ $titleHref }}" class="pub-title font-medium italic hover:underline">{{ $p.Title }}</a>.
         {{ with $venue }} <em>{{ . }}</em>{{ end }}
         {{ if or $vol $num }}
           {{ if $vol }}, {{ $vol }}{{ end }}
           {{ if $num }}({{ $num }}){{ end }}
         {{ end }}.
-        {{/* ← final period included */}}
 
-        {{/* --- Link Icons --- */}}
-        <span class="pub-links ml-2 space-x-1 text-sm">
-          {{ with $p.Params.url_pdf }}<a href="{{ . }}" class="link-icon" title="PDF">📄 PDF</a>{{ end }}
-          {{ with $p.Params.url_cite }}<a href="{{ . }}" class="link-icon" title="BibTeX">📑 CITE</a>{{ end }}
-          {{ with $p.Params.url_code }}<a href="{{ . }}" class="link-icon" title="Code">💻 CODE</a>{{ end }}
-          {{ with $p.Params.url_dataset }}<a href="{{ . }}" class="link-icon" title="Dataset">📊 DATA</a>{{ end }}
-          {{ with $p.Params.url_project }}<a href="{{ . }}" class="link-icon" title="Project Page">🌐 PAGE</a>{{ end }}
-          {{ with $p.Params.url_video }}<a href="{{ . }}" class="link-icon" title="Video">🎬 VIDEO</a>{{ end }}
+        {{/* Inline mini icons using Font Awesome classes Hugo Blox ships with */}}
+        <span class="pub-links ml-2 text-sm space-x-2">
+          {{ with $pdf }}<a href="{{ . }}" class="link-icon" title="PDF"><i class="fas fa-file-pdf fa-fw"></i> PDF</a>{{ end }}
+          {{ with $cite }}<a href="{{ . }}" class="link-icon" title="Cite/BibTeX"><i class="fas fa-quote-right fa-fw"></i> CITE</a>{{ end }}
+          {{ with $code }}<a href="{{ . }}" class="link-icon" title="Code"><i class="fas fa-code fa-fw"></i> CODE</a>{{ end }}
+          {{ with $data }}<a href="{{ . }}" class="link-icon" title="Dataset"><i class="fas fa-database fa-fw"></i> DATA</a>{{ end }}
+          {{ with $page }}<a href="{{ . }}" class="link-icon" title="Project/Page"><i class="fas fa-globe fa-fw"></i> PAGE</a>{{ end }}
+          {{ with $video }}<a href="{{ . }}" class="link-icon" title="Video"><i class="fas fa-film fa-fw"></i> VIDEO</a>{{ end }}
         </span>
       </li>
-
     {{ end }}
+
     {{ if ne $currentYear "" }}</ul></section>{{ end }}
   {{ end }}
 </main>
 
 <style>
-.year-heading {
-  border-bottom: 1px solid rgba(0,0,0,.08);
-  padding-bottom: .25rem;
-}
-.pub-item {
-  margin-left: 1rem;
-  text-indent: -1rem;
-}
-.pub-links a {
-  text-decoration: none;
-  opacity: 0.75;
-}
-.pub-links a:hover {
-  text-decoration: underline;
-  opacity: 1;
-}
+.year-heading{border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
+.pub-item{margin-left:1rem;text-indent:-1rem}
+.pub-links a{ text-decoration:none; opacity:.8 }
+.pub-links a:hover{ text-decoration:underline; opacity:1 }
 </style>
 {{ end }}
