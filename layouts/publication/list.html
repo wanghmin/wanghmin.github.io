@@ -1,30 +1,30 @@
 {{ define "main" }}
 <main class="container mx-auto px-4">
-  {{/* Prefer pages in this section, fallback to site-wide filter in case of custom routes */}}
-  {{ $pubs := .Pages }}
-  {{ if not $pubs }}
-    {{ $pubs = where .Site.RegularPages "Section" "publication" }}
+  {{/* Prefer the section's own pages; fall back to site-wide */}}
+  {{ $pubs := .RegularPages }}
+  {{ if eq (len $pubs) 0 }}
+    {{ $pubs = where site.RegularPages "Type" "publication" }}
+    {{ if eq (len $pubs) 0 }}
+      {{ $pubs = where site.RegularPages "Section" "publication" }}
+    {{ end }}
   {{ end }}
 
-  {{ range ($pubs.GroupByDate "2006").Reverse }}
-    <section class="mb-8" id="y-{{ .Key }}">
-      <h2 class="year-heading text-2xl font-semibold mt-10 mb-4">
-        {{ .Key }}
-      </h2>
-      <div class="space-y-6">
-        {{ range .Pages.ByDate.Reverse }}
-          {{ .Render "summary" }}
-        {{ end }}
-      </div>
-    </section>
+  {{ if eq (len $pubs) 0 }}
+    <p>No publications found. Check that files are under <code>content/publication/</code> and each has a valid <code>date</code>.</p>
+  {{ else }}
+    {{ range ($pubs.GroupByDate "2006").Reverse }}
+      <section id="y-{{ .Key }}" class="mb-8">
+        <h2 class="year-heading text-2xl font-semibold mt-10 mb-4">{{ .Key }}</h2>
+        <div class="space-y-6">
+          {{ range .Pages.ByDate.Reverse }}
+            {{ .Render "summary" }}
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
   {{ end }}
 </main>
-
 <style>
-/* Simple, unobtrusive styling for the year label */
-.year-heading{
-  border-bottom: 1px solid rgba(0,0,0,.08);
-  padding-bottom: .25rem;
-}
+.year-heading{border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
 </style>
 {{ end }}
