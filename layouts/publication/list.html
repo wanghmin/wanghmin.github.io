@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="container mx-auto px-4">
 
-  {{/* Find all publications, newest first */}}
+  {{/* Collect publications (robust) */}}
   {{ $pubs := where .Site.RegularPages "Type" "publication" }}
   {{ if eq (len $pubs) 0 }}{{ $pubs = where .Site.RegularPages "Section" "publication" }}{{ end }}
 
@@ -12,7 +12,7 @@
     {{ $currentYear := "" }}
 
     {{ range $p := $sorted }}
-      {{/* Year: prefer front matter, else .Date */}}
+      {{/* Year: prefer publication_year, else .Date */}}
       {{ $y := cond $p.Params.publication_year (printf "%v" $p.Params.publication_year) ($p.Date.Format "2006") }}
 
       {{ if ne $y $currentYear }}
@@ -23,40 +23,55 @@
         {{ $currentYear = $y }}
       {{ end }}
 
-      {{/* ---------- Build links (prefer params; else auto-detect in bundle) ---------- */}}
-      {{/* PDF (auto-detect *.pdf in the page bundle if url_pdf not set) */}}
-      {{ $pdf := $p.Params.url_pdf }}
-      {{ if not $pdf }}
-        {{ $pdfRes := ($p.Resources.Match "**.pdf") }}
-        {{ with index $pdfRes 0 }}{{ $pdf = .RelPermalink }}{{ end }}
+      {{/* ---------- Authors (resolve slugs to profile titles, bold admin) ---------- */}}
+      {{ $authorNames := slice }}
+      {{ range $slug := ($p.Params.authors | default (slice)) }}
+        {{ $display := "" }}
+        {{ $apage := site.GetPage (printf "authors/%s" $slug) }}
+        {{ if $apage }}
+          {{ $display = $apage.Title }}
+        {{ else }}
+          {{/* If author list already contains full names, just use it */}}
+          {{ $display = $slug }}
+        {{ end }}
+        {{ if eq (lower $slug) "admin" }}
+          {{ $authorNames = $authorNames | append (printf "<strong>%s</strong>" $display) }}
+        {{ else }}
+          {{ $authorNames = $authorNames | append $display }}
+        {{ end }}
       {{ end }}
-
-      {{/* CITE (prefer url_cite; else first *.bib in bundle) */}}
-      {{ $cite := $p.Params.url_cite }}
-      {{ if not $cite }}
-        {{ $bibRes := ($p.Resources.Match "**.bib") }}
-        {{ with index $bibRes 0 }}{{ $cite = .RelPermalink }}{{ end }}
-      {{ end }}
-
-      {{/* CODE / DATA / PAGE / VIDEO from params if present */}}
-      {{ $code := $p.Params.url_code }}
-      {{ $data := (or $p.Params.url_dataset $p.Params.url_data) }}
-      {{ $page := $p.RelPermalink }}
-      {{ $video := $p.Params.url_video }}
+      {{ $authorsHTML := (delimit $authorNames ", ") | safeHTML }}
 
       {{/* Venue + vol/num */}}
-      {{ $authors := delimit ($p.Params.authors | default (slice)) ", " }}
       {{ $venue := cond $p.Params.publication $p.Params.publication $p.Params.journal }}
       {{ $vol := $p.Params.volume }}
       {{ $num := $p.Params.number }}
 
-      {{/* Main title link priority: PDF > custom project > page */}}
-      {{ $titleHref := $page }}
-      {{ if $p.Params.url_custom }}{{ $titleHref = $p.Params.url_custom }}{{ end }}
+      {{/* ---------- Build links (auto-discover from page bundle) ---------- */}}
+      {{/* Title link priority: PDF > url_custom > page */}}
+      {{ $pdf := $p.Params.url_pdf }}
+      {{ if not $pdf }}
+        {{ with index ($p.Resources.Match "**.pdf") 0 }}{{ $pdf = .RelPermalink }}{{ end }}
+      {{ end }}
+
+      {{ $cite := $p.Params.url_cite }}
+      {{ if not $cite }}
+        {{ with index ($p.Resources.Match "**.bib") 0 }}{{ $cite = .RelPermalink }}{{ end }}
+        {{ if not $cite }}
+          {{ with index ($p.Resources.Match "**.ris") 0 }}{{ $cite = .RelPermalink }}{{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ $code := $p.Params.url_code }}
+      {{ $data := or $p.Params.url_dataset $p.Params.url_data }}
+      {{ $video := $p.Params.url_video }}
+      {{ $page := $p.RelPermalink }}
+
+      {{ $titleHref := cond (ne $p.Params.url_custom nil) $p.Params.url_custom $page }}
       {{ if $pdf }}{{ $titleHref = $pdf }}{{ end }}
 
       <li class="pub-item leading-snug">
-        {{ with $authors }}{{ . }}{{ end }}
+        {{ $authorsHTML }}
         {{ if $y }} ({{ $y }}).{{ end }}
         <a href="{{ $titleHref }}" class="pub-title font-medium italic hover:underline">{{ $p.Title }}</a>.
         {{ with $venue }} <em>{{ . }}</em>{{ end }}
@@ -65,15 +80,69 @@
           {{ if $num }}({{ $num }}){{ end }}
         {{ end }}.
 
-        {{/* Inline mini icons using Font Awesome classes Hugo Blox ships with */}}
-        <span class="pub-links ml-2 text-sm space-x-2">
-          {{ with $pdf }}<a href="{{ . }}" class="link-icon" title="PDF"><i class="fas fa-file-pdf fa-fw"></i> PDF</a>{{ end }}
-          {{ with $cite }}<a href="{{ . }}" class="link-icon" title="Cite/BibTeX"><i class="fas fa-quote-right fa-fw"></i> CITE</a>{{ end }}
-          {{ with $code }}<a href="{{ . }}" class="link-icon" title="Code"><i class="fas fa-code fa-fw"></i> CODE</a>{{ end }}
-          {{ with $data }}<a href="{{ . }}" class="link-icon" title="Dataset"><i class="fas fa-database fa-fw"></i> DATA</a>{{ end }}
-          {{ with $page }}<a href="{{ . }}" class="link-icon" title="Project/Page"><i class="fas fa-globe fa-fw"></i> PAGE</a>{{ end }}
-          {{ with $video }}<a href="{{ . }}" class="link-icon" title="Video"><i class="fas fa-film fa-fw"></i> VIDEO</a>{{ end }}
-        </span>
+        {{/* ---------- Mini icons on a NEW line ---------- */}}
+        <div class="pub-links mt-1 text-sm space-x-3">
+          {{/* Prefer Blox icon partial if present; otherwise fallback to FA, then emoji */}}
+
+          {{ if $pdf }}
+            {{ if partialExists "icon.html" }}
+              <a href="{{ $pdf }}" class="link-icon" title="PDF">{{ partial "icon.html" (dict "name" "file-pdf" "pack" "fas") }} PDF</a>
+            {{ else }}
+              <a href="{{ $pdf }}" class="link-icon" title="PDF">
+                <i class="fa-solid fa-file-pdf"></i><span class="ml-1">PDF</span>
+              </a>
+            {{ end }}
+          {{ end }}
+
+          {{ if $cite }}
+            {{ if partialExists "icon.html" }}
+              <a href="{{ $cite }}" class="link-icon" title="Cite/BibTeX">{{ partial "icon.html" (dict "name" "quote-right" "pack" "fas") }} CITE</a>
+            {{ else }}
+              <a href="{{ $cite }}" class="link-icon" title="Cite/BibTeX">
+                <i class="fa-solid fa-quote-right"></i><span class="ml-1">CITE</span>
+              </a>
+            {{ end }}
+          {{ end }}
+
+          {{ if $code }}
+            {{ if partialExists "icon.html" }}
+              <a href="{{ $code }}" class="link-icon" title="Code">{{ partial "icon.html" (dict "name" "code" "pack" "fas") }} CODE</a>
+            {{ else }}
+              <a href="{{ $code }}" class="link-icon" title="Code">
+                <i class="fa-solid fa-code"></i><span class="ml-1">CODE</span>
+              </a>
+            {{ end }}
+          {{ end }}
+
+          {{ if $data }}
+            {{ if partialExists "icon.html" }}
+              <a href="{{ $data }}" class="link-icon" title="Dataset">{{ partial "icon.html" (dict "name" "database" "pack" "fas") }} DATA</a>
+            {{ else }}
+              <a href="{{ $data }}" class="link-icon" title="Dataset">
+                <i class="fa-solid fa-database"></i><span class="ml-1">DATA</span>
+              </a>
+            {{ end }}
+          {{ end }}
+
+          {{/* Always offer PAGE link */}}
+          {{ if partialExists "icon.html" }}
+            <a href="{{ $page }}" class="link-icon" title="Project/Page">{{ partial "icon.html" (dict "name" "globe" "pack" "fas") }} PAGE</a>
+          {{ else }}
+            <a href="{{ $page }}" class="link-icon" title="Project/Page">
+              <i class="fa-solid fa-globe"></i><span class="ml-1">PAGE</span>
+            </a>
+          {{ end }}
+
+          {{ if $video }}
+            {{ if partialExists "icon.html" }}
+              <a href="{{ $video }}" class="link-icon" title="Video">{{ partial "icon.html" (dict "name" "film" "pack" "fas") }} VIDEO</a>
+            {{ else }}
+              <a href="{{ $video }}" class="link-icon" title="Video">
+                <i class="fa-solid fa-film"></i><span class="ml-1">VIDEO</span>
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
       </li>
     {{ end }}
 
@@ -84,7 +153,7 @@
 <style>
 .year-heading{border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
 .pub-item{margin-left:1rem;text-indent:-1rem}
-.pub-links a{ text-decoration:none; opacity:.8 }
+.pub-links a{ text-decoration:none; opacity:.85 }
 .pub-links a:hover{ text-decoration:underline; opacity:1 }
 </style>
 {{ end }}
