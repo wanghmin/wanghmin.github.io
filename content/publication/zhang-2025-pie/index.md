@@ -6,14 +6,13 @@ authors:
 - Zegao Liu
 - Xinming Pei
 - Weiwei Xu
-- Huamin Wang
-date: '2025-01-01'
-publishDate: '2025-10-10T08:37:01.244413Z'
+- admin
+date: '2025-08-11'
+publishDate: '2025-05-13T06:24:55.245276Z'
 publication_types:
 - paper-conference
-publication: '*Proceedings of the Special Interest Group on Computer Graphics and
-  Interactive Techniques Conference Conference Papers*'
-doi: 10.1145/3721238.3730619
+publication: '*ACM SIGGRAPH 2025 Conference Papers*'
+
 abstract: 'In this paper, we tackle an important yet often overlooked question: What
   is the optimal mesh resolution for cloth simulation, without relying on preliminary
   simulations? The optimal resolution should be sufficient to capture fine details
@@ -22,7 +21,7 @@ abstract: 'In this paper, we tackle an important yet often overlooked question: 
   from the complex nature of wrinkle distribution, which varies spatially, temporally,
   and anisotropically across different orientations. To address this, we propose a
   method to estimate the optimal cloth mesh resolution, based on two key factors:
-  material stiffness and boundary conditions.To determine the influence of material
+  material stiffness and boundary conditions.   To determine the influence of material
   stiffness on wrinkle wavelength and amplitude, we apply the experimental theory
   presented by Cerda and Mahadevan [2003] to calculate the optimal mesh resolution
   for cloth fabrics. Similarly, for boundary conditions influencing local wrinkle
@@ -38,11 +37,20 @@ abstract: 'In this paper, we tackle an important yet often overlooked question: 
   Poisson sampling and Delaunay triangulation. The resulting method can not only enhance
   the realism and precision of cloth simulations but also support diverse application
   scenarios, making it a versatile solution for complex garment design.'
+summary:  we propose a novel method to determine the optimal mesh resolution
+  for cloth simulation, without running any preliminary simulations.
+featured: true
 tags:
 - mesh resolution
 - wrinkle wavelength
 - material stiffness
 links:
-- name: URL
-  url: https://doi.org/10.1145/3721238.3730619
+url_video: https://drive.google.com/file/d/1uFUiFCdFgzOE10Rl6pAPIZgCFRAuc1Cg/view?usp=sharing
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/XbMiDJY8zTM?si=sMtxnee_PObD_f3b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?isOutside=true&aid=114498996273590&bvid=BV1h97ZzVETW&cid=29936061694&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
