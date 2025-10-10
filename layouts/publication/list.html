@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="container mx-auto px-4">
 
-  {{/* Collect publications (robust) */}}
+  {{/* Collect publications */}}
   {{ $pubs := where .Site.RegularPages "Type" "publication" }}
   {{ if eq (len $pubs) 0 }}{{ $pubs = where .Site.RegularPages "Section" "publication" }}{{ end }}
 
@@ -23,7 +23,7 @@
         {{ $currentYear = $y }}
       {{ end }}
 
-      {{/* ---------- Authors: resolve slugs to profile titles; bold admin ---------- */}}
+      {{/* ---------- Authors: resolve slugs (bold admin) ---------- */}}
       {{ $authorNames := slice }}
       {{ range $slug := ($p.Params.authors | default (slice)) }}
         {{ $apage := site.GetPage (printf "authors/%s" $slug) }}
@@ -41,14 +41,13 @@
       {{ $vol := $p.Params.volume }}
       {{ $num := $p.Params.number }}
 
-      {{/* ---------- Build links (auto-discover from page bundle) ---------- */}}
-      {{/* PDF: first *.pdf in the page bundle (if any) */}}
+      {{/* ---------- Links (auto-detect from bundle) ---------- */}}
+      {{/* PDF from first *.pdf in page bundle */}}
       {{ $pdf := $p.Params.url_pdf }}
       {{ if not $pdf }}
         {{ with index ($p.Resources.Match "**.pdf") 0 }}{{ $pdf = .RelPermalink }}{{ end }}
       {{ end }}
-
-      {{/* CITE: url_cite, or first *.bib / *.ris */}}
+      {{/* CITE from url_cite or first *.bib/*.ris */}}
       {{ $cite := $p.Params.url_cite }}
       {{ if not $cite }}
         {{ with index ($p.Resources.Match "**.bib") 0 }}{{ $cite = .RelPermalink }}{{ end }}
@@ -56,11 +55,12 @@
           {{ with index ($p.Resources.Match "**.ris") 0 }}{{ $cite = .RelPermalink }}{{ end }}
         {{ end }}
       {{ end }}
-
       {{ $code := $p.Params.url_code }}
       {{ $data := or $p.Params.url_dataset $p.Params.url_data }}
       {{ $video := $p.Params.url_video }}
       {{ $page := $p.RelPermalink }}
+
+      {{/* Title link priority: PDF > url_custom > page */}}
       {{ $titleHref := $page }}
       {{ if $p.Params.url_custom }}{{ $titleHref = $p.Params.url_custom }}{{ end }}
       {{ if $pdf }}{{ $titleHref = $pdf }}{{ end }}
@@ -75,53 +75,30 @@
           {{ if $num }}({{ $num }}){{ end }}
         {{ end }}.
 
-        {{/* ---------- Mini icons on their own line (Hugo Blox icon helper) ---------- */}}
+        {{/* ---------- Mini icons (new line) using Hugo Blox get_icon ---------- */}}
         <div class="pub-links mt-1 text-sm space-x-3">
           {{ with $pdf }}
             <a href="{{ . }}" class="link-icon" title="PDF">
-              {{ partial "functions/get_icon" (dict "name" "document-text" "pack" "hero" "attributes" "class='inline h-4 w-4 align-[-0.11em]'") }} PDF
+              {{ partial "functions/get_icon" (dict "name" "document-text" "pack" "hero") }} PDF
             </a>
           {{ end }}
-
           {{ with $cite }}
             <a href="{{ . }}" class="link-icon" title="Cite/BibTeX">
-              {{ partial "functions/get_icon" (dict "name" "bookmark" "pack" "hero" "attributes" "class='inline h-4 w-4 align-[-0.11em]'") }} CITE
+              {{ partial "functions/get_icon" (dict "name" "bookmark" "pack" "hero") }} CITE
             </a>
           {{ end }}
-
           {{ with $code }}
             <a href="{{ . }}" class="link-icon" title="Code">
-              {{ partial "functions/get_icon" (dict "name" "code-bracket" "pack" "hero" "attributes" "class='inline h-4 w-4 align-[-0.11em]'") }} CODE
+              {{ partial "functions/get_icon" (dict "name" "code-bracket" "pack" "hero") }} CODE
             </a>
           {{ end }}
-
           {{ with $data }}
             <a href="{{ . }}" class="link-icon" title="Dataset">
-              {{ partial "functions/get_icon" (dict "name" "circle-stack" "pack" "hero" "attributes" "class='inline h-4 w-4 align-[-0.11em]'") }} DATA
+              {{ partial "functions/get_icon" (dict "name" "circle-stack" "pack" "hero") }} DATA
             </a>
           {{ end }}
-
           <a href="{{ $page }}" class="link-icon" title="Project/Page">
-            {{ partial "functions/get_icon" (dict "name" "globe-alt" "pack" "hero" "attributes" "class='inline h-4 w-4 align-[-0.11em]'") }} PAGE
+            {{ partial "functions/get_icon" (dict "name" "globe-alt" "pack" "hero") }} PAGE
           </a>
-
           {{ with $video }}
             <a href="{{ . }}" class="link-icon" title="Video">
-              {{ partial "functions/get_icon" (dict "name" "play-circle" "pack" "hero" "attributes" "class='inline h-4 w-4 align-[-0.11em]'") }} VIDEO
-            </a>
-          {{ end }}
-        </div>
-      </li>
-    {{ end }}
-
-    {{ if ne $currentYear "" }}</ul></section>{{ end }}
-  {{ end }}
-</main>
-
-<style>
-.year-heading{border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
-.pub-item{margin-left:1rem;text-indent:-1rem}
-.pub-links a{ text-decoration:none; opacity:.9 }
-.pub-links a:hover{ text-decoration:underline; opacity:1 }
-</style>
-{{ end }}
