@@ -10,3 +10,5 @@ banner:
   caption: ''
   image: ''
 ---
+
+{{< pub-year-labels >}}
