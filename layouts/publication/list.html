@@ -102,3 +102,21 @@
           </a>
           {{ with $video }}
             <a href="{{ . }}" class="link-icon" title="Video">
+              {{ partial "functions/get_icon" (dict "name" "play-circle" "pack" "hero") }} VIDEO
+            </a>
+          {{ end }}
+        </div>
+      </li>
+    {{ end }}
+
+    {{ if ne $currentYear "" }}</ul></section>{{ end }}
+  {{ end }}
+</main>
+
+<style>
+.year-heading{border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
+.pub-item{margin-left:1rem;text-indent:-1rem}
+.pub-links a{ text-decoration:none; opacity:.9 }
+.pub-links a:hover{ text-decoration:underline; opacity:1 }
+</style>
+{{ end }}
