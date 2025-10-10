@@ -1,5 +1,5 @@
 ---
-title: Fast Physics-Based Modeling of Knots and Ties using Templates
+title: Fast Physics-Based Modeling of Knots and Ties Using Templates
 authors:
 - Dewen Guo
 - Zhendong Wang
@@ -7,14 +7,13 @@ authors:
 - Sheng Li
 - Guoping Wang
 - Yin Yang
-- Huamin Wang
-date: '2025-01-01'
-publishDate: '2025-10-10T08:37:01.263403Z'
+- admin
+date: '2025-08-11'
+publishDate: '2025-05-13T06:24:55.262090Z'
 publication_types:
 - paper-conference
-publication: '*Proceedings of the Special Interest Group on Computer Graphics and
-  Interactive Techniques Conference Conference Papers*'
-doi: 10.1145/3721238.3730622
+publication: '*ACM SIGGRAPH 2025 Conference Papers*'
+
 abstract: Knots and ties are captivating elements of digital garments and accessories,
   but they have been notoriously challenging and computationally expensive to model
   manually. In this paper, we propose a physics-based modeling system for knots and
@@ -32,11 +31,20 @@ abstract: Knots and ties are captivating elements of digital garments and access
   demonstrate the system’s effectiveness and efficiency in modeling a wide range of
   digital knots and ties with diverse styles and shapes, including configurations
   that were previously impractical to create manually.
+summary: We propose an effective and efficient physics-based system for modeling knots and
+  ties using templates. It can model a wide range of knots and ties with diverse styles and shapes.
+featured: true
 tags:
 - cloth simulation
 - intersection-free
 - physics-based modeling
 links:
-- name: URL
-  url: https://doi.org/10.1145/3721238.3730622
+url_video: https://drive.google.com/file/d/1txtsSlalTjJkicU6lr-vjFQCV8e3yFyW/view?usp=sharing
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/6RiGgLUQ3ic?si=2qIHY2lF8GAldfCH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?isOutside=true&aid=114499046608438&bvid=BV1bR7ZzkEiW&cid=29936256484&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
