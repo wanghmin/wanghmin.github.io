@@ -1,6 +1,5 @@
 ---
-title: 'Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program
-  Synthesis'
+title: 'Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis'
 authors:
 - Feng Zhou
 - Ruiyang Liu
@@ -8,14 +7,14 @@ authors:
 - Gaofeng He
 - Yong-Lu Li
 - Xiaogang Jin
-- Huamin Wang
-date: '2025-06-01'
-publishDate: '2025-10-10T08:37:01.317772Z'
+- admin
+date: '2025-06-11'
+publishDate: '2025-05-13T06:24:55.234682Z'
 publication_types:
 - paper-conference
 publication: '*The IEEE/CVF Conference on Computer Vision and Pattern Recognition
   (CVPR)*'
-abstract: Sewing patterns, the essential blueprints for fabric cutting and tailoring,
+abstract: 'Sewing patterns, the essential blueprints for fabric cutting and tailoring,
   act as a crucial bridge between design concepts and producible garments. However,
   existing uni-modal sewing pattern generation models struggle to effectively encode
   complex design concepts with a multi-modal nature and correlate them with vectorized
@@ -30,5 +29,15 @@ abstract: Sewing patterns, the essential blueprints for fabric cutting and tailo
   flexibly handle various complex design expressions such as images, textual descriptions,
   designer sketches, or their combinations, and convert them into size-precise sewing
   patterns with correct stitches. Compared to previous methods, our approach significantly
-  enhances training efficiency, generation quality, and authoring flexibility.
+  enhances training efficiency, generation quality, and authoring flexibility.'
+summary:  We propose a sewing pattern generation approach based on Large Multimodal Models,
+  to generate parametric pattern-making programs from multi-modal design concepts.
+featured: true
+tags:
+- generative AI
+- sewing pattern
+links:
+- name: Page
+  url: https://style3d.github.io/design2garmentcode/
+url_code: https://github.com/Style3D/SXDGarmentCode
 ---
