@@ -1,45 +1,36 @@
 <style>
-  .pub-year { margin: 2rem 0 .75rem; font-weight: 600; font-size: 1.5rem;
-              border-bottom: 1px solid rgba(0,0,0,.08); padding-bottom: .25rem; }
-</style>
-<script>
-(function attachYearHeaders(){
-  function run() {
-    const root = document.querySelector('main') || document.body;
-    if (!root) return;
-    // Try common Blox list selectors; fall back to any <article>
-    const items = root.querySelectorAll(
-      '.view-list article, .article-list article, .publications article, article'
-    );
-    if (!items || items.length < 2) return;
-    if (root.querySelector('.pub-year')) return; // don’t double-insert
-
-    const getYear = (el) => {
-      const t = el.querySelector('time[datetime]');
-      if (t) {
-        const dt = t.getAttribute('datetime') || '';
-        if (/^\d{4}$/.test(dt)) return dt;
-        const d = new Date(dt);
-        if (!isNaN(d)) return String(d.getFullYear());
-      }
-      const m = (el.textContent || '').match(/\b(19|20)\d{2}\b/);
-      return m ? m[0] : '';
-    };
-
-    let last = '';
-    items.forEach((el) => {
-      const y = getYear(el);
-      if (y && y !== last) {
-        const h = document.createElement('h2');
-        h.className = 'pub-year';
-        h.id = 'y-' + y;
-        h.textContent = y;
-        el.parentNode.insertBefore(h, el);
-        last = y;
-      }
-    });
+  .pub-year-debug {
+    margin: 1rem 0;
+    padding: .5rem .75rem;
+    background: #fff7cc;
+    border: 1px solid #f4d03f;
+    border-radius: .375rem;
+    font-weight: 600;
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
-  window.addEventListener('load', () => setTimeout(run, 0));
+</style>
+
+<script>
+(function(){
+  // Always inject a debug banner at the top of <main> (or body as fallback)
+  const root = document.querySelector('main') || document.body;
+  const banner = document.createElement('div');
+  banner.className = 'pub-year-debug';
+  banner.textContent = '✅ Year-header script is RUNNING (debug banner).';
+  root.prepend(banner);
+
+  // Also log to console so you can verify in DevTools
+  console.log('[pub-year-test] script ran');
+
+  // Count items we think are publications and show the count
+  const items = root.querySelectorAll('.view-list article, .article-list article, .publications article, article');
+  banner.textContent += ` Found ${items.length} <article> nodes.`;
+
+  // Drop a sample static header before the FIRST item so you can see placement
+  if (items.length > 0) {
+    const sample = document.createElement('h2');
+    sample.textContent = 'SAMPLE YEAR HEADER (for testing only)';
+    sample.style.cssText = 'margin: 2rem 0 .75rem; font-weight: 700; font-size: 1.5rem; border-bottom: 1px solid rgba(0,0,0,.08); padding-bottom: .25rem;';
+    items[0].parentNode.insertBefore(sample, items[0]);
+  }
 })();
 </script>
