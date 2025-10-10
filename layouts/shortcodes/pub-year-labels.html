@@ -1,17 +1,15 @@
 <style>
   .pub-year {
-    margin: 2rem 0 .75rem;
+    margin: 2rem 0 .5rem;   /* keep some spacing */
     font-weight: 600;
     font-size: 1.5rem;
-    border-bottom: 1px solid rgba(0,0,0,.08);
-    padding-bottom: .25rem;
+    /* removed border-bottom + padding-bottom */
   }
 </style>
 
 <script>
 (function addYearHeaders(){
   function getYearFromItem(el){
-    // The citation view places "(YYYY)." as plain text inside the item.
     const txt = (el.textContent || '').replace(/\s+/g, ' ');
     const m = txt.match(/\((19|20)\d{2}\)/);
     return m ? m[0].slice(1,5) : '';
@@ -21,7 +19,6 @@
     const root = document.body;
     if (!root || root.querySelector('.pub-year')) return;
 
-    // Your items per source:
     const items = Array.from(root.querySelectorAll('.pub-list-item.view-citation'));
     if (items.length < 2) return;
 
@@ -38,12 +35,10 @@
       }
     });
 
-    // Debug
     console.log('[pub-year] items:', items.length,
                 'years sample:', items.slice(0,5).map(getYearFromItem));
   }
 
-  // Run when DOM is ready and after load (in case of late paints)
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', run);
   } else {
@@ -51,7 +46,6 @@
   }
   window.addEventListener('load', () => setTimeout(run, 0));
 
-  // Safety net: if the list is hydrated later, observe and try once.
   const obs = new MutationObserver((ms, ob) => {
     if (document.querySelector('.pub-list-item.view-citation') &&
         !document.querySelector('.pub-year')) {
