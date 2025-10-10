@@ -7,13 +7,13 @@ authors:
 - Huang Chen
 - Chen Liu
 - Xiaogang Jin
-- Huamin Wang
+- admin
 date: '2025-12-01'
 publishDate: '2025-10-10T08:37:01.301957Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia)*'
-doi: 10.1145/3763290
+publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 44*(6)'
+
 abstract: 'Diffusion models have significantly advanced image manipulation techniques,
   and their ability to generate photorealistic images is beginning to transform retail
   workflows, particularly in presale visualization. Beyond artistic style transfer,
@@ -42,6 +42,7 @@ tags:
 - low-rank adaptation
 - contrastive learning
 links:
-- name: URL
-  url: https://doi.org/10.1145/3763290
+- name: Page
+  url: https://style3d.github.io/embroidery_customization/
+url_code: https://github.com/Style3D/embroidery_customization-impl
 ---
