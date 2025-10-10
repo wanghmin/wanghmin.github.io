@@ -1,5 +1,5 @@
 <style>
-  /* Apply a 2-col grid ONLY when a thumb exists */
+  /* Turn a pub item into a 2-col grid ONLY when a thumb exists */
   .pub-list-item.view-citation.pub-has-thumb {
     display: grid;
     grid-template-columns: 110px 1fr;  /* left thumb | right content */
@@ -7,38 +7,91 @@
     align-items: start;
   }
 
-  /* The left column: the thumb link */
+  /* Left column = the thumb link */
   .pub-list-item.view-citation.pub-has-thumb > a.pub-thumb-link {
     grid-column: 1;
   }
 
-  /* Everything else goes in the right column automatically */
+  /* Everything else stays in the right column */
   .pub-list-item.view-citation.pub-has-thumb > *:not(a.pub-thumb-link) {
     grid-column: 2;
-    min-width: 0; /* prevent overflow on long titles */
+    min-width: 0;
   }
 
-  /* Thumbnail itself */
+  /* The thumbnail itself */
   .pub-thumb-inline {
-    width: 191px;
-    height: 108px;
+    width: 160px;
+    height: 90px;
     object-fit: cover;
     border-radius: 8px;
     background: #f2f2f2;
     display: block;
   }
 
-  /* Responsive: stack on narrow screens */
+  /* Responsive: stack on small screens */
   @media (max-width: 640px) {
-    .pub-list-item.view-citation.pub-has-thumb {
-      grid-template-columns: 1fr;
-    }
-    .pub-list-item.view-citation.pub-has-thumb > a.pub-thumb-link {
-      grid-column: 1;
-      margin-bottom: 8px;
-    }
-    .pub-list-item.view-citation.pub-has-thumb > *:not(a.pub-thumb-link) {
-      grid-column: 1;
-    }
+    .pub-list-item.view-citation.pub-has-thumb { grid-template-columns: 1fr; }
+    .pub-list-item.view-citation.pub-has-thumb > * { grid-column: 1; }
   }
 </style>
+
+<script>
+(function addPubThumbs(){
+  const items = Array.from(document.querySelectorAll('.pub-list-item.view-citation'));
+  if (!items.length) return;
+
+  const names = ['featured','teaser','thumb','thumbnail','cover','image'];
+  const exts  = ['png','webp','jpg','jpeg','gif'];
+
+  items.forEach((item) => {
+    if (item.dataset.thumbAdded === '1') return;
+    item.dataset.thumbAdded = '1';
+
+    // Find the publication page link (e.g., /publication/slug/)
+    const a = item.querySelector('a[href*="/publication/"]') || item.querySelector('a.underline');
+    if (!a) return;
+
+    const base = new URL(a.getAttribute('href'), document.baseURI);
+    if (!base.pathname.endsWith('/')) base.pathname += '/';
+
+    // Candidate URLs inside that folder
+    const candidates = [];
+    for (const n of names) for (const e of exts) {
+      candidates.push(new URL(n + '.' + e, base).href);
+    }
+
+    // Probe off-DOM; only append after a real image loads
+    let idx = 0;
+    const probe = new Image();
+    probe.decoding = 'async';
+    probe.loading  = 'eager';
+
+    probe.onload = () => {
+      // Build the actual DOM nodes now that we have a valid src
+      const img  = document.createElement('img');
+      img.className = 'pub-thumb-inline';
+      img.width  = 110; img.height = 110;
+      img.alt    = 'thumbnail';
+      img.src    = probe.src;
+
+      const link = document.createElement('a');
+      link.href = a.href;
+      link.className = 'pub-thumb-link';
+      link.appendChild(img);
+
+      item.classList.add('pub-has-thumb');
+      item.insertBefore(link, item.firstChild);
+    };
+
+    probe.onerror = () => {
+      idx += 1;
+      if (idx < candidates.length) {
+        probe.src = candidates[idx];
+      } // else: no thumb; leave item unchanged
+    };
+
+    // Start trying candidates
+    probe.src = candidates[idx];
+  });
+})();
+</script>
