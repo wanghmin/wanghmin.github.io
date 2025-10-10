@@ -1,5 +1,4 @@
 <style>
-  /* Small, floated thumbnail that doesn’t alter the item’s layout */
   .pub-thumb-inline {
     float: left;
     width: 96px;
@@ -9,7 +8,6 @@
     margin: 4px 12px 6px 0;
     background: #f2f2f2;
   }
-  /* Contain the float so links/attachments don’t overlap it */
   .pub-list-item.view-citation { overflow: auto; }
 </style>
 
@@ -19,48 +17,61 @@
   if (!items.length) return;
 
   items.forEach(async (el) => {
-    if (el.dataset.thumbAdded === '1') return; // guard
+    if (el.dataset.thumbAdded === '1') return;
     el.dataset.thumbAdded = '1';
 
-    // Find the publication page link (e.g., /publication/yuan-2024-vhk/)
     const a = el.querySelector('a[href*="/publication/"]') || el.querySelector('a.underline');
     if (!a) return;
 
-    // Build absolute base URL to the folder
+    // Base = the paper page folder (e.g., /publication/yuan-2024-vhk/)
     const base = new URL(a.getAttribute('href'), location.origin);
     if (!base.pathname.endsWith('/')) base.pathname += '/';
 
-    // Only try featured.* in that folder (you can add more names if needed)
-    const candidates = ['featured.png','featured.webp','featured.jpg','featured.jpeg','featured.gif']
-      .map(name => new URL(base.pathname + name, base).href);
+    // 1) Try common filenames right in that folder
+    const tryNames = ['featured.png','featured.webp','featured.jpg','featured.jpeg','featured.gif'];
+    const directCandidates = tryNames.map(n => new URL(n, base).href);
 
-    const src = await firstLoadable(candidates);
-    if (!src) return;
+    let src = await firstLoadable(directCandidates);
 
-    // Create an inline floated thumbnail and insert as the very first child
-    const img = document.createElement('img');
+    // 2) Fallback: fetch the paper page and look for any image that includes "featured"
+    if (!src) {
+      try {
+        const html = await fetch(base.href, { credentials: 'same-origin' }).then(r => r.text());
+        const doc  = new DOMParser().parseFromString(html, 'text/html');
+        // Prefer images with "featured" in the filename; else first image in article
+        let cand = doc.querySelector('img[src*="featured"]')?.getAttribute('src')
+                 || doc.querySelector('figure img, article img')?.getAttribute('src');
+        if (cand) src = new URL(cand, base).href;
+      } catch (e) {
+        // silent – leave without thumb
+      }
+    }
+
+    if (!src) return; // no image found
+
+    // Insert floated thumbnail (clickable)
+    const img  = document.createElement('img');
     img.className = 'pub-thumb-inline';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.alt = 'thumbnail';
-    img.src = src;
+    img.loading   = 'lazy';
+    img.decoding  = 'async';
+    img.alt       = 'thumbnail';
+    img.src       = src;
 
-    // Make the image clickable: link to the publication page
     const link = document.createElement('a');
     link.href = a.href;
     link.appendChild(img);
-
     el.insertBefore(link, el.firstChild);
+
+    // Debug so you can verify in DevTools
+    console.log('[pub-thumbs] inserted', src, 'for', base.href);
   });
 
   function firstLoadable(urls){
-    // Try sequentially; resolve with first that loads
+    // Try sequentially so we don't spam requests
     return new Promise(async (resolve) => {
       for (const u of urls) {
-        try {
-          await loadImage(u);
-          return resolve(u);
-        } catch {}
+        try { await loadImage(u); return resolve(u); }
+        catch { /* try next */ }
       }
       resolve(null);
     });
