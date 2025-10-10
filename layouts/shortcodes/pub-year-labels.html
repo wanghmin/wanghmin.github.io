@@ -10,43 +10,42 @@
 
 <script>
 (function attachYearHeaders(){
-  // Pick likely citation items on "view: citation" pages (keep broad but harmless).
   const root = document.querySelector('main') || document.body;
   if (!root) return;
-
-  // Common wrappers for Hugo Blox "citation" view:
-  // - list items under .view-citation
-  // - any elements with 'citation' in class
-  // - fallback to li/article if theme differs
-  const candidates = root.querySelectorAll(
-    '.view-citation li, .view-citation [class*="citation"], ' +
-    '.publications [class*="citation"], ' +
-    'li, article'
-  );
-
-  // Filter to nodes that actually look like citations: contain "(YYYY)"
-  const items = Array.from(candidates).filter(el => {
-    const txt = (el.textContent || '').replace(/\s+/g,' ');
-    return /\((19|20)\d{2}\)/.test(txt) && txt.length > 30;
-  });
-
-  if (items.length < 2) return;           // nothing to do on single-item pages
   if (root.querySelector('.pub-year')) return; // avoid double insert
 
-  const yearFromCitation = el => {
+  // 1) Find all elements that LOOK like a citation line (contain "(YYYY)")
+  const all = Array.from(root.querySelectorAll('*:not(script):not(style)'))
+    .filter(el => {
+      const txt = (el.textContent || '').replace(/\s+/g,' ').trim();
+      if (txt.length < 20) return false;                // too short to be a citation
+      if (!/\((19|20)\d{2}\)/.test(txt)) return false;  // no (YYYY)
+      // Prefer block-ish elements so we don’t grab inline spans
+      const disp = getComputedStyle(el).display;
+      return disp !== 'inline' && disp !== 'none';
+    });
+
+  if (!all.length) return;
+
+  // 2) Keep only the TOPMOST elements that contain years (avoid nested duplicates)
+  const items = all.filter(el => !all.some(other => other !== el && other.contains(el)));
+
+  if (items.length < 2) return;
+
+  // 3) Insert year headers before first item of each year
+  const yearFromText = el => {
     const m = (el.textContent || '').match(/\((19|20)\d{2}\)/);
     return m ? m[0].slice(1,5) : '';
   };
 
   let last = '';
   items.forEach(el => {
-    const y = yearFromCitation(el);
+    const y = yearFromText(el);
     if (y && y !== last) {
       const h = document.createElement('h2');
       h.className = 'pub-year';
       h.id = 'y-' + y;
       h.textContent = y;
-      // Insert header before the citation node (handles li/article/div alike)
       el.parentNode && el.parentNode.insertBefore(h, el);
       last = y;
     }
