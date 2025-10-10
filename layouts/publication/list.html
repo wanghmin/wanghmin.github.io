@@ -1,30 +1,58 @@
 {{ define "main" }}
 <main class="container mx-auto px-4">
-  {{/* Prefer the section's own pages; fall back to site-wide */}}
-  {{ $pubs := .RegularPages }}
+
+  {{/* Collect publications robustly */}}
+  {{ $pubs := where .Site.RegularPages "Type" "publication" }}
   {{ if eq (len $pubs) 0 }}
-    {{ $pubs = where site.RegularPages "Type" "publication" }}
-    {{ if eq (len $pubs) 0 }}
-      {{ $pubs = where site.RegularPages "Section" "publication" }}
-    {{ end }}
+    {{ $pubs = where .Site.RegularPages "Section" "publication" }}
   {{ end }}
 
   {{ if eq (len $pubs) 0 }}
-    <p>No publications found. Check that files are under <code>content/publication/</code> and each has a valid <code>date</code>.</p>
+    <p>No publications found.</p>
   {{ else }}
-    {{ range ($pubs.GroupByDate "2006").Reverse }}
-      <section id="y-{{ .Key }}" class="mb-8">
-        <h2 class="year-heading text-2xl font-semibold mt-10 mb-4">{{ .Key }}</h2>
-        <div class="space-y-6">
-          {{ range .Pages.ByDate.Reverse }}
-            {{ .Render "summary" }}
-          {{ end }}
-        </div>
-      </section>
+
+    {{ $sorted := $pubs.ByDate.Reverse }}
+
+    {{ $currentYear := "" }}
+    {{ range $p := $sorted }}
+      {{/* Determine display year: prefer front matter `publication_year`, fallback to .Date */}}
+      {{ $y := "" }}
+      {{ if $p.Params.publication_year }}
+        {{ $y = printf "%v" $p.Params.publication_year }}
+      {{ else }}
+        {{ $y = $p.Date.Format "2006" }}
+      {{ end }}
+
+      {{/* Start a new year block when the year changes */}}
+      {{ if ne $y $currentYear }}
+        {{ if ne $currentYear "" }}</ul></section>{{ end }}
+        <section id="y-{{ $y }}" class="mb-8">
+          <h2 class="year-heading text-2xl font-semibold mt-10 mb-3">{{ $y }}</h2>
+          <ul class="list-none space-y-2">
+        {{ $currentYear = $y }}
+      {{ end }}
+
+      {{/* Choose the best link target for the title */}}
+      {{ $link := $p.RelPermalink }}
+      {{ if $p.Params.url_pdf }}{{ $link = $p.Params.url_pdf }}{{ end }}
+      {{ if $p.Params.url_custom }}{{ $link = $p.Params.url_custom }}{{ end }}
+
+      <li class="pub-item">
+        <a href="{{ $link }}" class="pub-title hover:underline">{{ $p.Title }}</a>
+        {{/* Optional: add venue or authors inline if you want
+        <span class="pub-venue opacity-70"> — {{ with $p.Params.publication }}{{ . }}{{ end }}</span>
+        */}}
+      </li>
+
     {{ end }}
+    {{ if ne $currentYear "" }}</ul></section>{{ end }}
+
   {{ end }}
 </main>
+
 <style>
 .year-heading{border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
+.pub-item{line-height:1.4}
+.pub-title{text-decoration:none}
 </style>
 {{ end }}
