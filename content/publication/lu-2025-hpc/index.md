@@ -4,7 +4,7 @@ authors:
 - Zixuan Lu
 - Ziheng Liu
 - Lei Lan
-- Huamin Wang
+- admin
 - Yuko Ishiwaka
 - Chenfanfu Jiang
 - Kui Wu
@@ -13,7 +13,7 @@ date: '2025-07-01'
 publishDate: '2025-10-10T08:37:01.278987Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH)*'
+publication: '*ACM Trans. Graph. (SIGGRAPH), 44*(4)'
 doi: 10.1145/3731182
 abstract: Whenever the concept of high-performance cloth simulation is brought up,
   GPU acceleration is almost always the first that comes to mind. Leveraging immense
@@ -40,6 +40,12 @@ tags:
 - GPU algorithm
 - CPU algorithm
 links:
-- name: URL
-  url: https://doi.org/10.1145/3731182
+url_video: https://drive.google.com/file/d/1kafSWDTJ8wiSvPrt9c3MaYG8Y6gysooF/view
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/JTSIoMnVPJ0?si=53hYxUenAEF1rAKn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?isOutside=true&aid=115349181697830&bvid=BV1kY4Jz1E1c&cid=32966837495&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
