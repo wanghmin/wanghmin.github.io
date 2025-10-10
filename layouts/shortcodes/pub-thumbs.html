@@ -1,37 +1,24 @@
 <style>
-  /* Turn a pub item into a 2-col grid ONLY when a thumb exists */
-  .pub-list-item.view-citation.pub-has-thumb {
-    display: grid;
-    grid-template-columns: 110px 1fr;  /* left thumb | right content */
-    gap: 12px;
-    align-items: start;
+  /* Each citation reserves a left gutter for the thumb */
+  .pub-list-item.view-citation {
+    position: relative;
+    padding-left: 112px;    /* thumb width (96) + gap (16) */
+    min-height: 96px;       /* ensure the row is tall enough for the thumb */
   }
 
-  /* Left column = the thumb link */
-  .pub-list-item.view-citation.pub-has-thumb > a.pub-thumb-link {
-    grid-column: 1;
+  /* Absolutely-positioned thumb in the left gutter */
+  .pub-thumb-wrap {
+    position: absolute;
+    left: 0;
+    top: 4px;
   }
-
-  /* Everything else stays in the right column */
-  .pub-list-item.view-citation.pub-has-thumb > *:not(a.pub-thumb-link) {
-    grid-column: 2;
-    min-width: 0;
-  }
-
-  /* The thumbnail itself */
-  .pub-thumb-inline {
-    width: 160px;
-    height: 90px;
+  .pub-thumb-abs {
+    width: 96px;
+    height: 96px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #f2f2f2;
     display: block;
-  }
-
-  /* Responsive: stack on small screens */
-  @media (max-width: 640px) {
-    .pub-list-item.view-citation.pub-has-thumb { grid-template-columns: 1fr; }
-    .pub-list-item.view-citation.pub-has-thumb > * { grid-column: 1; }
   }
 </style>
 
@@ -43,55 +30,43 @@
   const names = ['featured','teaser','thumb','thumbnail','cover','image'];
   const exts  = ['png','webp','jpg','jpeg','gif'];
 
-  items.forEach((item) => {
-    if (item.dataset.thumbAdded === '1') return;
-    item.dataset.thumbAdded = '1';
+  items.forEach((el) => {
+    if (el.dataset.thumbAdded === '1') return;
+    el.dataset.thumbAdded = '1';
 
-    // Find the publication page link (e.g., /publication/slug/)
-    const a = item.querySelector('a[href*="/publication/"]') || item.querySelector('a.underline');
+    const a = el.querySelector('a[href*="/publication/"]') || el.querySelector('a.underline');
     if (!a) return;
 
     const base = new URL(a.getAttribute('href'), document.baseURI);
     if (!base.pathname.endsWith('/')) base.pathname += '/';
 
-    // Candidate URLs inside that folder
     const candidates = [];
     for (const n of names) for (const e of exts) {
       candidates.push(new URL(n + '.' + e, base).href);
     }
 
-    // Probe off-DOM; only append after a real image loads
-    let idx = 0;
-    const probe = new Image();
-    probe.decoding = 'async';
-    probe.loading  = 'eager';
+    const img = document.createElement('img');
+    img.className = 'pub-thumb-abs';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.alt = 'thumbnail';
 
-    probe.onload = () => {
-      // Build the actual DOM nodes now that we have a valid src
-      const img  = document.createElement('img');
-      img.className = 'pub-thumb-inline';
-      img.width  = 110; img.height = 110;
-      img.alt    = 'thumbnail';
-      img.src    = probe.src;
+    let i = 0;
+    function tryNext(){
+      if (i >= candidates.length) { wrap.remove(); return; }
+      img.src = candidates[i++];  // will trigger a visible network request
+    }
+    img.onerror = tryNext;
 
-      const link = document.createElement('a');
-      link.href = a.href;
-      link.className = 'pub-thumb-link';
-      link.appendChild(img);
+    const wrap = document.createElement('a');
+    wrap.className = 'pub-thumb-wrap';
+    wrap.href = a.href;
+    wrap.appendChild(img);
 
-      item.classList.add('pub-has-thumb');
-      item.insertBefore(link, item.firstChild);
-    };
+    // Insert the positioned thumb; all existing content stays in the padded right column
+    el.insertBefore(wrap, el.firstChild);
 
-    probe.onerror = () => {
-      idx += 1;
-      if (idx < candidates.length) {
-        probe.src = candidates[idx];
-      } // else: no thumb; leave item unchanged
-    };
-
-    // Start trying candidates
-    probe.src = candidates[idx];
+    tryNext();
   });
 })();
 </script>
