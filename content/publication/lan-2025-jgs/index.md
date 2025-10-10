@@ -13,8 +13,8 @@ date: '2025-07-01'
 publishDate: '2025-10-10T08:37:01.271116Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH)*'
-doi: 10.1145/3731183
+publication: '*ACM Trans. Graph. (SIGGRAPH), 44*(4)'
+
 abstract: In parallel simulation, convergence and parallelism are often seen as inherently
   conflicting objectives. Improved parallelism typically entails lighter local computation
   and weaker coupling, which unavoidably slow the global convergence. This paper presents
@@ -39,6 +39,12 @@ tags:
 - numerical optimization
 - parallel computation
 links:
-- name: URL
-  url: https://doi.org/10.1145/3731183
+url_video: https://drive.google.com/file/d/19YTzkYbGTsBXUX3_dLlnZvpcXBo499JD/view
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/U7kX2zSqu5s?si=b3ODOnZRRH26bObm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?isOutside=true&aid=115349282491022&bvid=BV1Ek4Jz6Ev7&cid=32967491898&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
