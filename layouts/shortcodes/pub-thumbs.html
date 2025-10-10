@@ -1,20 +1,16 @@
 <style>
-  /* Make each citation a 2-column row: [thumb] [citation text] */
-  .pub-list-item.view-citation {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 12px;
-    align-items: start;
-  }
-  .pub-list-item.view-citation.no-thumb {
-    display: block;                 /* fall back to normal if no image */
-  }
-  .pub-thumb {
-    width: 110px; height: 110px;
+  /* Small, floated thumbnail that doesn’t alter the item’s layout */
+  .pub-thumb-inline {
+    float: left;
+    width: 96px;
+    height: 96px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 6px;
+    margin: 4px 12px 6px 0;
     background: #f2f2f2;
   }
+  /* Contain the float so links/attachments don’t overlap it */
+  .pub-list-item.view-citation { overflow: auto; }
 </style>
 
 <script>
@@ -22,53 +18,55 @@
   const items = Array.from(document.querySelectorAll('.pub-list-item.view-citation'));
   if (!items.length) return;
 
-  const names = ['featured','teaser','thumb','thumbnail','cover','image'];
-  const exts  = ['png','webp','jpg','jpeg','gif'];
-
   items.forEach(async (el) => {
-    try {
-      // Find the paper link (points to /publication/<slug>/)
-      const a = el.querySelector('a[href*="/publication/"]') || el.querySelector('a.underline');
-      if (!a) { el.classList.add('no-thumb'); return; }
+    if (el.dataset.thumbAdded === '1') return; // guard
+    el.dataset.thumbAdded = '1';
 
-      // Build the base folder URL.
-      const base = new URL(a.getAttribute('href'), location.origin);
-      if (!base.pathname.endsWith('/')) base.pathname += '/';
+    // Find the publication page link (e.g., /publication/yuan-2024-vhk/)
+    const a = el.querySelector('a[href*="/publication/"]') || el.querySelector('a.underline');
+    if (!a) return;
 
-      // Try common filenames in that folder, stop at first that loads.
-      const src = await findExistingImage(base, names, exts);
-      if (!src) { el.classList.add('no-thumb'); return; }
+    // Build absolute base URL to the folder
+    const base = new URL(a.getAttribute('href'), location.origin);
+    if (!base.pathname.endsWith('/')) base.pathname += '/';
 
-      // Create <img> and insert as first column; wrap with the paper link.
-      const img = document.createElement('img');
-      img.className = 'pub-thumb';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.alt = 'thumbnail';
-      img.src = src;
+    // Only try featured.* in that folder (you can add more names if needed)
+    const candidates = ['featured.png','featured.webp','featured.jpg','featured.jpeg','featured.gif']
+      .map(name => new URL(base.pathname + name, base).href);
 
-      const link = document.createElement('a');
-      link.href = a.href;         // or point to PDF if you prefer
-      link.appendChild(img);
+    const src = await firstLoadable(candidates);
+    if (!src) return;
 
-      el.insertBefore(link, el.firstChild);
-    } catch {
-      el.classList.add('no-thumb');
-    }
+    // Create an inline floated thumbnail and insert as the very first child
+    const img = document.createElement('img');
+    img.className = 'pub-thumb-inline';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.alt = 'thumbnail';
+    img.src = src;
+
+    // Make the image clickable: link to the publication page
+    const link = document.createElement('a');
+    link.href = a.href;
+    link.appendChild(img);
+
+    el.insertBefore(link, el.firstChild);
   });
 
-  function findExistingImage(base, names, exts){
-    // Try sequentially to avoid hammering the server.
-    const candidates = [];
-    for (const n of names) for (const e of exts) {
-      const u = new URL(base.href);
-      u.pathname = u.pathname + `${n}.${e}`;
-      candidates.push(u.href);
-    }
-    return trySequential(candidates, testImg);
+  function firstLoadable(urls){
+    // Try sequentially; resolve with first that loads
+    return new Promise(async (resolve) => {
+      for (const u of urls) {
+        try {
+          await loadImage(u);
+          return resolve(u);
+        } catch {}
+      }
+      resolve(null);
+    });
   }
 
-  function testImg(url){
+  function loadImage(url){
     return new Promise((resolve, reject) => {
       const i = new Image();
       i.onload = () => resolve(url);
@@ -76,12 +74,5 @@
       i.src = url;
     });
   }
-
-  async function trySequential(arr, tester){
-    for (const it of arr) {
-      try { const ok = await tester(it); return ok; } catch {}
-    }
-    return null;
-    }
 })();
 </script>
