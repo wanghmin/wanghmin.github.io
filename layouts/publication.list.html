@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main class="container">
+  {{ $pubs := (where .Site.RegularPages "Section" "publication") }}
+  {{ range ($pubs.GroupByDate "2006").Reverse }}
+    <section class="year-group" id="y-{{ .Key }}">
+      <h2 class="year sticky top-16 bg-white/80 backdrop-blur px-2 py-1 font-semibold">
+        {{ .Key }} <button class="toggle text-sm" data-target="g-{{ .Key }}">toggle</button>
+      </h2>
+      <div id="g-{{ .Key }}" class="group-body space-y-6">
+        {{ range .Pages.ByDate.Reverse }}
+          {{ .Render "summary" }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+</main>
+<script>
+document.querySelectorAll('.toggle').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const el = document.getElementById(btn.dataset.target);
+    el.style.display = (el.style.display==='none') ? '' : 'none';
+  });
+});
+</script>
+<style>
+.year { border-bottom: 1px solid rgba(0,0,0,.08); }
+</style>
+{{ end }}
