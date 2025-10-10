@@ -1,36 +1,55 @@
 <style>
-  .pub-year-debug {
-    margin: 1rem 0;
-    padding: .5rem .75rem;
-    background: #fff7cc;
-    border: 1px solid #f4d03f;
-    border-radius: .375rem;
+  .pub-year {
+    margin: 2rem 0 .75rem;
     font-weight: 600;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    padding-bottom: .25rem;
   }
 </style>
 
 <script>
-(function(){
-  // Always inject a debug banner at the top of <main> (or body as fallback)
+(function attachYearHeaders(){
+  // Pick likely citation items on "view: citation" pages (keep broad but harmless).
   const root = document.querySelector('main') || document.body;
-  const banner = document.createElement('div');
-  banner.className = 'pub-year-debug';
-  banner.textContent = '✅ Year-header script is RUNNING (debug banner).';
-  root.prepend(banner);
+  if (!root) return;
 
-  // Also log to console so you can verify in DevTools
-  console.log('[pub-year-test] script ran');
+  // Common wrappers for Hugo Blox "citation" view:
+  // - list items under .view-citation
+  // - any elements with 'citation' in class
+  // - fallback to li/article if theme differs
+  const candidates = root.querySelectorAll(
+    '.view-citation li, .view-citation [class*="citation"], ' +
+    '.publications [class*="citation"], ' +
+    'li, article'
+  );
 
-  // Count items we think are publications and show the count
-  const items = root.querySelectorAll('.view-list article, .article-list article, .publications article, article');
-  banner.textContent += ` Found ${items.length} <article> nodes.`;
+  // Filter to nodes that actually look like citations: contain "(YYYY)"
+  const items = Array.from(candidates).filter(el => {
+    const txt = (el.textContent || '').replace(/\s+/g,' ');
+    return /\((19|20)\d{2}\)/.test(txt) && txt.length > 30;
+  });
 
-  // Drop a sample static header before the FIRST item so you can see placement
-  if (items.length > 0) {
-    const sample = document.createElement('h2');
-    sample.textContent = 'SAMPLE YEAR HEADER (for testing only)';
-    sample.style.cssText = 'margin: 2rem 0 .75rem; font-weight: 700; font-size: 1.5rem; border-bottom: 1px solid rgba(0,0,0,.08); padding-bottom: .25rem;';
-    items[0].parentNode.insertBefore(sample, items[0]);
-  }
+  if (items.length < 2) return;           // nothing to do on single-item pages
+  if (root.querySelector('.pub-year')) return; // avoid double insert
+
+  const yearFromCitation = el => {
+    const m = (el.textContent || '').match(/\((19|20)\d{2}\)/);
+    return m ? m[0].slice(1,5) : '';
+  };
+
+  let last = '';
+  items.forEach(el => {
+    const y = yearFromCitation(el);
+    if (y && y !== last) {
+      const h = document.createElement('h2');
+      h.className = 'pub-year';
+      h.id = 'y-' + y;
+      h.textContent = y;
+      // Insert header before the citation node (handles li/article/div alike)
+      el.parentNode && el.parentNode.insertBefore(h, el);
+      last = y;
+    }
+  });
 })();
 </script>
