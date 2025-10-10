@@ -1,0 +1,28 @@
+{{/* layouts/partials/foot_custom.html (or your site footer partial) */}}
+{{ if and .IsSection (eq .Section "publication") }}
+<style>
+  .pub-year{margin:2rem 0 .75rem;font-weight:600;font-size:1.5rem;border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
+</style>
+<script>
+(function(){
+  const root = document.querySelector('main') || document.body;
+  const items = root.querySelectorAll('.article-list article, .view-list article, .publications article, article');
+  if (!items.length) return;
+  const getYear = el => {
+    const t = el.querySelector('time[datetime]');
+    if (t) { const dt = t.getAttribute('datetime'); if (/^\d{4}$/.test(dt)) return dt; const d = dt && new Date(dt); if (d && !isNaN(d)) return String(d.getFullYear()); }
+    const m = el.textContent.match(/\b(19|20)\d{2}\b/); return m ? m[0] : '';
+  };
+  let last = '';
+  items.forEach(el=>{
+    const y = getYear(el);
+    if (y && y !== last) {
+      const h = document.createElement('h2');
+      h.className = 'pub-year'; h.id = 'y-'+y; h.textContent = y;
+      el.parentNode.insertBefore(h, el);
+      last = y;
+    }
+  });
+})();
+</script>
+{{ end }}
