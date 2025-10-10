@@ -12,10 +12,10 @@
   {{ else }}
 
     {{ $sorted := $pubs.ByDate.Reverse }}
-
     {{ $currentYear := "" }}
+
     {{ range $p := $sorted }}
-      {{/* Determine display year: prefer front matter `publication_year`, fallback to .Date */}}
+      {{/* Get year (prefer publication_year) */}}
       {{ $y := "" }}
       {{ if $p.Params.publication_year }}
         {{ $y = printf "%v" $p.Params.publication_year }}
@@ -23,25 +23,49 @@
         {{ $y = $p.Date.Format "2006" }}
       {{ end }}
 
-      {{/* Start a new year block when the year changes */}}
       {{ if ne $y $currentYear }}
         {{ if ne $currentYear "" }}</ul></section>{{ end }}
         <section id="y-{{ $y }}" class="mb-8">
-          <h2 class="year-heading text-2xl font-semibold mt-10 mb-3">{{ $y }}</h2>
-          <ul class="list-none space-y-2">
+          <h2 class="year-heading text-2xl font-semibold mt-10 mb-4">{{ $y }}</h2>
+          <ul class="list-none space-y-3">
         {{ $currentYear = $y }}
       {{ end }}
 
-      {{/* Choose the best link target for the title */}}
+      {{/* Build authors list */}}
+      {{ $authors := "" }}
+      {{ if $p.Params.authors }}
+        {{ $authors = delimit $p.Params.authors ", " }}
+      {{ end }}
+
+      {{/* Build venue/journal info */}}
+      {{ $venue := "" }}
+      {{ if $p.Params.publication }}
+        {{ $venue = $p.Params.publication }}
+      {{ end }}
+      {{ if $p.Params.journal }}
+        {{ $venue = $p.Params.journal }}
+      {{ end }}
+
+      {{/* Optional volume/issue */}}
+      {{ $vol := $p.Params.volume }}
+      {{ $num := $p.Params.number }}
+
+      {{/* Choose link */}}
       {{ $link := $p.RelPermalink }}
       {{ if $p.Params.url_pdf }}{{ $link = $p.Params.url_pdf }}{{ end }}
       {{ if $p.Params.url_custom }}{{ $link = $p.Params.url_custom }}{{ end }}
 
-      <li class="pub-item">
-        <a href="{{ $link }}" class="pub-title hover:underline">{{ $p.Title }}</a>
-        {{/* Optional: add venue or authors inline if you want
-        <span class="pub-venue opacity-70"> — {{ with $p.Params.publication }}{{ . }}{{ end }}</span>
-        */}}
+      <li class="pub-item leading-snug">
+        {{ with $authors }}{{ . }}{{ end }}
+        {{ if $y }} ({{ $y }}).{{ end }}
+        <a href="{{ $link }}" class="pub-title font-medium italic hover:underline">
+          {{ $p.Title }}
+        </a>.
+        {{ with $venue }} <em>{{ . }}</em>{{ end }}
+        {{ if or $vol $num }}
+          {{ if $vol }}, {{ $vol }}{{ end }}
+          {{ if $num }}({{ $num }}){{ end }}.
+        {{ end }}
       </li>
 
     {{ end }}
@@ -51,8 +75,13 @@
 </main>
 
 <style>
-.year-heading{border-bottom:1px solid rgba(0,0,0,.08);padding-bottom:.25rem}
-.pub-item{line-height:1.4}
-.pub-title{text-decoration:none}
+.year-heading {
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  padding-bottom: .25rem;
+}
+.pub-item {
+  margin-left: 1rem;
+  text-indent: -1rem;
+}
 </style>
 {{ end }}
