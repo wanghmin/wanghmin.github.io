@@ -9,13 +9,13 @@ authors:
 - Gaofeng He
 - Yong-Lu Li
 - Xiaogang Jin
-- Huamin Wang
+- admin
 date: '2025-12-01'
 publishDate: '2025-10-10T08:37:01.309982Z'
 publication_types:
 - article-journal
 publication: '*ACM Trans. Graph. (SIGGRAPH Asia)*'
-doi: 10.1145/3763271
+
 abstract: Realistic digital garment modeling remains a labor-intensive task due to
   the intricate process of translating 2D sewing patterns into high-fidelity, simulation-ready
   3D garments. We introduce GarmageNet, a unified generative framework that automates
@@ -40,6 +40,8 @@ tags:
 - garment dataset
 - diffusion Generation
 links:
-- name: URL
-  url: https://doi.org/10.1145/3763271
+- name: Page
+  url: https://style3d.github.io/garmagenet/
+url_code: https://github.com/Style3D/garmagenet-impl
+url_dataset: https://huggingface.co/datasets/Style3D-AI/GarmageSet
 ---
