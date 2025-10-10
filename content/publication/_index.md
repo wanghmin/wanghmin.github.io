@@ -12,3 +12,4 @@ banner:
 ---
 
 {{< pub-year-labels >}}
+{{< pub-thumbs >}}
