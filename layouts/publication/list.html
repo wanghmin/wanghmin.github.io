@@ -1,12 +1,17 @@
 {{ define "main" }}
-<main class="container">
-  {{ $pubs := (where .Site.RegularPages "Section" "publication") }}
+<main class="container mx-auto px-4">
+  {{/* Prefer pages in this section, fallback to site-wide filter in case of custom routes */}}
+  {{ $pubs := .Pages }}
+  {{ if not $pubs }}
+    {{ $pubs = where .Site.RegularPages "Section" "publication" }}
+  {{ end }}
+
   {{ range ($pubs.GroupByDate "2006").Reverse }}
-    <section class="year-group" id="y-{{ .Key }}">
-      <h2 class="year sticky top-16 bg-white/80 backdrop-blur px-2 py-1 font-semibold">
-        {{ .Key }} <button class="toggle text-sm" data-target="g-{{ .Key }}">toggle</button>
+    <section class="mb-8" id="y-{{ .Key }}">
+      <h2 class="year-heading text-2xl font-semibold mt-10 mb-4">
+        {{ .Key }}
       </h2>
-      <div id="g-{{ .Key }}" class="group-body space-y-6">
+      <div class="space-y-6">
         {{ range .Pages.ByDate.Reverse }}
           {{ .Render "summary" }}
         {{ end }}
@@ -14,15 +19,12 @@
     </section>
   {{ end }}
 </main>
-<script>
-document.querySelectorAll('.toggle').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const el = document.getElementById(btn.dataset.target);
-    el.style.display = (el.style.display==='none') ? '' : 'none';
-  });
-});
-</script>
+
 <style>
-.year { border-bottom: 1px solid rgba(0,0,0,.08); }
+/* Simple, unobtrusive styling for the year label */
+.year-heading{
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  padding-bottom: .25rem;
+}
 </style>
 {{ end }}
