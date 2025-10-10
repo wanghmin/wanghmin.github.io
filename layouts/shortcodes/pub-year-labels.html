@@ -1,9 +1,22 @@
 <style>
+  /* Make the page title sit closer to the list */
+  article.prose h1 {
+    margin-bottom: 0.75rem;      /* was larger via prose defaults */
+  }
+
+  /* Nudge the publications block up (theme adds mt-16 / sm:mt-20) */
+  .page-body .container.max-w-3xl.w-full[class*="mt-16"] {
+    margin-top: 0.75rem !important;   /* reduce big top margin */
+  }
+
+  /* Year label spacing: keep it tight */
   .pub-year {
-    margin: 2rem 0 .5rem;   /* keep some spacing */
+    margin: 0.75rem 0 0.5rem;    /* smaller top/bottom */
     font-weight: 600;
     font-size: 1.5rem;
-    /* removed border-bottom + padding-bottom */
+  }
+  .pub-year:first-of-type {
+    margin-top: 0.5rem;          /* extra-tight for the first year */
   }
 </style>
 
