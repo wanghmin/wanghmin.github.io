@@ -1,38 +1,38 @@
 <style>
-/* Set up the container to use flexbox */
-.pub-list-item.view-citation {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1rem; /* Adjust as needed */
-}
+  /* Set up the container to use flexbox */
+  .pub-list-item.view-citation {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem; /* Adjust as needed */
+  }
 
-/* Left column for the image */
-.pub-thumb-inline {
-  width: 96px;  /* Enforce width */
-  height: 96px; /* Enforce height */
-  object-fit: cover; /* Maintain aspect ratio while filling the area */
-  border-radius: 6px;
-  background: #f2f2f2;
-  margin-right: 12px; /* Space between image and text */
-}
-
-/* Right column for the text */
-.pub-citation-text {
-  flex: 1; /* Makes sure the text takes the remaining space */
-}
-
-/* Media query for narrow screens (like mobile devices) */
-@media (max-width: 768px) {
-  /* Hide the image and just show text */
+  /* Left column for the image */
   .pub-thumb-inline {
-    display: none;
+    width: 96px;  /* Enforce width */
+    height: 96px; /* Enforce height */
+    object-fit: cover; /* Maintain aspect ratio while filling the area */
+    border-radius: 6px;
+    background: #f2f2f2;
+    margin-right: 12px; /* Space between image and text */
   }
 
-  /* Adjust text to take full width */
+  /* Right column for the text */
   .pub-citation-text {
-    flex: 1;
+    flex: 1; /* Makes sure the text takes the remaining space */
   }
-}
+
+  /* Media query for narrow screens (like mobile devices) */
+  @media (max-width: 768px) {
+    /* Hide the image and just show text */
+    .pub-thumb-inline {
+      display: none;
+    }
+
+    /* Adjust text to take full width */
+    .pub-citation-text {
+      flex: 1;
+    }
+  }
 </style>
 
 <script>
@@ -53,8 +53,6 @@
 
     const names = ['featured','teaser','thumb','thumbnail','cover','image'];
     const exts  = ['png','webp','jpg','jpeg','gif'];
-
-    let counter = 0;  // Initialize counter for alternating layout
 
     items.forEach((el) => {
       if (el.dataset.thumbAdded === '1') return;
@@ -90,36 +88,23 @@
       img.onerror = tryNext;
       img.onload  = () => { /* success: keep it */ };
 
-      // Create a wrapper for the citation text
+      // Insert the image in the left column
+      const imageColumn = document.createElement('div');
+      imageColumn.classList.add('pub-thumb-inline');
+      imageColumn.appendChild(img);
+
+      // Create a wrapper for the citation text in the right column
       const textColumn = document.createElement('div');
       textColumn.classList.add('pub-citation-text');
       textColumn.innerHTML = el.innerHTML; // Copy the citation text
 
-      // Clear the original content
+      // Clear the original content and append the new structure
       el.innerHTML = ''; // Clear existing content
-
-      // Alternate the image position in each row
-      if (counter % 2 === 0) {
-        // Image on the left, text on the right
-        const imageColumn = document.createElement('div');
-        imageColumn.classList.add('pub-thumb-inline');
-        imageColumn.appendChild(img);
-        el.appendChild(imageColumn);  // Left column with image
-        el.appendChild(textColumn);  // Right column with text
-      } else {
-        // Image on the right, text on the left
-        const imageColumn = document.createElement('div');
-        imageColumn.classList.add('pub-thumb-inline');
-        imageColumn.appendChild(img);
-        el.appendChild(textColumn);  // Left column with text
-        el.appendChild(imageColumn);  // Right column with image
-      }
+      el.appendChild(imageColumn); // Left column with image
+      el.appendChild(textColumn);  // Right column with text
 
       // Kick off the first attempt for image loading
       tryNext();
-
-      // Increment the counter to alternate for the next row
-      counter++;
     });
   });
 })();
