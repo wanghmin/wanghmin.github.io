@@ -1,26 +1,25 @@
 <style>
-  /* Container for each publication item */
-  .pub-list-item.view-citation {
-    display: grid;
-    grid-template-columns: 96px 1fr; /* Image takes 96px and text takes the rest */
-    gap: 16px; /* Space between image and text */
-    margin-bottom: 1rem; /* Add space between items */
-    align-items: start; /* Align both image and text at the top */
-  }
-
-  /* Thumbnail image styles */
+  /* Small, inline-block thumbnail */
   .pub-thumb-inline {
+    display: inline-block;
     width: 96px;
     height: 96px;
     object-fit: cover;
     border-radius: 6px;
+    margin-right: 12px;
     background: #f2f2f2;
+    vertical-align: top;
   }
 
-  /* Text container style */
-  .pub-citation-text {
-    /* Keep the text in a single column */
-    overflow: hidden; /* Ensure text doesn't overflow */
+  /* Contain the float so links/attachments don’t overlap it */
+  .pub-list-item.view-citation {
+    overflow: hidden;
+    white-space: normal; /* Ensure text doesn't wrap around */
+  }
+
+  /* Ensure the text stays in one column next to the image */
+  .pub-list-item.view-citation a {
+    display: inline-block;
   }
 </style>
 
