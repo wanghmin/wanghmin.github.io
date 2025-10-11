@@ -2,7 +2,7 @@
   /* Container for publication item */
   .pub-list-item.view-citation {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 1rem;
   }
 
@@ -17,8 +17,9 @@
 
   /* Text area for citation */
   .pub-text {
-    flex-grow: 1;
     display: block;
+    flex-grow: 1;
+    overflow-wrap: break-word; /* Ensure text stays in a single column */
   }
 </style>
 
