@@ -1,35 +1,29 @@
-<!-- /layouts/shortcodes/pub-thumbs.html -->
-
 <style>
-  /* Flexbox layout for publication items */
+  /* Set up the container to use flexbox */
   .pub-list-item.view-citation {
     display: flex;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem; /* Adjust as needed */
   }
 
-  /* Small, floated thumbnail that doesn’t alter the item’s layout */
+  /* Left column for the image */
   .pub-thumb-inline {
     width: 96px;  /* Enforce width */
     height: 96px; /* Enforce height */
     object-fit: cover; /* Maintain aspect ratio while filling the area */
     border-radius: 6px;
     background: #f2f2f2;
-    margin: 4px 12px 6px 0;
-  }
-
-  /* Left column for the image */
-  .image-left .pub-thumb-inline {
-    margin-right: 12px;
+    margin-right: 12px; /* Space between image and text */
   }
 
   /* Right column for the text */
-  .text-right .pub-thumb-inline {
-    margin-left: 12px;
+  .pub-citation-text {
+    flex: 1; /* Makes sure the text takes the remaining space */
   }
 
   /* Media query for narrow screens (like mobile devices) */
   @media (max-width: 768px) {
-    /* On mobile, hide the image and just show text */
+    /* Hide the image and just show text */
     .pub-thumb-inline {
       display: none;
     }
@@ -60,16 +54,9 @@
     const names = ['featured','teaser','thumb','thumbnail','cover','image'];
     const exts  = ['png','webp','jpg','jpeg','gif'];
 
-    items.forEach((el, index) => {
+    items.forEach((el) => {
       if (el.dataset.thumbAdded === '1') return;
       el.dataset.thumbAdded = '1';
-
-      // Alternate the layout based on index
-      if (index % 2 === 0) {
-        el.classList.add('image-left'); // Image on the left
-      } else {
-        el.classList.add('text-right'); // Text on the left
-      }
 
       // Find the publication page link (e.g., /publication/yuan-2024-vhk/)
       const a = el.querySelector('a[href*="/publication/"]') || el.querySelector('a.underline');
@@ -101,13 +88,22 @@
       img.onerror = tryNext;
       img.onload  = () => { /* success: keep it */ };
 
-      // Insert at start, wrapped in a link to the paper page
-      const link = document.createElement('a');
-      link.href = a.href;
-      link.appendChild(img);
-      el.insertBefore(link, el.firstChild);
+      // Insert the image in the left column
+      const imageColumn = document.createElement('div');
+      imageColumn.classList.add('pub-thumb-inline');
+      imageColumn.appendChild(img);
 
-      // Kick off the first attempt
+      // Create a wrapper for the citation text in the right column
+      const textColumn = document.createElement('div');
+      textColumn.classList.add('pub-citation-text');
+      textColumn.innerHTML = el.innerHTML; // Copy the citation text
+
+      // Clear the original content and append the new structure
+      el.innerHTML = ''; // Clear existing content
+      el.appendChild(imageColumn); // Left column with image
+      el.appendChild(textColumn);  // Right column with text
+
+      // Kick off the first attempt for image loading
       tryNext();
     });
   });
