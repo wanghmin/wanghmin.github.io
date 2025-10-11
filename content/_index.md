@@ -50,7 +50,11 @@ sections:
       filters:
         folders:
           - publication
-        exclude_featured: false	
+        exclude_featured: false
+       # Call the pub-thumbs shortcode here
+     params:
+      shortcode: |
+        {{< pub-thumbs >}}
     design:
      # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
