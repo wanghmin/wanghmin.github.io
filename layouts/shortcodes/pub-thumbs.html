@@ -1,27 +1,26 @@
 <style>
-/* Small thumbnail image on the left */
-.pub-thumb-inline {
-  float: left;
-  width: 96px;
-  height: 96px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin: 4px 12px 6px 0;
-  background: #f2f2f2;
-}
+  /* Set up the container to use flexbox */
+  .pub-list-item.view-citation {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem; /* Adjust as needed */
+  }
 
-/* Contain the float and keep the text on the right side */
-.pub-list-item.view-citation {
-  overflow: hidden;
-  white-space: normal; /* Ensures the text can wrap normally, but doesn't break into multiple columns */
-}
+  /* Left column for the image */
+  .pub-thumb-inline {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f2f2f2;
+    margin-right: 12px; /* Space between image and text */
+  }
 
-/* Ensure text is aligned on the right side */
-.pub-list-item.view-citation .citation-text {
-  display: inline-block;
-  vertical-align: top; /* Aligns the text to the top */
-  width: calc(100% - 108px); /* Leaves space for the image */
-}
+  /* Right column for the text */
+  .pub-citation-text {
+    flex-grow: 1; /* Ensures the text column takes up the remaining space */
+    display: block;
+  }
 </style>
 
 <script>
@@ -77,13 +76,22 @@
       img.onerror = tryNext;
       img.onload  = () => { /* success: keep it */ };
 
-      // Insert at start, wrapped in a link to the paper page
-      const link = document.createElement('a');
-      link.href = a.href;
-      link.appendChild(img);
-      el.insertBefore(link, el.firstChild);
+      // Insert the image in the left column
+      const imageColumn = document.createElement('div');
+      imageColumn.classList.add('pub-thumb-inline');
+      imageColumn.appendChild(img);
 
-      // Kick off the first attempt
+      // Create a wrapper for the citation text in the right column
+      const textColumn = document.createElement('div');
+      textColumn.classList.add('pub-citation-text');
+      textColumn.innerHTML = el.innerHTML; // Copy the citation text
+
+      // Clear the original content and append the new structure
+      el.innerHTML = ''; // Clear existing content
+      el.appendChild(imageColumn); // Left column with image
+      el.appendChild(textColumn);  // Right column with text
+
+      // Kick off the first attempt for image loading
       tryNext();
     });
   });
