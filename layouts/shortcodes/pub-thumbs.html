@@ -1,49 +1,55 @@
 <style>
-  /* Floated thumbnail at left */
+  /* Left-floated thumbnail */
   .pub-thumb-inline {
     float: left;
     width: 96px;
     height: 96px;
     object-fit: cover;
     border-radius: 6px;
-    margin: 4px 12px 6px 0;
+    margin-right: 12px; /* ensure text doesn't overlap */
     background: #f2f2f2;
-    display: block;
   }
 
-  /* Right-column wrapper: creates a new BFC so content won't flow under the float */
+  /* Ensure citation text stays aligned in the right column */
   .pub-body-wrap {
-    overflow: hidden;          /* key: forces content to sit to the right of the float */
-    min-height: 96px;          /* keep row at least as tall as the thumb */
+    overflow: hidden;
+    display: block; /* ensure right content does not wrap around */
+    padding-top: 4px; /* small adjustment to keep balance */
+  }
+
+  /* Prevent layout issues if no image is found */
+  .pub-list-item.view-citation.no-thumb .pub-thumb-inline {
+    display: none;
   }
 </style>
 
 <script>
-(function addPubThumbs(){
+(function addPubThumbs() {
   const items = Array.from(document.querySelectorAll('.pub-list-item.view-citation'));
   if (!items.length) return;
 
   const names = ['featured','teaser','thumb','thumbnail','cover','image'];
   const exts  = ['png','webp','jpg','jpeg','gif'];
 
-  items.forEach((item) => {
-    if (item.dataset.thumbAdded === '1') return;
-    item.dataset.thumbAdded = '1';
+  items.forEach((el) => {
+    if (el.dataset.thumbAdded === '1') return;
+    el.dataset.thumbAdded = '1';
 
     // Find the paper page link (e.g., /publication/yuan-2024-vhk/)
-    const a = item.querySelector('a[href*="/publication/"]') || item.querySelector('a.underline');
+    const a = el.querySelector('a[href*="/publication/"]') || el.querySelector('a.underline');
     if (!a) return;
 
-    // Build base folder URL robustly
+    // Build the base folder URL
     const base = new URL(a.getAttribute('href'), document.baseURI);
     if (!base.pathname.endsWith('/')) base.pathname += '/';
 
+    // Create an array of possible image file names and extensions
     const candidates = [];
     for (const n of names) for (const e of exts) {
       candidates.push(new URL(n + '.' + e, base).href);
     }
 
-    // Create the <img> and a link wrapper
+    // Create the <img> and wrap it in an anchor link
     const img = document.createElement('img');
     img.className = 'pub-thumb-inline';
     img.loading = 'lazy';
@@ -54,30 +60,29 @@
     thumbLink.href = a.href;
     thumbLink.appendChild(img);
 
-    // Create right-column wrapper and move existing content into it
+    // Create right-column wrapper to contain the citation content
     const bodyWrap = document.createElement('div');
     bodyWrap.className = 'pub-body-wrap';
 
-    // Insert thumb first, then move all other children into the bodyWrap
-    item.insertBefore(thumbLink, item.firstChild);
+    // Insert the thumbnail first, then wrap the content
+    el.insertBefore(thumbLink, el.firstChild);
     while (thumbLink.nextSibling) {
-      bodyWrap.appendChild(thumbLink.nextSibling); // this moves nodes
+      bodyWrap.appendChild(thumbLink.nextSibling);
     }
-    item.appendChild(bodyWrap);
+    el.appendChild(bodyWrap);
 
-    // Try candidates sequentially; you will see requests in Network panel
+    // Try each image URL until one loads successfully
     let i = 0;
-    function tryNext(){
+    function tryNext() {
       if (i >= candidates.length) {
-        // No image found: remove thumb + unwrap content back if you prefer
-        thumbLink.remove();
-        // (Optional) If you want to keep bodyWrap anyway, just leave it.
+        el.classList.add('no-thumb');
         return;
       }
       img.src = candidates[i++];
     }
-    img.onerror = tryNext;   // on 404, try next
-    img.onload  = () => {};  // success: keep it
+    img.onerror = tryNext;
+    img.onload = () => {};  // keep image once it loads
+
     tryNext();
   });
 })();
