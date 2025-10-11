@@ -35,5 +35,12 @@ tags:
 - area light
 - linearly transformed cosines
 links:
-
+url_video: https://drive.google.com/file/d/1TUhfjm9U1V_Rj2wqrhohE097Hewdah_g/view
 ---
+
+<p align="center">
+<iframe width="100%" height="360" src="https://www.youtube.com/embed/QcwySh1qA4A?si=duIU-D8CzlPmFHPk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+<p align="center">
+<iframe width="100%" height="360" src="//player.bilibili.com/player.html?isOutside=true&aid=115354416189099&bvid=BV1Mg4wzBEFr&cid=32989054378&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</p>
