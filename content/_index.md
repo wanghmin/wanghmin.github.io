@@ -45,8 +45,6 @@ sections:
   - block: collection
     content:
       title: Recent Publications
-      text: |
-       {{< pub-thumbs >}}
       count: 10
       filters:
         folders:
