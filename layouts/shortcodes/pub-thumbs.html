@@ -1,26 +1,27 @@
 <style>
-  /* Small, inline-block thumbnail */
-  .pub-thumb-inline {
-    display: inline-block;
-    width: 96px;
-    height: 96px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-right: 12px;
-    background: #f2f2f2;
-    vertical-align: top;
-  }
+/* Small thumbnail image on the left */
+.pub-thumb-inline {
+  float: left;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin: 4px 12px 6px 0;
+  background: #f2f2f2;
+}
 
-  /* Contain the float so links/attachments don’t overlap it */
-  .pub-list-item.view-citation {
-    overflow: hidden;
-    white-space: normal; /* Ensure text doesn't wrap around */
-  }
+/* Contain the float and keep the text on the right side */
+.pub-list-item.view-citation {
+  overflow: hidden;
+  white-space: normal; /* Ensures the text can wrap normally, but doesn't break into multiple columns */
+}
 
-  /* Ensure the text stays in one column next to the image */
-  .pub-list-item.view-citation a {
-    display: inline-block;
-  }
+/* Ensure text is aligned on the right side */
+.pub-list-item.view-citation .citation-text {
+  display: inline-block;
+  vertical-align: top; /* Aligns the text to the top */
+  width: calc(100% - 108px); /* Leaves space for the image */
+}
 </style>
 
 <script>
