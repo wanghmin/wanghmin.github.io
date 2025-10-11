@@ -1,25 +1,25 @@
 <style>
-  /* Container for publication item */
+  /* Container for each publication item */
   .pub-list-item.view-citation {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 1rem;
+    align-items: flex-start; /* Align the image and text to the top */
+    margin-bottom: 1rem; /* Add space between items */
   }
 
-  /* Small thumbnail image */
+  /* Thumbnail image styles */
   .pub-thumb-inline {
     width: 96px;
     height: 96px;
     object-fit: cover;
     border-radius: 6px;
-    margin-right: 16px; /* Space between image and text */
+    margin-right: 16px; /* Add space between image and text */
+    background: #f2f2f2;
   }
 
-  /* Text area for citation */
-  .pub-text {
-    display: block;
-    flex-grow: 1;
-    overflow-wrap: break-word; /* Ensure text stays in a single column */
+  /* Ensure the text takes up the remaining space */
+  .pub-citation-text {
+    flex: 1; /* Allow the text to take up the remaining space */
+    overflow: hidden; /* Prevent content from overflowing */
   }
 </style>
 
