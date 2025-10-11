@@ -1,9 +1,11 @@
 <style>
   /* Container for each publication item */
   .pub-list-item.view-citation {
-    display: flex;
-    align-items: flex-start; /* Align the image and text to the top */
+    display: grid;
+    grid-template-columns: 96px 1fr; /* Image takes 96px and text takes the rest */
+    gap: 16px; /* Space between image and text */
     margin-bottom: 1rem; /* Add space between items */
+    align-items: start; /* Align both image and text at the top */
   }
 
   /* Thumbnail image styles */
@@ -12,14 +14,13 @@
     height: 96px;
     object-fit: cover;
     border-radius: 6px;
-    margin-right: 16px; /* Add space between image and text */
     background: #f2f2f2;
   }
 
-  /* Ensure the text takes up the remaining space */
+  /* Text container style */
   .pub-citation-text {
-    flex: 1; /* Allow the text to take up the remaining space */
-    overflow: hidden; /* Prevent content from overflowing */
+    /* Keep the text in a single column */
+    overflow: hidden; /* Ensure text doesn't overflow */
   }
 </style>
 
