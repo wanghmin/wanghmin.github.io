@@ -1,24 +1,20 @@
 <style>
-  /* Each citation reserves a left gutter for the thumb */
-  .pub-list-item.view-citation {
-    position: relative;
-    padding-left: 112px;    /* thumb width (96) + gap (16) */
-    min-height: 96px;       /* ensure the row is tall enough for the thumb */
-  }
-
-  /* Absolutely-positioned thumb in the left gutter */
-  .pub-thumb-wrap {
-    position: absolute;
-    left: 0;
-    top: 4px;
-  }
-  .pub-thumb-abs {
+  /* Floated thumbnail at left */
+  .pub-thumb-inline {
+    float: left;
     width: 96px;
     height: 96px;
     object-fit: cover;
     border-radius: 6px;
+    margin: 4px 12px 6px 0;
     background: #f2f2f2;
     display: block;
+  }
+
+  /* Right-column wrapper: creates a new BFC so content won't flow under the float */
+  .pub-body-wrap {
+    overflow: hidden;          /* key: forces content to sit to the right of the float */
+    min-height: 96px;          /* keep row at least as tall as the thumb */
   }
 </style>
 
@@ -30,13 +26,15 @@
   const names = ['featured','teaser','thumb','thumbnail','cover','image'];
   const exts  = ['png','webp','jpg','jpeg','gif'];
 
-  items.forEach((el) => {
-    if (el.dataset.thumbAdded === '1') return;
-    el.dataset.thumbAdded = '1';
+  items.forEach((item) => {
+    if (item.dataset.thumbAdded === '1') return;
+    item.dataset.thumbAdded = '1';
 
-    const a = el.querySelector('a[href*="/publication/"]') || el.querySelector('a.underline');
+    // Find the paper page link (e.g., /publication/yuan-2024-vhk/)
+    const a = item.querySelector('a[href*="/publication/"]') || item.querySelector('a.underline');
     if (!a) return;
 
+    // Build base folder URL robustly
     const base = new URL(a.getAttribute('href'), document.baseURI);
     if (!base.pathname.endsWith('/')) base.pathname += '/';
 
@@ -45,27 +43,41 @@
       candidates.push(new URL(n + '.' + e, base).href);
     }
 
+    // Create the <img> and a link wrapper
     const img = document.createElement('img');
-    img.className = 'pub-thumb-abs';
+    img.className = 'pub-thumb-inline';
     img.loading = 'lazy';
     img.decoding = 'async';
     img.alt = 'thumbnail';
 
+    const thumbLink = document.createElement('a');
+    thumbLink.href = a.href;
+    thumbLink.appendChild(img);
+
+    // Create right-column wrapper and move existing content into it
+    const bodyWrap = document.createElement('div');
+    bodyWrap.className = 'pub-body-wrap';
+
+    // Insert thumb first, then move all other children into the bodyWrap
+    item.insertBefore(thumbLink, item.firstChild);
+    while (thumbLink.nextSibling) {
+      bodyWrap.appendChild(thumbLink.nextSibling); // this moves nodes
+    }
+    item.appendChild(bodyWrap);
+
+    // Try candidates sequentially; you will see requests in Network panel
     let i = 0;
     function tryNext(){
-      if (i >= candidates.length) { wrap.remove(); return; }
-      img.src = candidates[i++];  // will trigger a visible network request
+      if (i >= candidates.length) {
+        // No image found: remove thumb + unwrap content back if you prefer
+        thumbLink.remove();
+        // (Optional) If you want to keep bodyWrap anyway, just leave it.
+        return;
+      }
+      img.src = candidates[i++];
     }
-    img.onerror = tryNext;
-
-    const wrap = document.createElement('a');
-    wrap.className = 'pub-thumb-wrap';
-    wrap.href = a.href;
-    wrap.appendChild(img);
-
-    // Insert the positioned thumb; all existing content stays in the padded right column
-    el.insertBefore(wrap, el.firstChild);
-
+    img.onerror = tryNext;   // on 404, try next
+    img.onload  = () => {};  // success: keep it
     tryNext();
   });
 })();
