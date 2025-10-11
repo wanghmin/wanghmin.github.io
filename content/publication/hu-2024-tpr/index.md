@@ -1,21 +1,20 @@
 ---
-title: 'FashionR2R: texture-preserving rendered-to-real image translation with diffusion
-  models'
+title: 'FashionR2R: Texture-Preserving Rendered-to-Real Image Translation with Diffusion
+  Models'
 authors:
 - Rui Hu
 - Qian He
-- Gaofeng He
 - Jiedong Zhuang
 - Huang Chen
 - Huafeng Liu
-- Huamin Wang
-date: '2024-01-01'
-publishDate: '2025-10-11T03:17:57.753521Z'
+- admin
+date: '2024-12-10'
+publishDate: '2024-10-22T08:31:09.743820Z'
 publication_types:
 - paper-conference
-publication: '*Proceedings of the 38th International Conference on Neural Information
-  Processing Systems*'
-abstract: "Modeling and producing lifelike clothed human images has attracted researchers'
+publication: '*Advances in Neural Information Processing Systems 38: Annual Conference
+  on Neural Information Processing Systems (NeurIPS)*'
+abstract: 'Modeling and producing lifelike clothed human images has attracted researchers’
   attention from different areas for decades, with the complexity from highly articulated
   and structured content. Rendering algorithms decompose and simulate the imaging
   process of a camera, while are limited by the accuracy of modeled variables and
@@ -32,5 +31,10 @@ abstract: "Modeling and producing lifelike clothed human images has attracted re
   clothing textures, exploiting the decoupled features encoded in the UNet structure.
   Additionally, we introduce SynFashion dataset, featuring high-quality digital clothing
   images with diverse textures. Extensive experimental results demonstrate the superiority
-  and effectiveness of our method in rendered-to-real image translation."
+  and effectiveness of our method in rendered-to-real image translation.'
+summary: We introduce a novel diffusion-based framework that effectively translates rendered
+  images into realistic counterparts, ensuring the preservation of texture details.
+links:
+- name: Page
+  url: https://rickhh.github.io/FashionR2R/ 
 ---
