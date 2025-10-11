@@ -72,7 +72,16 @@
         candidates.push(new URL(n + '.' + e, base).href);
       }
 
-      // Create the <img>, try each candidate sequentially using onerror
+      // Preload images to improve load time
+      candidates.forEach(url => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = url;
+        link.as = 'image';
+        document.head.appendChild(link);
+      });
+
+      // Create the <img>, try each candidate sequentially using fetch
       const img = document.createElement('img');
       img.className = 'pub-thumb-inline';
       img.loading = 'lazy';
@@ -83,9 +92,19 @@
       function tryNext(){
         if (i >= candidates.length) { img.remove(); return; }
         const url = candidates[i++];
-        img.src = url; // this will trigger a network request you can see in DevTools
+        
+        // Try fetching the image first before setting src
+        fetch(url).then(response => {
+          if (response.ok) {
+            img.src = url; // Set the image source only if the fetch succeeds
+          } else {
+            tryNext();
+          }
+        }).catch(() => {
+          tryNext();
+        });
       }
-      img.onerror = tryNext;
+
       img.onload  = () => { /* success: keep it */ };
 
       // Insert the image in the left column
