@@ -20,6 +20,19 @@
   .pub-citation-text {
     flex: 1; /* Makes sure the text takes the remaining space */
   }
+
+  /* Media query for narrow screens (like mobile devices) */
+  @media (max-width: 768px) {
+    /* Hide the image and just show text */
+    .pub-thumb-inline {
+      display: none;
+    }
+
+    /* Adjust text to take full width */
+    .pub-citation-text {
+      flex: 1;
+    }
+  }
 </style>
 
 <script>
