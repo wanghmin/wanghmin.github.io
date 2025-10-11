@@ -1,29 +1,28 @@
 <style>
-  /* Container for each publication item */
+  /* Container for publication item */
   .pub-list-item.view-citation {
     display: flex;
-    align-items: flex-start;  /* Aligns items to the top (image and text at the top) */
-    margin-bottom: 1rem;      /* Adjust spacing as needed */
+    align-items: center;
+    margin-bottom: 1rem;
   }
 
-  /* Small, inline thumbnail image */
+  /* Small thumbnail image */
   .pub-thumb-inline {
-    width: 32px;
-    height: 32px;
+    width: 96px;
+    height: 96px;
     object-fit: cover;
     border-radius: 6px;
-    margin-right: 12px;  /* Space between the image and text */
-    background: #f2f2f2;
+    margin-right: 16px; /* Space between image and text */
   }
 
-  /* Container for text */
-  .pub-list-item.view-citation .citation-text {
+  /* Text area for citation */
+  .pub-text {
+    flex-grow: 1;
     display: block;
-    flex-grow: 1;  /* Allow text to take available space */
   }
 </style>
 
-
+<script>
 (function addPubThumbs(){
   // Wait until the list is present (helps if hydration/JS reflows late)
   function ready(fn){
@@ -76,24 +75,15 @@
       img.onerror = tryNext;
       img.onload  = () => { /* success: keep it */ };
 
-      // Insert image into the first column
+      // Insert at start, wrapped in a link to the paper page
       const link = document.createElement('a');
       link.href = a.href;
       link.appendChild(img);
-      
-      // Add the citation text into a div
-      const citationText = el.querySelector('.citation-text') || document.createElement('div');
-      citationText.className = 'citation-text';
-      
-      // Move text content into the citationText div
-      citationText.innerHTML = el.innerHTML;
-      el.innerHTML = '';  // Clear current content
-      el.appendChild(link);  // Add the image link first
-      el.appendChild(citationText);  // Add the text below the image
+      el.insertBefore(link, el.firstChild);
 
       // Kick off the first attempt
       tryNext();
     });
   });
 })();
-
+</script>
