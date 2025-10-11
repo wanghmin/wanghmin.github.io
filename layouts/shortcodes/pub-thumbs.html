@@ -1,7 +1,7 @@
 <style>
-  /* Small, floated thumbnail that doesn’t alter the item’s layout */
+  /* Small thumbnail image that doesn't wrap text around it */
   .pub-thumb-inline {
-    float: left;
+    display: inline-block;  /* Ensures image stays in line with the text */
     width: 32px;
     height: 32px;
     object-fit: cover;
@@ -9,8 +9,11 @@
     margin: 4px 12px 6px 0;
     background: #f2f2f2;
   }
+  
   /* Contain the float so links/attachments don’t overlap it */
-  .pub-list-item.view-citation { overflow: auto; }
+  .pub-list-item.view-citation { 
+    overflow: visible;  /* Allow the image to stay in the left column */
+  }
 </style>
 
 <script>
