@@ -64,7 +64,7 @@ education:
 
 ---
 
-Huamin Wang is the chief scientist at [Style3D](https://www.style3d.com), leading the company’s research efforts in next-generation Simulation and AI technology. His research advances high-performance, high-fidelity physics-based simulation — powered by GPUs and enhanced by generative AI — with broad applications in computer graphics, vision, and machine learning.
+Huamin Wang is the chief scientist at [Style3D](https://www.style3d.com), leading the company’s research efforts in next-generation simulation and AI technology. His research advances high-performance, high-fidelity physics-based simulation — powered by GPUs and enhanced by generative AI — with broad applications in computer graphics, vision, and machine learning.
 
 Previously, he served as a tenured associate professor in the [CSE department](https://cse.osu.edu/) at [the Ohio State University](https://www.osu.edu) (2011–2021) and as a postdoctoral researcher at [UC Berkeley](https://www.berkeley.edu/) (2009–2011).
 
