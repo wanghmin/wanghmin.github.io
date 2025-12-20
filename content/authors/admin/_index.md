@@ -63,9 +63,13 @@ education:
 
 
 ---
-Huamin Wang is the chief scientist at [Style3D](https://www.style3d.com) and he leads Style3D's research team. His research interests focus on high-performance, high-fidelity physics-based simulations accelerated by GPUs and enhanced by generative AI, with applications in computer graphics, computer vision, and machine learning.
 
-Before joining Style3D, he was a tenured associate professor in the [CSE department](https://cse.osu.edu/) at [the Ohio State University](https://www.osu.edu) (2011 – 2021), and a postdoctoral researcher at [UC Berkeley](https://www.berkeley.edu/) (2009 – 2011).
-He has served on the technical program committees of numerous conferences and chaired the technical programs of CASA 2017 and SCA 2023. He is an associate editor of [IEEE TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) and [the Visual Computer](https://link.springer.com/journal/371).
+Huamin Wang is the Chief Scientist at [Style3D](https://www.style3d.com), leading the company’s research efforts in next-generation Simulation and AI technology. His research advances high-performance, high-fidelity physics-based simulation — powered by GPUs and enhanced by generative AI — with broad applications in computer graphics, vision, and machine learning.
+
+Previously, he served as a tenured Associate Professor in the [CSE department](https://cse.osu.edu/) at [the Ohio State University](https://www.osu.edu) (2011–2021) and as a Postdoctoral Researcher at [UC Berkeley](https://www.berkeley.edu/) (2009–2011).
+
+He has chaired the technical programs of CASA 2017 and SCA 2023 and currently serves as Assistant Chair of the Technical Papers program for SIGGRAPH Asia 2026. He is also an Associate Editor for [IEEE TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) and [the Visual Computer](https://link.springer.com/journal/371).
+
+He is an [ACM Distinguished Member](https://www.acm.org/media-center/2025/december/distinguished-members-2025) (2025) and an IEEE Senior Member.
 
 For more information, including contact details, please refer to the CV.
