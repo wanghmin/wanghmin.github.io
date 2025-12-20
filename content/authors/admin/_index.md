@@ -64,12 +64,12 @@ education:
 
 ---
 
-Huamin Wang is the Chief Scientist at [Style3D](https://www.style3d.com), leading the company’s research efforts in next-generation Simulation and AI technology. His research advances high-performance, high-fidelity physics-based simulation — powered by GPUs and enhanced by generative AI — with broad applications in computer graphics, vision, and machine learning.
+Huamin Wang is the chief scientist at [Style3D](https://www.style3d.com), leading the company’s research efforts in next-generation Simulation and AI technology. His research advances high-performance, high-fidelity physics-based simulation — powered by GPUs and enhanced by generative AI — with broad applications in computer graphics, vision, and machine learning.
 
-Previously, he served as a tenured Associate Professor in the [CSE department](https://cse.osu.edu/) at [the Ohio State University](https://www.osu.edu) (2011–2021) and as a Postdoctoral Researcher at [UC Berkeley](https://www.berkeley.edu/) (2009–2011).
+Previously, he served as a tenured associate professor in the [CSE department](https://cse.osu.edu/) at [the Ohio State University](https://www.osu.edu) (2011–2021) and as a postdoctoral researcher at [UC Berkeley](https://www.berkeley.edu/) (2009–2011).
 
-He has chaired the technical programs of CASA 2017 and SCA 2023 and currently serves as Assistant Chair of the Technical Papers program for SIGGRAPH Asia 2026. He is also an Associate Editor for [IEEE TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) and [the Visual Computer](https://link.springer.com/journal/371).
+He has chaired the technical programs of CASA 2017 and SCA 2023 and currently serves as assistant chair of the technical papers program for SIGGRAPH Asia 2026. He is also an associate editor for [IEEE TVCG](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945) and [the Visual Computer](https://link.springer.com/journal/371).
 
-He is an [ACM Distinguished Member](https://www.acm.org/media-center/2025/december/distinguished-members-2025) (2025) and an IEEE Senior Member.
+He is an [ACM distinguished member](https://www.acm.org/media-center/2025/december/distinguished-members-2025) (2025) and an IEEE senior member.
 
 For more information, including contact details, please refer to the CV.
