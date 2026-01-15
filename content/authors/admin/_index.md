@@ -47,8 +47,8 @@ bio: My research interests include computer graphics, computer vision, generativ
 interests:
   - Computer graphics
   - Computer vision
+  - Robotics
   - Generative AI
-  - Embodied AI
 
 education:  
     - area: Ph.D. in Computer Science
