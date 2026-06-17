@@ -19,10 +19,16 @@
   /* Right column for the text */
   .pub-citation-text {
     flex: 1; /* Makes sure the text takes the remaining space */
+    min-width: 0; /* Prevent long titles/authors from overflowing flex layouts */
+    overflow-wrap: anywhere;
   }
 
   /* Media query for narrow screens (like mobile devices) */
   @media (max-width: 768px) {
+    .pub-list-item.view-citation {
+      margin-bottom: 1.25rem;
+    }
+
     /* Hide the image and just show text */
     .pub-thumb-inline {
       display: none;
@@ -31,6 +37,7 @@
     /* Adjust text to take full width */
     .pub-citation-text {
       flex: 1;
+      line-height: 1.55;
     }
   }
 </style>
