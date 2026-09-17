@@ -1,4 +1,5 @@
 ---
+featured: true
 title: 'VR-GS: A Physical Dynamics-Aware Interactive Gaussian Splatting System in
   Virtual Reality'
 authors:

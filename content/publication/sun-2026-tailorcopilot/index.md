@@ -24,7 +24,8 @@
       "name": "Page",
       "url": "https://fox2049.github.io/tailorcopilot/"
     }
-  ]
+  ],
+  "featured": true
 }
 ---
 

@@ -40,7 +40,7 @@ tags:
 - domain decomposition
 summary: This paper presents volumetric homogenization, a spatially varying homogenization
   scheme for knitwear simulation.
-featured: true
+featured: false
 links:
 - name: More Video
   url: Yuan-2024-VHK_supp.mp4

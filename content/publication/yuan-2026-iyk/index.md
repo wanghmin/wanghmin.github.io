@@ -1,4 +1,5 @@
 ---
+featured: false
 title: Interactive Yarn-level Knitwear with Nested Douglas-Rachford Splitting
 authors:
 - Chun Yuan

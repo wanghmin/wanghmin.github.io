@@ -30,7 +30,7 @@ abstract: In this paper, we wish to push the limit of real-time cloth and deform
 summary: 'In this paper, we wish to push the limit of real-time cloth and deformable
   body simulation to a higher level with 50K to 500K vertices, based on the development
   of a novel GPU-based multilevel additive Schwarz (MAS) pre-conditioner.'
-featured: true
+featured: false
 tags:
 - preconditioning
 - multilevel method

@@ -1,4 +1,5 @@
 ---
+featured: true
 title: Heterogeneous Subspace Corrections for GPU Deformable Multibody Dynamics
 authors:
 - Dewen Guo

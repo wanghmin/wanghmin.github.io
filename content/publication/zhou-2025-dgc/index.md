@@ -32,7 +32,7 @@ abstract: 'Sewing patterns, the essential blueprints for fabric cutting and tail
   enhances training efficiency, generation quality, and authoring flexibility.'
 summary:  We propose a sewing pattern generation approach based on Large Multimodal Models,
   to generate parametric pattern-making programs from multi-modal design concepts.
-featured: true
+featured: false
 tags:
 - generative AI
 - sewing pattern

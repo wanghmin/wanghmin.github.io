@@ -1,4 +1,5 @@
 ---
+featured: true
 title: 'NNWarp: Neural Network-Based Nonlinear Deformation'
 authors:
 - Ran Luo

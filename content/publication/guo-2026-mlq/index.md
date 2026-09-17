@@ -19,7 +19,8 @@
     "article-journal"
   ],
   "publication": "*ACM Trans. Graph. (SIGGRAPH Asia 2026)*",
-  "publication_short": "*ACM Trans. Graph. (SIGGRAPH Asia 2026)*"
+  "publication_short": "*ACM Trans. Graph. (SIGGRAPH Asia 2026)*",
+  "featured": false
 }
 ---
 

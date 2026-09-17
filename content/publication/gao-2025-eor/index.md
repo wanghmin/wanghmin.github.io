@@ -1,4 +1,5 @@
 ---
+featured: true
 title: Efficient Object Reconstruction with Differentiable Area Light Shading
 authors:
 - Yaoan Gao

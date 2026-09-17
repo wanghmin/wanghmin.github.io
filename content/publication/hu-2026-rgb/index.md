@@ -1,4 +1,5 @@
 ---
+featured: true
 title: 'Real Garment Benchmark (RGBench): A Comprehensive Benchmark for Robotic Garment Manipulation featuring a High-Fidelity Scalable Simulator'
 authors:
 - Wenkang Hu

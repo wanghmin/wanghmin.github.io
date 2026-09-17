@@ -30,7 +30,7 @@ summary: We propose a piecewise linear elastic
   model that approximates nonlinear, anisotropic stretching and bending
   behaviors of various materials. We develop new measurement techniques for studying
   the elastic deformations in real cloth samples.
-featured: true
+featured: false
 tags:
 - parameter estimation
 - nonlinear elasticity
