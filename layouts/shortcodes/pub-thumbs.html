@@ -6,14 +6,22 @@
     margin-bottom: 1rem; /* Adjust as needed */
   }
 
-  /* Left column for the image */
-  .pub-thumb-inline {
-    width: 96px;  /* Enforce width */
-    height: 96px; /* Enforce height */
-    object-fit: cover; /* Maintain aspect ratio while filling the area */
+  /* Keep the wrapper and image at the same landscape thumbnail size. */
+  div.pub-thumb-inline {
+    flex: 0 0 171px;
+    width: 171px;
+    height: 96px;
+    margin-right: 12px;
+    overflow: hidden;
     border-radius: 6px;
-    background: #f2f2f2;
-    margin-right: 12px; /* Space between image and text */
+    background: white;
+  }
+
+  img.pub-thumb-inline {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   /* Right column for the text */
@@ -30,7 +38,7 @@
     }
 
     /* Hide the image and just show text */
-    .pub-thumb-inline {
+    div.pub-thumb-inline {
       display: none;
     }
 
@@ -94,6 +102,8 @@
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = 'thumbnail';
+      img.width = 171;
+      img.height = 96;
 
       let i = 0;
       function tryNext(){
