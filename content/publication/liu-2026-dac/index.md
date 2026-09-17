@@ -20,4 +20,6 @@ tags:
 - affine body dynamics
 - adaptive consensus
 - distributed simulation
+url_pdf: "/publication/liu-2026-dac/Liu-2026-DAC.pdf"
+doi: "10.1145/3799902.3811106"
 ---

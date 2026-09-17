@@ -25,4 +25,5 @@ tags:
 links:
 - name: Page
   url: https://rgbench.github.io/
+url_pdf: "/publication/hu-2026-rgb/Hu-2026-RGB.pdf"
 ---

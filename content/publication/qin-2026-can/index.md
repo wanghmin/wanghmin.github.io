@@ -40,4 +40,5 @@ tags:
 links:
 - name: Page
   url: https://ieeexplore.ieee.org/document/11474973
+doi: "10.1109/TVCG.2026.3680775"
 ---

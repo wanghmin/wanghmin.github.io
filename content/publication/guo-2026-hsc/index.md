@@ -18,4 +18,5 @@ tags:
 - deformable multibody dynamics
 - GPU simulation
 - subspace corrections
+doi: "10.1145/3811275"
 ---

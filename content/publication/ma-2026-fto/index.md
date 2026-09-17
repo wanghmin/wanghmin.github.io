@@ -18,4 +18,5 @@ tags:
 - garment re-texturing
 - image editing
 - virtual try-on
+doi: "10.1145/3799902.3811105"
 ---

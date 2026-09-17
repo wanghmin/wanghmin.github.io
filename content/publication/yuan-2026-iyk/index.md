@@ -19,4 +19,5 @@ tags:
 - knitwear simulation
 - yarn-level simulation
 - douglas-rachford splitting
+doi: "10.1145/3811277"
 ---
