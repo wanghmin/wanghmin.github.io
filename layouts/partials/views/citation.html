@@ -14,26 +14,17 @@
   </a>
   <div class="publication-list-copy">
     <h3 class="publication-title"><a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a></h3>
-    {{ $topics := index site.Data.publication_topics (path.Base (path.Dir $item.File.Path)) | default slice }}
-    {{ $names := dict "cloth" "Simulation · Cloth" "solids" "Simulation · Solids" "fluids" "Simulation · Fluids" "robotics" "Robotics" "rendering" "Rendering" "geometry" "Geometry" "garment-design" "Design · Garment" "interactive-systems" "Interaction" }}
-    {{ $labels := slice }}
-    {{ range $topics }}{{ with index $names . }}{{ $labels = $labels | append . }}{{ end }}{{ end }}
     <div class="publication-metadata"><span class="publication-authors">{{ partial "page_metadata_authors" $item }}.</span>
     <span class="publication-venue">
       {{ $venue := $item.Params.publication_short | default $item.Params.publication }}
       {{ with $venue }}{{ replaceRE (printf `\s+%s\b` ($item.Date.Format "2006")) "" . | markdownify }}, {{ end }}{{ $item.Date.Format "2006" }}.
     </span></div>
-    <div class="publication-footer">
-    {{ with $labels }}
-      <div class="publication-labels" aria-label="Research topics">
-        {{ range first 2 . }}<span class="publication-label">{{ . }}</span>{{ end }}
-      </div>
-    {{ end }}
     {{ if $has_attachments }}
+    <div class="publication-footer">
     <div class="publication-links flex flex-wrap">
       {{ partial "page_links" (dict "page" $item "is_list" 1) }}
     </div>
-    {{ end }}
     </div>
+    {{ end }}
   </div>
 </div>

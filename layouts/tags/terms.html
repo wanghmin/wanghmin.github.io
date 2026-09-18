@@ -7,15 +7,22 @@
 .topics-keyword-note { margin: -8px 0 16px; font-size: 14px; color: #69717d; }
 .dark .topics-keyword-note { color: #b8c0cc; }
 .topics-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
-.topic-chip { display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 6px; font-size: 15px; line-height: 22px; color: #505b6a; background: #f2f3f5; text-decoration: none; transition: background .15s; }
-.topic-chip:hover { background: #ebe8ff; color: #5146b8; }
+.topic-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 15px; line-height: 22px; color: #fff; background: #4338ca; text-decoration: none; transition: background .15s; }
+.topic-chip:hover { background: #3730a3; color: #fff; }
 .topic-chip:focus-visible { outline: 2px solid #635bca; outline-offset: 3px; }
-.topic-chip span { font-size: 13px; opacity: .65; font-variant-numeric: tabular-nums; }
-.topic-chip-area { background: #f0edff; color: #5146b8; font-weight: 500; }
+.topic-chip span { font-size: 13px; opacity: .8; font-variant-numeric: tabular-nums; }
+.topic-chip-area { font-weight: 500; }
 .dark .topics-section + .topics-section { border-color: #343a46; }
-.dark .topic-chip { background: #293140; color: #cbd5e1; }
-.dark .topic-chip-area, .dark .topic-chip:hover { background: #302d4c; color: #c4bfff; }
+.dark .topic-chip { background: #4f46e5; color: #fff; }
+.dark .topic-chip:hover { background: #4338ca; color: #fff; }
 @media(max-width: 767px) { .topics-page { padding: 0 20px; } .topics-page h1 { font-size: 30px; } .topics-cloud { gap: 8px; } }
+/* Keywords remain visually quieter than the research-area buttons. */
+#keywords-heading ~ .topics-cloud .topic-chip { padding: 6px 11px; border-radius: 6px; background: #f5f3ff; color: #65549a; font-size: 14px; box-shadow: inset 0 0 0 1px #e8e2f5; }
+#keywords-heading ~ .topics-cloud .topic-chip:hover { background: #ede9fe; color: #4c3691; box-shadow: inset 0 0 0 1px #c4b5fd; }
+#keywords-heading ~ .topics-cloud .topic-chip span { color: #8a7ba7; opacity: 1; }
+.dark #keywords-heading ~ .topics-cloud .topic-chip { background: #29243c; color: #d0c5ee; box-shadow: inset 0 0 0 1px #403652; }
+.dark #keywords-heading ~ .topics-cloud .topic-chip:hover { background: #38304f; color: #ede9fe; }
+.dark #keywords-heading ~ .topics-cloud .topic-chip span { color: #afa0ce; }
 </style>
 <div class="topics-page">
 <h1>{{ .Title }}</h1>
