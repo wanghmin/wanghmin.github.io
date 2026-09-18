@@ -43,6 +43,7 @@ links:
 - name: Page
   url: https://sig25ddmpd.github.io/
 url_video: https://drive.google.com/file/d/1kafSWDTJ8wiSvPrt9c3MaYG8Y6gysooF/view
+summary: "We accelerate high-resolution cloth simulation on CPUs using domain-decomposed projective dynamics. Parallelizing both local and global steps across garment domains balances convergence with available CPU parallelism."
 ---
 
 <p align="center">

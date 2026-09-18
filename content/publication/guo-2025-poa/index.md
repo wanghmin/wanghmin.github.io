@@ -36,6 +36,7 @@ tags:
 links:
 url_video: https://drive.google.com/file/d/1srTvr1XJFmsCb-wEvE3iLa652a5u-ZBs/view
 url_code: https://github.com/Style3D/OutfitAssembly
+summary: "We introduce a midsurface representation for assembling multilayer outfits without garment intersections. Progressive untangling and inversion-free cage deformation enable garment asset reuse and instantaneous pose transfer."
 ---
 
 <p align="center">

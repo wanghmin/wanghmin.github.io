@@ -1,5 +1,6 @@
 ---
 {
+  "summary": "We reinterpret projective dynamics computations as discrete integrations and approximate them with quadrature tailored to near, middle, and far fields. This enables efficient GPU parallelism while maintaining convergence for stiff, high-resolution simulations.",
   "title": "Multi-level Quadrature for Projective Dynamics",
   "authors": [
     "Dewen Guo",

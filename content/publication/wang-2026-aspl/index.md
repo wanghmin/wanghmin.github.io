@@ -1,5 +1,6 @@
 ---
 {
+  "summary": "We automatically arrange 2D sewing panels around posed 3D mannequins using body and sewing-pattern graphs. Coarse semantic anchoring and fine placement refinement produce layouts while reducing overlaps and interpenetrations.",
   "title": "Automatic Sewing Pattern Layout by Graph-based Two-level Semantic Classification",
   "authors": [
     "Zhendong Wang",

@@ -37,6 +37,7 @@ tags:
 - linearly transformed cosines
 links:
 url_video: https://drive.google.com/file/d/1TUhfjm9U1V_Rj2wqrhohE097Hewdah_g/view
+summary: "We use differentiable area light shading to reconstruct object appearance from photographs. Active area lighting improves material estimation and relighting quality in both mesh-based and Gaussian splatting pipelines."
 ---
 
 <p align="center">

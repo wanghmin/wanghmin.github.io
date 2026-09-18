@@ -19,4 +19,5 @@ tags:
 - image editing
 - virtual try-on
 doi: "10.1145/3799902.3811105"
+summary: "We adapt image editing models for garment re-texturing, enabling changes to fabric appearance in garment images."
 ---

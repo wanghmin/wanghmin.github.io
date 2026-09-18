@@ -1,0 +1,6 @@
+---
+{
+  "title": "Rendering",
+  "area": "rendering"
+}
+---

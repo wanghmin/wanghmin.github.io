@@ -1,0 +1,355 @@
+{
+  "liu-2024-adg": [
+    "cloth",
+    "simulation",
+    "garment-design",
+    "design"
+  ],
+  "he-2025-ats": [
+    "cloth",
+    "simulation",
+    "solids"
+  ],
+  "wang-2026-aspl": [
+    "garment-design",
+    "design"
+  ],
+  "chen-2013-mfa": [
+    "cloth",
+    "simulation",
+    "solids"
+  ],
+  "wang-2018-pmn": [
+    "cloth",
+    "simulation"
+  ],
+  "qin-2026-can": [
+    "solids",
+    "simulation"
+  ],
+  "guo-2025-poa": [
+    "garment-design",
+    "design"
+  ],
+  "luo-2018-pbq": [
+    "solids",
+    "simulation"
+  ],
+  "yuan-2024-vhk": [
+    "cloth",
+    "simulation"
+  ],
+  "luo-2020-nnw": [
+    "solids",
+    "simulation"
+  ],
+  "gao-2025-eor": [
+    "rendering",
+    "geometry"
+  ],
+  "zhou-2025-dgc": [
+    "garment-design",
+    "design"
+  ],
+  "otaduy-2012-dds": [
+    "cloth",
+    "simulation",
+    "solids"
+  ],
+  "li-2025-gn": [
+    "garment-design",
+    "design"
+  ],
+  "wang-2021-gbs": [
+    "cloth",
+    "simulation"
+  ],
+  "hu-2026-rgb": [
+    "cloth",
+    "simulation",
+    "robotics"
+  ],
+  "liao-2009-mdo": [
+    "geometry"
+  ],
+  "chen-2014-pia": [
+    "solids",
+    "simulation"
+  ],
+  "yao-2017-meo": [
+    "geometry"
+  ],
+  "yao-2015-lsb": [
+    "geometry"
+  ],
+  "dai-2024-hqs": [
+    "geometry"
+  ],
+  "fratarcangeli-2018-pis": [
+    "solids",
+    "simulation"
+  ],
+  "mukherjee-2016-ids": [
+    "solids",
+    "simulation"
+  ],
+  "feng-2024-nah": [
+    "cloth",
+    "simulation"
+  ],
+  "sun-2026-tailorcopilot": [
+    "garment-design",
+    "design",
+    "interactive-systems"
+  ],
+  "yuan-2026-iyk": [
+    "cloth",
+    "simulation"
+  ],
+  "feng-2022-lbb": [
+    "cloth",
+    "simulation"
+  ],
+  "wang-2005-tst": [
+    "rendering"
+  ],
+  "he-2015-rss": [
+    "fluids",
+    "simulation"
+  ],
+  "ma-2026-fto": [
+    "rendering",
+    "garment-design",
+    "design"
+  ],
+  "he-2015-sfm": [
+    "fluids",
+    "simulation"
+  ],
+  "wang-2018-rfs": [
+    "garment-design",
+    "design"
+  ],
+  "tang-2016-cam": [
+    "cloth",
+    "simulation"
+  ],
+  "zhang-2012-dsm": [
+    "fluids",
+    "simulation"
+  ],
+  "wang-2010-mri": [
+    "cloth",
+    "simulation"
+  ],
+  "guo-2026-mlq": [
+    "solids",
+    "simulation"
+  ],
+  "jiang-2024-vrgs": [
+    "solids",
+    "simulation",
+    "rendering",
+    "interactive-systems",
+    "design"
+  ],
+  "he-2018-ppm": [
+    "solids",
+    "simulation"
+  ],
+  "wang-2005-wds": [
+    "fluids",
+    "simulation"
+  ],
+  "busaryev-2012-abi": [
+    "fluids",
+    "simulation"
+  ],
+  "ray-2009-mst": [
+    "rendering"
+  ],
+  "wu-2015-uas": [
+    "solids",
+    "simulation"
+  ],
+  "wang-2007-sgs": [
+    "fluids",
+    "simulation"
+  ],
+  "lan-2024-egc": [
+    "cloth",
+    "simulation"
+  ],
+  "wang-2023-fgb": [
+    "solids",
+    "simulation"
+  ],
+  "li-2024-add": [
+    "solids",
+    "simulation"
+  ],
+  "hua-2012-crc": [
+    "rendering"
+  ],
+  "yan-2020-ils": [
+    "fluids",
+    "simulation",
+    "interactive-systems",
+    "design"
+  ],
+  "wang-2015-csi": [
+    "solids",
+    "simulation"
+  ],
+  "wang-2014-dcc": [
+    "solids",
+    "simulation"
+  ],
+  "chen-2013-bbn": [
+    "rendering",
+    "geometry"
+  ],
+  "wu-2020-sfr": [
+    "cloth",
+    "simulation"
+  ],
+  "feng-2021-cds": [
+    "robotics"
+  ],
+  "wang-2009-pgl": [
+    "fluids",
+    "simulation"
+  ],
+  "li-2025-gd": [
+    "garment-design",
+    "design"
+  ],
+  "zhang-2012-sgh": [
+    "solids",
+    "simulation"
+  ],
+  "wang-2010-ebw": [
+    "cloth",
+    "simulation"
+  ],
+  "ye-2014-rth": [
+    "geometry",
+    "garment-design",
+    "design"
+  ],
+  "li-2023-spg": [
+    "cloth",
+    "simulation"
+  ],
+  "ma-2025-ose": [
+    "garment-design",
+    "design"
+  ],
+  "wang-2008-frc": [
+    "rendering"
+  ],
+  "liu-2026-dac": [
+    "solids",
+    "simulation"
+  ],
+  "zhang-2025-pie": [
+    "cloth",
+    "simulation",
+    "geometry"
+  ],
+  "wang-2007-stl": [
+    "rendering"
+  ],
+  "wang-2016-dme": [
+    "solids",
+    "simulation"
+  ],
+  "lan-2020-mee": [
+    "solids",
+    "simulation",
+    "geometry"
+  ],
+  "yang-2016-ess": [
+    "fluids",
+    "simulation"
+  ],
+  "yan-2018-idm": [
+    "solids",
+    "simulation"
+  ],
+  "lan-2025-jgs": [
+    "solids",
+    "simulation"
+  ],
+  "lu-2024-ppm": [
+    "cloth",
+    "simulation"
+  ],
+  "dey-2015-apm": [
+    "geometry"
+  ],
+  "wu-2022-gbm": [
+    "cloth",
+    "simulation",
+    "solids"
+  ],
+  "yang-2011-cpm": [
+    "rendering"
+  ],
+  "wang-2009-pwa": [
+    "fluids",
+    "simulation"
+  ],
+  "hu-2024-tpr": [
+    "rendering",
+    "garment-design",
+    "design"
+  ],
+  "mukherjee-2018-itw": [
+    "solids",
+    "simulation",
+    "interactive-systems",
+    "design"
+  ],
+  "busaryev-2013-afs": [
+    "solids",
+    "simulation"
+  ],
+  "wang-2011-dde": [
+    "cloth",
+    "simulation"
+  ],
+  "chen-2015-wgb": [
+    "solids",
+    "simulation",
+    "interactive-systems",
+    "design"
+  ],
+  "guo-2025-fpb": [
+    "cloth",
+    "simulation",
+    "garment-design",
+    "design"
+  ],
+  "wang-2023-sdb": [
+    "cloth",
+    "simulation"
+  ],
+  "guo-2026-hsc": [
+    "solids",
+    "simulation"
+  ],
+  "lu-2025-hpc": [
+    "cloth",
+    "simulation"
+  ],
+  "lan-2023-sos": [
+    "solids",
+    "simulation"
+  ],
+  "mao-2017-sbs": [
+    "cloth",
+    "simulation",
+    "fluids"
+  ]
+}

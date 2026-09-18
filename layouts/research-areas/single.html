@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ $papers := slice }}
+{{ if .Params.area }}
+  {{ range where site.RegularPages "Section" "publication" }}
+    {{ $topics := index site.Data.publication_topics (path.Base (path.Dir .File.Path)) | default slice }}
+    {{ if in $topics $.Params.area }}{{ $papers = $papers | append . }}{{ end }}
+  {{ end }}
+{{ else }}
+  {{ range .Params.keyword_terms }}
+    {{ with index site.Taxonomies.tags . }}{{ $papers = $papers | union .Pages }}{{ end }}
+  {{ end }}
+{{ end }}
+<div class="container max-w-3xl mx-auto w-full publication-index">
+  <a href="{{ "tags/" | relURL }}" class="text-sm text-primary-700">← Topics</a>
+  <h1 class="text-3xl font-bold mt-4 mb-6">{{ .Title }}</h1>
+  <div class="publication-results-bar mb-6">
+    <p id="publication-result-count">{{ len $papers }} publications</p>
+    <div class="publication-toolbar"><label class="publication-toggle"><input type="checkbox" id="publication-image-toggle" role="switch" aria-controls="publication-entries"> <span>Show thumbnails</span></label></div>
+  </div>
+  <div id="publication-entries" class="publication-citation-stack">
+  {{ range sort $papers "Date" "desc" }}
+    {{ partial "functions/render_view" (dict "page" . "item" . "view" "citation") }}
+  {{ end }}
+  </div>
+</div>
+{{ end }}

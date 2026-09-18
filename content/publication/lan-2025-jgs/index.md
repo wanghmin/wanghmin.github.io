@@ -40,6 +40,7 @@ tags:
 - parallel computation
 links:
 url_video: https://drive.google.com/file/d/19YTzkYbGTsBXUX3_dLlnZvpcXBo499JD/view
+summary: "We introduce a GPU elastodynamics solver that combines Jacobi-like parallelism with near second-order convergence. Correcting local update overshoot accelerates simulations of both soft and stiff materials, including contact."
 ---
 
 <p align="center">

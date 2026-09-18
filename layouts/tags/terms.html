@@ -1,0 +1,65 @@
+{{ define "main" }}
+<style>
+.topics-page { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.topics-page h1 { font-size: 36px; font-weight: 700; margin: 0 0 32px; }
+.topics-page h2 { font-size: 20px; font-weight: 600; margin: 0 0 16px; }
+.topics-section + .topics-section { margin-top: 36px; padding-top: 28px; border-top: 1px solid #e5e7eb; }
+.topics-keyword-note { margin: -8px 0 16px; font-size: 14px; color: #69717d; }
+.dark .topics-keyword-note { color: #b8c0cc; }
+.topics-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+.topic-chip { display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 6px; font-size: 15px; line-height: 22px; color: #505b6a; background: #f2f3f5; text-decoration: none; transition: background .15s; }
+.topic-chip:hover { background: #ebe8ff; color: #5146b8; }
+.topic-chip:focus-visible { outline: 2px solid #635bca; outline-offset: 3px; }
+.topic-chip span { font-size: 13px; opacity: .65; font-variant-numeric: tabular-nums; }
+.topic-chip-area { background: #f0edff; color: #5146b8; font-weight: 500; }
+.dark .topics-section + .topics-section { border-color: #343a46; }
+.dark .topic-chip { background: #293140; color: #cbd5e1; }
+.dark .topic-chip-area, .dark .topic-chip:hover { background: #302d4c; color: #c4bfff; }
+@media(max-width: 767px) { .topics-page { padding: 0 20px; } .topics-page h1 { font-size: 30px; } .topics-cloud { gap: 8px; } }
+</style>
+<div class="topics-page">
+<h1>{{ .Title }}</h1>
+<section class="topics-section" aria-labelledby="research-areas-heading">
+<h2 id="research-areas-heading">Research areas</h2>
+<div class="topics-cloud">
+{{ range slice "cloth" "solids" "fluids" "robotics" "rendering" "geometry" "garment-design" "interactive-systems" }}
+  {{ $area := . }}{{ $count := 0 }}
+  {{ range where site.RegularPages "Section" "publication" }}
+    {{ $topics := index site.Data.publication_topics (path.Base (path.Dir .File.Path)) | default slice }}
+    {{ if in $topics $area }}{{ $count = add $count 1 }}{{ end }}
+  {{ end }}
+  {{ with site.GetPage (printf "/research-areas/%s" $area) }}
+  <a class="topic-chip topic-chip-area" href="{{ .RelPermalink }}">{{ .Title }} <span>{{ $count }}</span></a>
+  {{ end }}
+{{ end }}
+</div>
+</section>
+<section class="topics-section" aria-labelledby="keywords-heading">
+<h2 id="keywords-heading">Keywords</h2>
+<p class="topics-keyword-note">Keywords shared by two or more publications.</p>
+<div class="topics-cloud">
+{{ $merged := slice }}{{ $entries := slice }}
+{{ range where site.RegularPages "Section" "research-areas" }}
+  {{ if .Params.keyword_terms }}
+    {{ $pages := slice }}
+    {{ range .Params.keyword_terms }}
+      {{ $merged = $merged | append . }}
+      {{ with index site.Taxonomies.tags . }}{{ $pages = $pages | union .Pages }}{{ end }}
+    {{ end }}
+    {{ $entries = $entries | append (dict "title" .Title "url" .RelPermalink "count" (len $pages)) }}
+  {{ end }}
+{{ end }}
+{{ range .Data.Terms.Alphabetical }}
+  {{ if not (in $merged (lower .Name)) }}
+    {{ $label := .Page.Title }}
+    {{ if eq $label (lower $label) }}{{ $label = strings.FirstUpper $label }}{{ end }}
+    {{ $entries = $entries | append (dict "title" $label "url" .Page.RelPermalink "count" .Count) }}
+  {{ end }}
+{{ end }}
+{{ range sort (sort (where $entries "count" "ge" 2) "title") "count" "desc" }}
+<a class="topic-chip" href="{{ .url }}">{{ .title }} <span>{{ .count }}</span></a>
+{{ end }}
+</div>
+</section>
+</div>
+{{ end }}

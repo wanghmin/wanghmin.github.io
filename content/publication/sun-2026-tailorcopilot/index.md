@@ -1,5 +1,6 @@
 ---
 {
+  "summary": "We introduce an agentic pattern-making system built on version-controlled tracking of pattern geometry and editing operations. Capturing expert workflows supports novice users and enables AI-assisted garment pattern creation.",
   "title": "TailorCoPilot: Enabling Agentic Pattern Making with Version-Controlled State Tracking",
   "authors": [
     "Yuexin Sun",

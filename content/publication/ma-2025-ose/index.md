@@ -45,4 +45,5 @@ links:
 - name: Page
   url: https://style3d.github.io/embroidery_customization/
 url_code: https://github.com/Style3D/embroidery_customization-impl
+summary: "We customize embroidery appearance from a single reference image using contrastive LoRA modulation. Separating fine-grained style from content enables embroidery generation from image or text inputs."
 ---

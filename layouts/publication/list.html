@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="max-w-prose mx-auto flex justify-center">
+  <article class="prose prose-slate lg:prose-xl dark:prose-invert">
+    <h1 class="lg:text-6xl">{{ .Title }}</h1>
+    {{ .Content }}
+  </article>
+</div>
+<div class="flex flex-col items-center">
+  <div class="container max-w-3xl w-full publication-index">
+    <div class="publication-results-bar">
+      <p id="publication-result-count" aria-live="polite">{{ len .Pages }} publications</p>
+      <div class="publication-toolbar">
+      <label class="publication-toggle"><input type="checkbox" id="publication-image-toggle" checked role="switch" aria-controls="publication-entries"> <span>Show thumbnails</span></label>
+      </div>
+    </div>
+    <div id="publication-entries">
+    {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+    {{ $lastYear := "" }}
+    {{ range $index, $item := $paginator.Pages }}
+      {{ $year := $item.Date.Format "2006" }}
+      {{ if ne $year $lastYear }}
+        <h2 class="pub-year" id="y-{{ $year }}"><span>{{ $year }}</span><span class="publication-year-rule" aria-hidden="true"></span></h2>
+        {{ $lastYear = $year }}
+      {{ end }}
+      {{ $topics := index site.Data.publication_topics (path.Base (path.Dir $item.File.Path)) | default slice }}
+      <div class="publication-entry" data-topics="{{ delimit $topics " " }}" data-year="{{ $year }}">
+      {{ partial "functions/render_view" (dict "page" $item "item" $item "view" "citation" "index" $index) }}
+      </div>
+    {{ end }}
+    </div>
+    {{ partial "components/paginator" . }}
+  </div>
+</div>
+{{ end }}

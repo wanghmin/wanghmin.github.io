@@ -20,4 +20,5 @@ tags:
 - GPU simulation
 - subspace corrections
 doi: "10.1145/3811275"
+summary: "We develop a GPU solver for multibody systems combining soft and stiff materials. Heterogeneous subspace corrections exploit low-rank coupling to accelerate deformable dynamics with challenging contacts."
 ---

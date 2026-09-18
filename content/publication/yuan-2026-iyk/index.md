@@ -21,4 +21,5 @@ tags:
 - yarn-level simulation
 - douglas-rachford splitting
 doi: "10.1145/3811277"
+summary: "We enable interactive yarn-level knitwear simulation with nested Douglas-Rachford splitting. Decomposing yarn mechanics and contact into convex subproblems supports robust, matrix-free GPU simulation with millions of degrees of freedom."
 ---
