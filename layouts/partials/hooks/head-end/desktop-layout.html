@@ -1,7 +1,8 @@
 <style>
-/* Keep the original home/topics layouts and all mobile widths. */
+/* Match desktop publication lists while preserving other home/topics and mobile widths. */
 @media (min-width: 1024px) {
-  .publication-index {
+  .publication-index,
+  .blox-collection .container:has(> .publication-citation-stack) {
     width: 100%;
     max-width: 800px !important;
   }
