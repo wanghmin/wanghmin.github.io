@@ -43,6 +43,6 @@ links:
 - name: Page
   url: https://style3d.github.io/garmagenet/
 url_code: https://github.com/Style3D/garmagenet-impl
-url_dataset: https://huggingface.co/datasets/Style3D-AI/GarmageSet
+url_dataset: https://huggingface.co/datasets/Style3D/GarmageSet
 summary: "We present a multimodal framework that generates sewing patterns, sewing connections, and simulation-ready garment initializations. A shared geometry-image representation supports garment design from text, sketches, and photographs."
 ---

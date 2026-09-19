@@ -1,0 +1,8 @@
+# Search page content, excluding repeated navigation and hidden sidebar links.
+exclude_selectors:
+  - .hb-sidebar-container
+  - .hb-sidebar-mobile-menu
+  - aside
+  - nav
+  - footer
+  - '#search'

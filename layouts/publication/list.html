@@ -1,4 +1,27 @@
 {{ define "main" }}
+{{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+<style>
+.publication-index .publication-results-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0 4px; }
+.publication-index #publication-result-count { font-size: 13px; white-space: nowrap; color: #7c8290; }
+.publication-browse-tools { display: flex; align-items: center; gap: 16px; }
+.publication-year-control { position: relative; display: inline-flex; align-items: center; }
+.publication-year-control svg { position: absolute; right: 6px; width: 12px; height: 12px; pointer-events: none; color: #8a809e; }
+.publication-year-select { appearance: none; font: inherit; font-size: 14px; line-height: 20px; color: #635779; background: transparent; border: 0; border-radius: 4px; padding: 8px 24px 8px 6px; width: 68px; min-height: 36px; cursor: pointer; }
+.publication-year-select:hover { background: #f5f3fa; color: #5146b8; }
+.publication-year-select:focus-visible { outline: 2px solid #8b7fc8; outline-offset: 2px; }
+.publication-browse-tools .publication-toolbar { padding-left: 8px; }
+.publication-browse-tools .publication-toggle { color: #656b78; font-size: 14px; min-height: 36px; gap: 8px; }
+.publication-index .pub-year { scroll-margin-top: 100px; }
+.publication-index .pub-year:focus { outline: none; }
+.dark .publication-year-select { color: #c9bddf; color-scheme: dark; }
+.dark .publication-year-select:hover { background: #29243c; }
+.dark .publication-browse-tools .publication-toggle { color: #b8c0cc; }
+@media(max-width: 600px) { .publication-browse-tools { gap: 8px; } .publication-browse-tools .publication-toolbar { padding-left: 4px; } }
+@media (max-width: 767px) {
+  .publication-index { box-sizing: border-box; padding-left: 16px; padding-right: 16px; }
+  .publication-index .publication-results-bar { flex-wrap: wrap; }
+}
+</style>
 <div class="max-w-prose mx-auto flex justify-center">
   <article class="prose prose-slate lg:prose-xl dark:prose-invert">
     <h1 class="lg:text-6xl">{{ .Title }}</h1>
@@ -9,17 +32,35 @@
   <div class="container max-w-3xl w-full publication-index">
     <div class="publication-results-bar">
       <p id="publication-result-count" aria-live="polite">{{ len .Pages }} publications</p>
+      <div class="publication-browse-tools">
+      <div class="publication-year-control">
+      <select id="publication-year-select" class="publication-year-select" aria-label="Jump to publication year">
+        <option value="">Year</option>
+        {{ $seenYears := slice }}
+        {{ range $paginator.Pagers }}
+          {{ $pager := . }}
+          {{ range .Pages }}
+            {{ $year := .Date.Format "2006" }}
+            {{ if not (in $seenYears $year) }}
+              {{ $seenYears = $seenYears | append $year }}
+              <option value="{{ $pager.URL }}#y-{{ $year }}">{{ $year }}</option>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </select>
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       <div class="publication-toolbar">
-      <label class="publication-toggle"><input type="checkbox" id="publication-image-toggle" checked role="switch" aria-controls="publication-entries"> <span>Show thumbnails</span></label>
+      <label class="publication-toggle"><input type="checkbox" id="publication-image-toggle" checked role="switch" aria-controls="publication-entries" aria-label="Show thumbnails"> <span>Images</span></label>
+      </div>
       </div>
     </div>
     <div id="publication-entries">
-    {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
     {{ $lastYear := "" }}
     {{ range $index, $item := $paginator.Pages }}
       {{ $year := $item.Date.Format "2006" }}
       {{ if ne $year $lastYear }}
-        <h2 class="pub-year" id="y-{{ $year }}"><span>{{ $year }}</span><span class="publication-year-rule" aria-hidden="true"></span></h2>
+        <h2 class="pub-year" id="y-{{ $year }}" tabindex="-1"><span>{{ $year }}</span><span class="publication-year-rule" aria-hidden="true"></span></h2>
         {{ $lastYear = $year }}
       {{ end }}
       {{ $topics := index site.Data.publication_topics (path.Base (path.Dir $item.File.Path)) | default slice }}
@@ -31,4 +72,24 @@
     {{ partial "components/paginator" . }}
   </div>
 </div>
+<script>
+(function () {
+  const select = document.getElementById('publication-year-select');
+  select.addEventListener('change', function () {
+    if (!this.value) return;
+    const target = new URL(this.value, window.location.href);
+    if (target.pathname === window.location.pathname) {
+      const heading = document.getElementById(target.hash.slice(1));
+      if (heading) {
+        history.replaceState(null, '', target.hash);
+        heading.focus({preventScroll: true});
+        heading.scrollIntoView({block: 'start'});
+      }
+    } else {
+      window.location.assign(target.href);
+    }
+    this.value = '';
+  });
+})();
+</script>
 {{ end }}

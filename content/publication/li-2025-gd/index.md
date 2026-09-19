@@ -24,5 +24,5 @@ summary: We propose GarmentDreamer, a novel method that leverages 3D Gaussian Sp
 url_code: https://github.com/boqian-li/GarmentDreamer
 links:
 - name: Page
-  url: https://yingjiang96.github.io/VR-GS/  
+  url: https://xuan-li.github.io/GarmentDreamerDemo/
 ---

@@ -39,5 +39,5 @@ tags:
 links:
 - name: Page
   url: https://style3d.github.io/design2garmentcode/
-url_code: https://github.com/Style3D/SXDGarmentCode
+url_code: https://github.com/Style3D/design2garmentcode-impl
 ---
