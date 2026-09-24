@@ -24,3 +24,27 @@
   }
 }
 </style>
+
+<style>
+/* Match the primary purple used by other site links. */
+.page-footer footer a,
+.page-footer footer a:visited {
+  color: rgb(var(--color-primary-700)) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.page-footer footer a:hover,
+.page-footer footer a:focus-visible {
+  color: rgb(var(--color-primary-700)) !important;
+  text-decoration-thickness: 2px;
+}
+</style>
+
+<style>
+.dark .page-footer footer a,
+.dark .page-footer footer a:visited,
+.dark .page-footer footer a:hover,
+.dark .page-footer footer a:focus-visible {
+  color: rgb(var(--color-primary-300)) !important;
+}
+</style>
