@@ -14,7 +14,7 @@ date: '2024-12-03'
 publishDate: '2024-10-14T09:55:39.574386Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia)*'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia)*"
 
 abstract: This paper pushes the performance of cloth simulation, making the simulation
   interactive even for high-resolution garment models while keeping every triangle

@@ -9,7 +9,7 @@ date: '2022-07-01'
 publishDate: '2024-03-03T02:42:27.050540Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 41*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 41*(4)"
 
 abstract: In this paper, we wish to push the limit of real-time cloth and deformable
   body simulation to a higher level with 50K to 500K vertices, based on the development

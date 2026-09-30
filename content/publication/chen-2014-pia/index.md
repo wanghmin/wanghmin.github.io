@@ -9,7 +9,7 @@ date: '2014-07-01'
 publishDate: '2024-03-03T02:42:26.864311Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 33*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 33*(4)"
 
 abstract: Physically based animation of detailed fracture effects is not only computationally
   expensive, but also difficult to implement due to numerical instability. In this

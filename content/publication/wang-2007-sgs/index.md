@@ -9,8 +9,7 @@ publishDate: '2024-02-29T05:26:53.834489Z'
 
 publication_types:
 - paper-conference
-publication: '*Proceedings of the 2007 ACM SIGGRAPH/Eurographics Symposium on Computer
-  Animation*'
+publication: "*ACM SIGGRAPH/Eurographics Symposium on Computer Animation (SCA)*"
 abstract: 'We propose a new framework for solving General Shallow Wave Equations (GSWE)
   in order to efficiently simulate water flows on solid surfaces under shallow wave
   assumptions. Within this framework, we develop implicit schemes for solving the

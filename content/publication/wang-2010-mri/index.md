@@ -8,7 +8,7 @@ date: '2010-12-01'
 publishDate: '2024-03-01T07:51:40.562595Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 29*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 29*(6)"
 
 abstract: In this paper we describe a fast strain-limiting method that allows stiff,
   incompliant materials to be simulated efficiently. Unlike prior approaches, which

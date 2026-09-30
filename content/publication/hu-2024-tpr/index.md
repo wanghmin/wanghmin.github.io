@@ -12,8 +12,7 @@ date: '2024-12-10'
 publishDate: '2024-10-22T08:31:09.743820Z'
 publication_types:
 - paper-conference
-publication: '*Advances in Neural Information Processing Systems 38: Annual Conference
-  on Neural Information Processing Systems (NeurIPS)*'
+publication: "*Advances in Neural Information Processing Systems (NeurIPS), 38*"
 abstract: 'Modeling and producing lifelike clothed human images has attracted researchers’
   attention from different areas for decades, with the complexity from highly articulated
   and structured content. Rendering algorithms decompose and simulate the imaging

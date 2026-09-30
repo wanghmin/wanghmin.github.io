@@ -11,7 +11,7 @@ date: '2014-04-01'
 publishDate: '2024-03-03T02:42:26.846141Z'
 publication_types:
 - article-journal
-publication: '*IEEE transactions on visualization and computer graphics (IEEE VR), 20*(4)'
+publication: "*IEEE Transactions on Visualization and Computer Graphics (IEEE VR), 20*(4)"
 
 abstract: We present a system that allows the user to virtually try on new clothes.
   It uses a single commodity depth camera to capture the user in 3D. Both the pose

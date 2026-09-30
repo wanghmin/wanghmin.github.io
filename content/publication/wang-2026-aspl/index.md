@@ -15,8 +15,8 @@
   "publication_types": [
     "paper-conference"
   ],
-  "publication": "*SIGGRAPH Asia 2026 Conference Papers*",
-  "publication_short": "*SIGGRAPH Asia 2026 Conference Papers*",
+  "publication": "*ACM SIGGRAPH Asia 2026 Conference Papers*",
+  "publication_short": "*ACM SIGGRAPH Asia 2026 Conference Papers*",
   "featured": false
 }
 ---

@@ -7,7 +7,7 @@ date: '2005-04-01'
 publishDate: '2024-02-29T05:26:53.816447Z'
 publication_types:
 - paper-conference
-publication: '*Proceedings of the 2005 Symposium on Interactive 3D Graphics and Games*'
+publication: "*ACM Symposium on Interactive 3D Graphics and Games (I3D)*"
 
 abstract: So far extending light field rendering to dynamic scenes has been trivially
   treated as the rendering of static light fields stacked in time. This type of approaches

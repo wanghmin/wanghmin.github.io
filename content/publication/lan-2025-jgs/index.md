@@ -13,7 +13,7 @@ date: '2025-08-12'
 publishDate: '2025-10-10T08:37:01.271116Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 44*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 44*(4)"
 
 abstract: In parallel simulation, convergence and parallelism are often seen as inherently
   conflicting objectives. Improved parallelism typically entails lighter local computation

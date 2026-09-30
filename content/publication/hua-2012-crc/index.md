@@ -11,7 +11,7 @@ date: '2012-06-01'
 publishDate: '2024-03-01T07:51:40.592007Z'
 publication_types:
 - article-journal
-publication: '*Vis. Comput. (Computer Graphics International), 28*'
+publication: "*The Visual Computer (Computer Graphics International), 28*"
 
 abstract: Large-scale remote sensing images, including both satellite and aerial photographs,
   are widely used to render terrain scenes in real-time geographic visualization systems.

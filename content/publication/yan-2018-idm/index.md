@@ -9,7 +9,7 @@ date: '2018-12-01'
 publishDate: '2024-03-03T02:42:26.996012Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 37*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 37*(6)"
 
 abstract: 'Elastic parameter optimization has revealed its importance in 3D modeling,
   virtual reality, and additive manufacturing in recent years. Unfortunately, it is

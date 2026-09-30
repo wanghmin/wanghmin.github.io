@@ -14,7 +14,7 @@ date: '2020-04-01'
 publishDate: '2024-03-03T02:42:27.019384Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 39*(3)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 39*(3)"
 
 abstract: We propose a framework for the interactive simulation of nonlinear deformable
   objects. The primary feature of our system is the seamless integration of deformable

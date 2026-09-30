@@ -6,7 +6,7 @@ date: '2014-07-01'
 publishDate: '2024-03-03T02:42:26.871612Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 33*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 33*(4)"
 
 abstract: Numerical errors and rounding errors in continuous collision detection (CCD)
   can easily cause collision detection failures if they are not handled properly.

@@ -8,7 +8,7 @@ date: '2011-07-01'
 publishDate: '2024-03-01T07:51:40.570089Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 30*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 30*(4)"
 
 abstract: Cloth often has complicated nonlinear, anisotropic elastic behavior due
   to its woven pattern and fiber properties. However, most current cloth simulation

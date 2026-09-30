@@ -11,7 +11,7 @@ date: '2023-07-01'
 publishDate: '2024-03-03T02:42:27.066106Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 42*(5)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 42*(5)"
 
 abstract: Step-and-project is a popular method to simulate non-penetrating deformable
   bodies in physically based animation. The strategy is to first integrate the system

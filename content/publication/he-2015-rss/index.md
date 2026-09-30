@@ -12,7 +12,7 @@ date: '2015-12-01'
 publishDate: '2024-03-03T02:42:26.856480Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 34*(1)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 34*(1)"
 
 abstract: 'Smoothed particle hydrodynamics (SPH) is efficient, mass preserving, and
   flexible in handling topological changes. However, sparsely sampled thin features

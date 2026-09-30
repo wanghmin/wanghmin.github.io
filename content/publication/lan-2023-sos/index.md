@@ -10,7 +10,7 @@ date: '2023-07-01'
 publishDate: '2024-03-03T02:42:27.080441Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 42*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 42*(4)"
 
 abstract: In this paper, we present a GPU algorithm for finite element hyperelastic
   simulation. We show that the interior-point method, known to be effective for robust

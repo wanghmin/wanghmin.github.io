@@ -15,7 +15,7 @@ date: '2013-11-01'
 publishDate: '2024-03-01T07:51:40.620667Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 32*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 32*(6)"
 
 abstract: Blue noise sampling is an important component in many graphics applications,
   but existing techniques consider mainly the spatial positions of samples, making

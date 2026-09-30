@@ -8,7 +8,7 @@ date: '2013-07-01'
 publishDate: '2024-03-01T07:51:40.613554Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 32*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 32*(4)"
 
 abstract: 'Real-world cloth exhibits complex behaviors when it contacts deformable
   bodies. In this paper, we study how to improve the simulation of cloth-body interactions

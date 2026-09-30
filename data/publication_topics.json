@@ -351,5 +351,9 @@
     "cloth",
     "simulation",
     "fluids"
+  ],
+  "tao-2026-dresswild": [
+    "garment-design",
+    "design"
   ]
 }

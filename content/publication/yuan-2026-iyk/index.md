@@ -15,7 +15,7 @@ date: '2026-08-01'
 publishDate: '2026-06-16T00:00:00Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 45*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 45*(4)"
 tags:
 - knitwear simulation
 - yarn-level simulation

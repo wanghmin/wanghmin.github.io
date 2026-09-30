@@ -9,7 +9,7 @@ date: '2010-07-01'
 publishDate: '2024-03-01T07:51:40.552052Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 29*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 29*(4)"
 
 abstract: This paper describes a method for animating the appearance of clothing,
   such as pants or a shirt, that fits closely to a figure's body. Compared to flowing

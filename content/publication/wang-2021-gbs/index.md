@@ -6,7 +6,7 @@ date: '2021-07-01'
 publishDate: '2024-03-03T02:42:27.042912Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 40*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 40*(4)"
 
 abstract: In this paper, we study physics-based cloth simulation in a very high resolution
   setting, presumably at submillimeter levels with millions of vertices, to meet perceptual

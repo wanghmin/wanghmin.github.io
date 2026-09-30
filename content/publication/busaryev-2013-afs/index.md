@@ -8,7 +8,7 @@ date: '2013-07-01'
 publishDate: '2024-03-01T07:51:40.606767Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 32*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 32*(4)"
 
 abstract: The fractures of thin plates often exhibit complex physical behaviors in
   the real world. In particular, fractures caused by tearing are different from fractures

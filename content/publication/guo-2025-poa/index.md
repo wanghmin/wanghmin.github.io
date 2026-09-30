@@ -12,7 +12,7 @@ date: '2025-12-01'
 publishDate: '2025-10-10T08:37:01.286987Z'
 publication_types:
 - paper-conference
-publication: '*SIGGRAPH Asia 2025 Conference Papers*'
+publication: "*ACM SIGGRAPH Asia 2025 Conference Papers*"
 
 abstract: With the rise of digital fashion, reusing high-quality garment assets to
   assemble new outfits has become increasingly important for improving design efficiency

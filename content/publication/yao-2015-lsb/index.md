@@ -10,7 +10,7 @@ date: '2015-11-01'
 publishDate: '2024-03-03T02:42:26.909004Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 34*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 34*(6)"
 
 abstract: 'As the 3D printing technology starts to revolutionize our daily life and
   the manufacturing industries, a critical problem is about to e-merge: how can we

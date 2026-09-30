@@ -14,7 +14,7 @@ date: '2025-12-02'
 publishDate: '2025-10-10T08:37:01.309982Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 44*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 44*(6)"
 
 abstract: Realistic digital garment modeling remains a labor-intensive task due to
   the intricate process of translating 2D sewing patterns into high-fidelity, simulation-ready

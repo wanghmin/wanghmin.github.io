@@ -9,7 +9,7 @@ date: '2015-11-01'
 publishDate: '2024-03-03T02:42:26.893868Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 34*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 34*(6)"
 
 abstract: 'We present a real-time painting system that simulates the interactions
   among brush, paint, and canvas at the bristle level. The key challenge is how to

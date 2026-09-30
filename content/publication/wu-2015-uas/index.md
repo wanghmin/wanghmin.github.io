@@ -9,7 +9,7 @@ date: '2015-11-01'
 publishDate: '2024-03-03T02:42:26.901447Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 34*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 34*(6)"
 
 abstract: Multi-domain subspace simulation can efficiently and conveniently simulate
   the deformation of a large deformable body, by constraining the deformation of each

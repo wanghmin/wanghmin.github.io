@@ -8,7 +8,7 @@ date: '2018-01-01'
 publishDate: '2024-03-05T08:24:07.661854Z'
 publication_types:
 - paper-conference
-publication: '*SIGGRAPH Asia 2018 Courses*'
+publication: "*ACM SIGGRAPH Asia 2018 Courses*"
 
 abstract: Physics-based animation of elastic materials allows to simulate dynamic
   deformable objects such as fabrics, human tissue, hair, etc. Due to their complex

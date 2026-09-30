@@ -16,7 +16,7 @@ date: '2025-12-01'
 publishDate: '2025-10-10T08:37:01.294520Z'
 publication_types:
 - paper-conference
-publication: '*SIGGRAPH Asia 2025 Conference Papers*'
+publication: "*ACM SIGGRAPH Asia 2025 Conference Papers*"
 
 abstract: 'In 3D object reconstruction from photographs, estimating material properties
   is challenging.We propose an inverse rendering method that uses active area lighting:

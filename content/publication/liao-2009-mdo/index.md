@@ -10,7 +10,7 @@ date: '2009-09-29'
 publishDate: '2024-03-01T04:06:04.839299Z'
 publication_types:
 - paper-conference
-publication: '*2009 IEEE 12th International Conference on Computer Vision (ICCV Oral)*'
+publication: "*IEEE International Conference on Computer Vision (ICCV, Oral)*"
 
 abstract: We propose a novel approach to reconstruct complete 3D deformable models
   over time by a single depth camera, provided that most parts of the models are observed

@@ -10,7 +10,7 @@ date: '2009-07-01'
 publishDate: '2024-03-01T04:06:04.807745Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 28*(3)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 28*(3)"
 
 abstract: We present an image-based reconstruction framework to model real water scenes
   captured by stereoscopic video. In contrast to many image-based modeling techniques

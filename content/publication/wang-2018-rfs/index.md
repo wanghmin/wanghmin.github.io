@@ -6,7 +6,7 @@ date: '2018-07-01'
 publishDate: '2024-03-03T02:42:27.003755Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 37*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 37*(4)"
 
 abstract: 'Being able to customize sewing patterns for different human bodies without
   using any pre-defined adjustment rule will not only improve the realism of virtual

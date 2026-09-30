@@ -9,7 +9,7 @@ date: '2008-08-01'
 publishDate: '2024-02-29T05:26:53.848532Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 27*(3)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 27*(3)"
 
 abstract: We reduce transmission bandwidth and memory space for images by factoring
   their repeated content. A transform map and a condensed epitome are created such

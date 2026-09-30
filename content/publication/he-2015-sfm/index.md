@@ -12,8 +12,7 @@ date: '2015-08-01'
 publishDate: '2024-03-03T02:42:26.886272Z'
 publication_types:
 - paper-conference
-publication: '*Proceedings of the 14th ACM SIGGRAPH / Eurographics Symposium on Computer
-  Animation*'
+publication: "*ACM SIGGRAPH/Eurographics Symposium on Computer Animation (SCA)*"
 
 abstract: The simulation of fluid mixing under the Eulerian framework often suffers
   from numerical dissipation issues. In this paper, we present a mass-preserving convection

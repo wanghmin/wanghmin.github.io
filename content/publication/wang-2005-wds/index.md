@@ -8,7 +8,7 @@ date: '2005-07-01'
 publishDate: '2024-02-29T05:26:53.826566Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 24*(3)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 24*(3)"
 
 abstract: We present a physically-based method to enforce contact angles at the intersection
   of fluid free surfaces and solid objects, allowing us to simulate a variety of small-scale

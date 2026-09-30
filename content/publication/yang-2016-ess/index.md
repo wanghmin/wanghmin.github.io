@@ -12,8 +12,7 @@ date: '2016-07-11'
 publishDate: '2024-03-03T02:42:26.931255Z'
 publication_types:
 - paper-conference
-publication: '*Proceedings of the ACM SIGGRAPH/Eurographics Symposium on Computer
-  Animation*'
+publication: "*ACM SIGGRAPH/Eurographics Symposium on Computer Animation (SCA)*"
 abstract: Capillary waves are difficult to simulate due to their fast traveling speed
   and high frequency. In this paper, we propose to approximate capillary wave effects
   by surface compression waves under the SPH framework. To achieve this goal, we present

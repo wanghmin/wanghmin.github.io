@@ -12,8 +12,7 @@ date: '2025-06-11'
 publishDate: '2025-05-13T06:24:55.234682Z'
 publication_types:
 - paper-conference
-publication: '*The IEEE/CVF Conference on Computer Vision and Pattern Recognition
-  (CVPR)*'
+publication: "*IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*"
 abstract: 'Sewing patterns, the essential blueprints for fabric cutting and tailoring,
   act as a crucial bridge between design concepts and producible garments. However,
   existing uni-modal sewing pattern generation models struggle to effectively encode

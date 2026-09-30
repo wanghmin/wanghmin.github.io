@@ -13,7 +13,7 @@ date: '2025-08-12'
 publishDate: '2025-10-10T08:37:01.278987Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH), 44*(4)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH), 44*(4)"
 
 abstract: Whenever the concept of high-performance cloth simulation is brought up,
   GPU acceleration is almost always the first that comes to mind. Leveraging immense

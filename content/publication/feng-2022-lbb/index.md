@@ -9,7 +9,7 @@ date: '2022-11-01'
 publishDate: '2024-03-03T02:42:27.058210Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 41*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 41*(6)"
 
 abstract: 'Real-world fabrics often possess complicated nonlinear, anisotropic bending
   stiffness properties. Measuring the physical parameters of such properties for physics-based

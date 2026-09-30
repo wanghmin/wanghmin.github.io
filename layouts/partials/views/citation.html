@@ -16,7 +16,7 @@
     <h3 class="publication-title"><a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a></h3>
     <div class="publication-metadata"><span class="publication-authors">{{ partial "page_metadata_authors" $item }}.</span>
     <span class="publication-venue">
-      {{ $venue := $item.Params.publication_short | default $item.Params.publication }}
+      {{ $venue := $item.Params.publication | default $item.Params.publication_short }}
       {{ with $venue }}{{ replaceRE (printf `\s+%s\b` ($item.Date.Format "2006")) "" . | markdownify }}, {{ end }}{{ $item.Date.Format "2006" }}.
     </span></div>
     {{ if $has_attachments }}

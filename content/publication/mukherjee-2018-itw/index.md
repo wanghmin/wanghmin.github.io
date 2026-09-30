@@ -8,7 +8,7 @@ date: '2018-07-01'
 publishDate: '2024-03-03T02:42:26.967370Z'
 publication_types:
 - article-journal
-publication: '*Proc. ACM Comput. Graph. Interact. Tech. (I3D), 1*(1)'
+publication: "*Proceedings of the ACM on Computer Graphics and Interactive Techniques (I3D), 1*(1)"
 
 abstract: We present a novel system for interactive elastic shape design in both forward
   and inverse fashions. Using this system, the user can choose to edit the rest shape

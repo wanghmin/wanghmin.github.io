@@ -14,7 +14,7 @@ date: '2024-12-03'
 publishDate: '2024-10-14T09:55:39.582190Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia)*'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia)*"
 
 abstract: This paper presents volumetric homogenization, a spatially varying homogenization
   scheme for knitwear simulation. We are motivated by the observation that macro-scale

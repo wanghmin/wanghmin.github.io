@@ -9,7 +9,7 @@ date: '2023-12-13'
 publishDate: '2024-03-03T02:42:27.096003Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 42*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 42*(6)"
 
 abstract: In this paper, we address two limitations of dihedral angle based discrete
   bending (DAB) models, i.e. the indefiniteness of their energy Hessian and their

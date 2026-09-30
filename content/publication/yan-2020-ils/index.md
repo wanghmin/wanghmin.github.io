@@ -9,7 +9,7 @@ date: '2020-11-01'
 publishDate: '2024-03-03T02:42:27.027444Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 39*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 39*(6)"
 
 abstract: Splashing is one of the most fascinating liquid phenomena in the real world
   and it is favored by artists to create stunning visual effects, both statically

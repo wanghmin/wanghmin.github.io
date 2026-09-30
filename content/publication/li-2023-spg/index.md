@@ -12,7 +12,7 @@ date: '2023-12-12'
 publishDate: '2024-03-03T02:42:27.088211Z'
 publication_types:
 - paper-conference
-publication: '*SIGGRAPH Asia 2023 Conference Papers*'
+publication: "*ACM SIGGRAPH Asia 2023 Conference Papers*"
 
 abstract: We propose an efficient cloth simulation method that combines the merits
   of two drastically different numerical procedures, namely the subspace integration

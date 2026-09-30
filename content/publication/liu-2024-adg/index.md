@@ -9,7 +9,7 @@ date: '2024-07-29'
 publishDate: '2024-10-14T09:55:39.566669Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH)*'
+publication: "*ACM Transactions on Graphics (SIGGRAPH)*"
 
 abstract: The rapid advancement of digital fashion and generative AI technology calls
   for an automated approach to transform digital sewing patterns into well-fitted

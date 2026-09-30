@@ -7,7 +7,7 @@ date: '2016-12-01'
 publishDate: '2024-03-03T02:42:26.945756Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 35*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 35*(6)"
 
 abstract: We show that many existing elastic body simulation approaches can be interpreted
   as descent methods, under a nonlinear optimization framework derived from implicit

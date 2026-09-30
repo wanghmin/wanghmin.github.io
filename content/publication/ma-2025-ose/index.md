@@ -12,7 +12,7 @@ date: '2025-12-02'
 publishDate: '2025-10-10T08:37:01.301957Z'
 publication_types:
 - article-journal
-publication: '*ACM Trans. Graph. (SIGGRAPH Asia), 44*(6)'
+publication: "*ACM Transactions on Graphics (SIGGRAPH Asia), 44*(6)"
 
 abstract: 'Diffusion models have significantly advanced image manipulation techniques,
   and their ability to generate photorealistic images is beginning to transform retail
