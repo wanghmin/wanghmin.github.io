@@ -28,7 +28,6 @@
   "featured": false,
   "url_pdf": "https://arxiv.org/pdf/2602.16502",
   "image": {
-    "caption": "DressWild garment reconstruction results (cropped from the preprint teaser).",
     "focal_point": "Center"
   },
   "publication_date": "2026-12-06"
