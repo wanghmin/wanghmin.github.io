@@ -96,7 +96,7 @@
       {{/* Featured image */}}
       <div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-16" style="max-width: {{$image.Width}}px; max-height: {{$image.Height}}px;">
         <div style="position: relative">
-          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ with $.Params.image.alt_text }}{{.}}{{ end }}" class="featured-image">
+          <img src="{{ $image.RelPermalink }}"{{ if and (ge .Date.Year 2026) (gt $featured.Width $image.Width) (ne $featured.MediaType.SubType "gif") }}{{ $retina := $featured.Fit (printf "%dx5000" (mul $image.Width 2)) }}{{ $retina = $retina.Process "webp q85" }} srcset="{{ $image.RelPermalink }} {{ $image.Width }}w, {{ $retina.RelPermalink }} {{ $retina.Width }}w" sizes="(max-width: {{ $image.Width }}px) 100vw, {{ $image.Width }}px"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ with $.Params.image.alt_text }}{{.}}{{ end }}" class="featured-image">
         </div>
       </div>
       {{end}}
